@@ -6,7 +6,7 @@
 "Yes" = "Sí";
 "No" = "No";
 /* Alert messages from Mp3Gain */
-"Not_MP3_file" = "No archivo MP3";
+"Not_MP3_file" = "Ningún archivo MP3";
 "OK" = "Aceptar";
-"No_MP3_Frames" = "No se puede encontrar ningún fotograma MP3 válidos en el archivo actual!";
-"MP3Gain_Error" = "MP3Gain Error";
+"No_MP3_Frames" = "¡No se puede encontrar ningún Frame MP3 válido en el archivo actual!";
+"MP3Gain_Error" = "Error de MP3Gain";
