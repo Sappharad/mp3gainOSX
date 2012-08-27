@@ -1,0 +1,12 @@
+/* 
+  ui_text.strings
+  MP3GainExpress
+*/
+"Canceling_soon" = "** Canceling soon... **";
+"Yes" = "Yes";
+"No" = "No";
+/* Alert messages from Mp3Gain */
+"Not_MP3_file" = "Not MP3 file";
+"OK" = "OK";
+"No_MP3_Frames" = "Can't find any valid MP3 frames in the current file!";
+"MP3Gain_Error" = "MP3Gain Error";

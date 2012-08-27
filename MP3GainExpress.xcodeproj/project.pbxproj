@@ -1,0 +1,504 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		9E09DDD414B6B35B00CD1614 /* mp3gain.icns in Resources */ = {isa = PBXBuildFile; fileRef = 9E09DDD314B6B35B00CD1614 /* mp3gain.icns */; };
+		9E3A2ADA13C231B400E49A59 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E3A2AD913C231B400E49A59 /* Cocoa.framework */; };
+		9E3A2AE413C231B400E49A59 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9E3A2AE213C231B400E49A59 /* InfoPlist.strings */; };
+		9E3A2AE613C231B400E49A59 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E3A2AE513C231B400E49A59 /* main.m */; };
+		9E3A2AEA13C231B400E49A59 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 9E3A2AE813C231B400E49A59 /* Credits.rtf */; };
+		9E3A2AED13C231B400E49A59 /* Mp3GainMacAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E3A2AEC13C231B400E49A59 /* Mp3GainMacAppDelegate.m */; };
+		9E3A2AF013C231B400E49A59 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9E3A2AEE13C231B400E49A59 /* MainMenu.xib */; };
+		9E3A2AF713C237A000E49A59 /* AddSong.png in Resources */ = {isa = PBXBuildFile; fileRef = 9E3A2AF613C237A000E49A59 /* AddSong.png */; };
+		9E3A2AFB13C23D5200E49A59 /* AddFolder.png in Resources */ = {isa = PBXBuildFile; fileRef = 9E3A2AF813C23D5200E49A59 /* AddFolder.png */; };
+		9E3A2AFC13C23D5200E49A59 /* ClearAll.png in Resources */ = {isa = PBXBuildFile; fileRef = 9E3A2AF913C23D5200E49A59 /* ClearAll.png */; };
+		9E3A2AFD13C23D5200E49A59 /* ClearSong.png in Resources */ = {isa = PBXBuildFile; fileRef = 9E3A2AFA13C23D5200E49A59 /* ClearSong.png */; };
+		9E48BC2A13C3F34A003BDC4F /* m3gInputList.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E48BC2913C3F34A003BDC4F /* m3gInputList.m */; };
+		9E93CC6515E85107005A76C5 /* ui_text.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9E93CC6315E85107005A76C5 /* ui_text.strings */; };
+		9E93CC6815E85A99005A76C5 /* Sparkle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E93CC6715E85A99005A76C5 /* Sparkle.framework */; };
+		9E93CC6A15E85B04005A76C5 /* Sparkle.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 9E93CC6715E85A99005A76C5 /* Sparkle.framework */; };
+		9E93CC6C15E86327005A76C5 /* dsa_pub.pem in Resources */ = {isa = PBXBuildFile; fileRef = 9E93CC6B15E86327005A76C5 /* dsa_pub.pem */; };
+		9E9B74EC13C8FB3200F745AB /* Mp3GainAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E9B74EB13C8FB3200F745AB /* Mp3GainAdapter.m */; };
+		9EA9F14B13C265020036B145 /* apetag.c in Sources */ = {isa = PBXBuildFile; fileRef = 9EA9F13F13C265010036B145 /* apetag.c */; };
+		9EA9F14C13C265020036B145 /* gain_analysis.c in Sources */ = {isa = PBXBuildFile; fileRef = 9EA9F14113C265010036B145 /* gain_analysis.c */; };
+		9EA9F14D13C265020036B145 /* id3tag.c in Sources */ = {isa = PBXBuildFile; fileRef = 9EA9F14313C265010036B145 /* id3tag.c */; };
+		9EA9F15013C265020036B145 /* rg_error.c in Sources */ = {isa = PBXBuildFile; fileRef = 9EA9F14913C265010036B145 /* rg_error.c */; };
+		9EA9F16D13C2652F0036B145 /* common.c in Sources */ = {isa = PBXBuildFile; fileRef = 9EA9F15313C2652F0036B145 /* common.c */; };
+		9EA9F16E13C2652F0036B145 /* dct64_i386.c in Sources */ = {isa = PBXBuildFile; fileRef = 9EA9F15613C2652F0036B145 /* dct64_i386.c */; };
+		9EA9F16F13C2652F0036B145 /* decode_i386.c in Sources */ = {isa = PBXBuildFile; fileRef = 9EA9F15813C2652F0036B145 /* decode_i386.c */; };
+		9EA9F17013C2652F0036B145 /* interface.c in Sources */ = {isa = PBXBuildFile; fileRef = 9EA9F15C13C2652F0036B145 /* interface.c */; };
+		9EA9F17113C2652F0036B145 /* layer1.c in Sources */ = {isa = PBXBuildFile; fileRef = 9EA9F16113C2652F0036B145 /* layer1.c */; };
+		9EA9F17213C2652F0036B145 /* layer2.c in Sources */ = {isa = PBXBuildFile; fileRef = 9EA9F16313C2652F0036B145 /* layer2.c */; };
+		9EA9F17313C2652F0036B145 /* layer3.c in Sources */ = {isa = PBXBuildFile; fileRef = 9EA9F16513C2652F0036B145 /* layer3.c */; };
+		9EA9F17413C2652F0036B145 /* tabinit.c in Sources */ = {isa = PBXBuildFile; fileRef = 9EA9F16A13C2652F0036B145 /* tabinit.c */; };
+		9EA9F17713C278550036B145 /* m3gInputItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EA9F17613C278550036B145 /* m3gInputItem.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		9E93CC6915E85AF4005A76C5 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				9E93CC6A15E85B04005A76C5 /* Sparkle.framework in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		9E09DDD314B6B35B00CD1614 /* mp3gain.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = mp3gain.icns; sourceTree = "<group>"; };
+		9E3A2AD513C231B400E49A59 /* MP3Gain Express.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "MP3Gain Express.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		9E3A2AD913C231B400E49A59 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+		9E3A2ADC13C231B400E49A59 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
+		9E3A2ADD13C231B400E49A59 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		9E3A2ADE13C231B400E49A59 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		9E3A2AE113C231B400E49A59 /* MP3GainExpress-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "MP3GainExpress-Info.plist"; sourceTree = "<group>"; };
+		9E3A2AE313C231B400E49A59 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		9E3A2AE513C231B400E49A59 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		9E3A2AE713C231B400E49A59 /* MP3GainExpress-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MP3GainExpress-Prefix.pch"; sourceTree = "<group>"; };
+		9E3A2AE913C231B400E49A59 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = en.lproj/Credits.rtf; sourceTree = "<group>"; };
+		9E3A2AEB13C231B400E49A59 /* Mp3GainMacAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Mp3GainMacAppDelegate.h; sourceTree = "<group>"; };
+		9E3A2AEC13C231B400E49A59 /* Mp3GainMacAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Mp3GainMacAppDelegate.m; sourceTree = "<group>"; };
+		9E3A2AEF13C231B400E49A59 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		9E3A2AF613C237A000E49A59 /* AddSong.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = AddSong.png; sourceTree = "<group>"; };
+		9E3A2AF813C23D5200E49A59 /* AddFolder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = AddFolder.png; sourceTree = "<group>"; };
+		9E3A2AF913C23D5200E49A59 /* ClearAll.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ClearAll.png; sourceTree = "<group>"; };
+		9E3A2AFA13C23D5200E49A59 /* ClearSong.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ClearSong.png; sourceTree = "<group>"; };
+		9E48BC2813C3F34A003BDC4F /* m3gInputList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = m3gInputList.h; sourceTree = "<group>"; };
+		9E48BC2913C3F34A003BDC4F /* m3gInputList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = m3gInputList.m; sourceTree = "<group>"; };
+		9E93CC5F15E847E8005A76C5 /* es */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = es; path = es.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		9E93CC6015E847E8005A76C5 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		9E93CC6115E847E8005A76C5 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = es; path = es.lproj/Credits.rtf; sourceTree = "<group>"; };
+		9E93CC6415E85107005A76C5 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/ui_text.strings; sourceTree = "<group>"; };
+		9E93CC6615E85110005A76C5 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/ui_text.strings; sourceTree = "<group>"; };
+		9E93CC6715E85A99005A76C5 /* Sparkle.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Sparkle.framework; sourceTree = "<group>"; };
+		9E93CC6B15E86327005A76C5 /* dsa_pub.pem */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = dsa_pub.pem; sourceTree = SOURCE_ROOT; };
+		9E9B74EA13C8FB3200F745AB /* Mp3GainAdapter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Mp3GainAdapter.h; sourceTree = "<group>"; };
+		9E9B74EB13C8FB3200F745AB /* Mp3GainAdapter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Mp3GainAdapter.m; sourceTree = "<group>"; };
+		9EA9F13F13C265010036B145 /* apetag.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = apetag.c; path = "mp3gain-1_5_2_r2-src/apetag.c"; sourceTree = "<group>"; };
+		9EA9F14013C265010036B145 /* apetag.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = apetag.h; path = "mp3gain-1_5_2_r2-src/apetag.h"; sourceTree = "<group>"; };
+		9EA9F14113C265010036B145 /* gain_analysis.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = gain_analysis.c; path = "mp3gain-1_5_2_r2-src/gain_analysis.c"; sourceTree = "<group>"; };
+		9EA9F14213C265010036B145 /* gain_analysis.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = gain_analysis.h; path = "mp3gain-1_5_2_r2-src/gain_analysis.h"; sourceTree = "<group>"; };
+		9EA9F14313C265010036B145 /* id3tag.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = id3tag.c; path = "mp3gain-1_5_2_r2-src/id3tag.c"; sourceTree = "<group>"; };
+		9EA9F14413C265010036B145 /* id3tag.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = id3tag.h; path = "mp3gain-1_5_2_r2-src/id3tag.h"; sourceTree = "<group>"; };
+		9EA9F14613C265010036B145 /* mp3gain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = mp3gain.h; path = "mp3gain-1_5_2_r2-src/mp3gain.h"; sourceTree = "<group>"; };
+		9EA9F14813C265010036B145 /* resource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = resource.h; path = "mp3gain-1_5_2_r2-src/resource.h"; sourceTree = "<group>"; };
+		9EA9F14913C265010036B145 /* rg_error.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = rg_error.c; path = "mp3gain-1_5_2_r2-src/rg_error.c"; sourceTree = "<group>"; };
+		9EA9F14A13C265010036B145 /* rg_error.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = rg_error.h; path = "mp3gain-1_5_2_r2-src/rg_error.h"; sourceTree = "<group>"; };
+		9EA9F15213C2652F0036B145 /* bitstream.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = bitstream.h; path = "mp3gain-1_5_2_r2-src/mpglibDBL/bitstream.h"; sourceTree = "<group>"; };
+		9EA9F15313C2652F0036B145 /* common.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = common.c; path = "mp3gain-1_5_2_r2-src/mpglibDBL/common.c"; sourceTree = "<group>"; };
+		9EA9F15413C2652F0036B145 /* common.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = common.h; path = "mp3gain-1_5_2_r2-src/mpglibDBL/common.h"; sourceTree = "<group>"; };
+		9EA9F15513C2652F0036B145 /* config.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = config.h; path = "mp3gain-1_5_2_r2-src/mpglibDBL/config.h"; sourceTree = "<group>"; };
+		9EA9F15613C2652F0036B145 /* dct64_i386.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = dct64_i386.c; path = "mp3gain-1_5_2_r2-src/mpglibDBL/dct64_i386.c"; sourceTree = "<group>"; };
+		9EA9F15713C2652F0036B145 /* dct64_i386.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = dct64_i386.h; path = "mp3gain-1_5_2_r2-src/mpglibDBL/dct64_i386.h"; sourceTree = "<group>"; };
+		9EA9F15813C2652F0036B145 /* decode_i386.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = decode_i386.c; path = "mp3gain-1_5_2_r2-src/mpglibDBL/decode_i386.c"; sourceTree = "<group>"; };
+		9EA9F15913C2652F0036B145 /* decode_i386.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = decode_i386.h; path = "mp3gain-1_5_2_r2-src/mpglibDBL/decode_i386.h"; sourceTree = "<group>"; };
+		9EA9F15A13C2652F0036B145 /* encoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = encoder.h; path = "mp3gain-1_5_2_r2-src/mpglibDBL/encoder.h"; sourceTree = "<group>"; };
+		9EA9F15B13C2652F0036B145 /* huffman.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = huffman.h; path = "mp3gain-1_5_2_r2-src/mpglibDBL/huffman.h"; sourceTree = "<group>"; };
+		9EA9F15C13C2652F0036B145 /* interface.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = interface.c; path = "mp3gain-1_5_2_r2-src/mpglibDBL/interface.c"; sourceTree = "<group>"; };
+		9EA9F15D13C2652F0036B145 /* interface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = interface.h; path = "mp3gain-1_5_2_r2-src/mpglibDBL/interface.h"; sourceTree = "<group>"; };
+		9EA9F15E13C2652F0036B145 /* l2tables.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = l2tables.h; path = "mp3gain-1_5_2_r2-src/mpglibDBL/l2tables.h"; sourceTree = "<group>"; };
+		9EA9F15F13C2652F0036B145 /* lame-analysis.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "lame-analysis.h"; path = "mp3gain-1_5_2_r2-src/mpglibDBL/lame-analysis.h"; sourceTree = "<group>"; };
+		9EA9F16013C2652F0036B145 /* lame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = lame.h; path = "mp3gain-1_5_2_r2-src/mpglibDBL/lame.h"; sourceTree = "<group>"; };
+		9EA9F16113C2652F0036B145 /* layer1.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = layer1.c; path = "mp3gain-1_5_2_r2-src/mpglibDBL/layer1.c"; sourceTree = "<group>"; };
+		9EA9F16213C2652F0036B145 /* layer1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = layer1.h; path = "mp3gain-1_5_2_r2-src/mpglibDBL/layer1.h"; sourceTree = "<group>"; };
+		9EA9F16313C2652F0036B145 /* layer2.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = layer2.c; path = "mp3gain-1_5_2_r2-src/mpglibDBL/layer2.c"; sourceTree = "<group>"; };
+		9EA9F16413C2652F0036B145 /* layer2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = layer2.h; path = "mp3gain-1_5_2_r2-src/mpglibDBL/layer2.h"; sourceTree = "<group>"; };
+		9EA9F16513C2652F0036B145 /* layer3.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = layer3.c; path = "mp3gain-1_5_2_r2-src/mpglibDBL/layer3.c"; sourceTree = "<group>"; };
+		9EA9F16613C2652F0036B145 /* layer3.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = layer3.h; path = "mp3gain-1_5_2_r2-src/mpglibDBL/layer3.h"; sourceTree = "<group>"; };
+		9EA9F16713C2652F0036B145 /* machine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = machine.h; path = "mp3gain-1_5_2_r2-src/mpglibDBL/machine.h"; sourceTree = "<group>"; };
+		9EA9F16813C2652F0036B145 /* mpg123.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = mpg123.h; path = "mp3gain-1_5_2_r2-src/mpglibDBL/mpg123.h"; sourceTree = "<group>"; };
+		9EA9F16913C2652F0036B145 /* mpglib.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = mpglib.h; path = "mp3gain-1_5_2_r2-src/mpglibDBL/mpglib.h"; sourceTree = "<group>"; };
+		9EA9F16A13C2652F0036B145 /* tabinit.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = tabinit.c; path = "mp3gain-1_5_2_r2-src/mpglibDBL/tabinit.c"; sourceTree = "<group>"; };
+		9EA9F16B13C2652F0036B145 /* tabinit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = tabinit.h; path = "mp3gain-1_5_2_r2-src/mpglibDBL/tabinit.h"; sourceTree = "<group>"; };
+		9EA9F16C13C2652F0036B145 /* VbrTag.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = VbrTag.h; path = "mp3gain-1_5_2_r2-src/mpglibDBL/VbrTag.h"; sourceTree = "<group>"; };
+		9EA9F17513C278550036B145 /* m3gInputItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = m3gInputItem.h; sourceTree = "<group>"; };
+		9EA9F17613C278550036B145 /* m3gInputItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = m3gInputItem.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		9E3A2AD213C231B400E49A59 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9E3A2ADA13C231B400E49A59 /* Cocoa.framework in Frameworks */,
+				9E93CC6815E85A99005A76C5 /* Sparkle.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		9E3A2ACA13C231B400E49A59 = {
+			isa = PBXGroup;
+			children = (
+				9E09DDD314B6B35B00CD1614 /* mp3gain.icns */,
+				9EA9F13D13C264D20036B145 /* Mp3Gain */,
+				9E3A2ADF13C231B400E49A59 /* Mp3GainMac */,
+				9E3A2AD813C231B400E49A59 /* Frameworks */,
+				9E3A2AD613C231B400E49A59 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		9E3A2AD613C231B400E49A59 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				9E3A2AD513C231B400E49A59 /* MP3Gain Express.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		9E3A2AD813C231B400E49A59 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				9E93CC6715E85A99005A76C5 /* Sparkle.framework */,
+				9E3A2AD913C231B400E49A59 /* Cocoa.framework */,
+				9E3A2ADB13C231B400E49A59 /* Other Frameworks */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		9E3A2ADB13C231B400E49A59 /* Other Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				9E3A2ADC13C231B400E49A59 /* AppKit.framework */,
+				9E3A2ADD13C231B400E49A59 /* CoreData.framework */,
+				9E3A2ADE13C231B400E49A59 /* Foundation.framework */,
+			);
+			name = "Other Frameworks";
+			sourceTree = "<group>";
+		};
+		9E3A2ADF13C231B400E49A59 /* Mp3GainMac */ = {
+			isa = PBXGroup;
+			children = (
+				9E48BC2813C3F34A003BDC4F /* m3gInputList.h */,
+				9E48BC2913C3F34A003BDC4F /* m3gInputList.m */,
+				9EA9F17513C278550036B145 /* m3gInputItem.h */,
+				9EA9F17613C278550036B145 /* m3gInputItem.m */,
+				9E3A2AF813C23D5200E49A59 /* AddFolder.png */,
+				9E3A2AF913C23D5200E49A59 /* ClearAll.png */,
+				9E3A2AFA13C23D5200E49A59 /* ClearSong.png */,
+				9E3A2AF613C237A000E49A59 /* AddSong.png */,
+				9E3A2AEB13C231B400E49A59 /* Mp3GainMacAppDelegate.h */,
+				9E3A2AEC13C231B400E49A59 /* Mp3GainMacAppDelegate.m */,
+				9E3A2AEE13C231B400E49A59 /* MainMenu.xib */,
+				9E3A2AE013C231B400E49A59 /* Supporting Files */,
+				9E9B74EA13C8FB3200F745AB /* Mp3GainAdapter.h */,
+				9E9B74EB13C8FB3200F745AB /* Mp3GainAdapter.m */,
+			);
+			path = Mp3GainMac;
+			sourceTree = "<group>";
+		};
+		9E3A2AE013C231B400E49A59 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				9E93CC6B15E86327005A76C5 /* dsa_pub.pem */,
+				9E3A2AE113C231B400E49A59 /* MP3GainExpress-Info.plist */,
+				9E3A2AE213C231B400E49A59 /* InfoPlist.strings */,
+				9E3A2AE513C231B400E49A59 /* main.m */,
+				9E3A2AE713C231B400E49A59 /* MP3GainExpress-Prefix.pch */,
+				9E3A2AE813C231B400E49A59 /* Credits.rtf */,
+				9E93CC6315E85107005A76C5 /* ui_text.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		9EA9F13D13C264D20036B145 /* Mp3Gain */ = {
+			isa = PBXGroup;
+			children = (
+				9EA9F15113C265090036B145 /* mp3libDBL */,
+				9EA9F13F13C265010036B145 /* apetag.c */,
+				9EA9F14013C265010036B145 /* apetag.h */,
+				9EA9F14113C265010036B145 /* gain_analysis.c */,
+				9EA9F14213C265010036B145 /* gain_analysis.h */,
+				9EA9F14313C265010036B145 /* id3tag.c */,
+				9EA9F14413C265010036B145 /* id3tag.h */,
+				9EA9F14613C265010036B145 /* mp3gain.h */,
+				9EA9F14813C265010036B145 /* resource.h */,
+				9EA9F14913C265010036B145 /* rg_error.c */,
+				9EA9F14A13C265010036B145 /* rg_error.h */,
+			);
+			name = Mp3Gain;
+			sourceTree = "<group>";
+		};
+		9EA9F15113C265090036B145 /* mp3libDBL */ = {
+			isa = PBXGroup;
+			children = (
+				9EA9F15213C2652F0036B145 /* bitstream.h */,
+				9EA9F15313C2652F0036B145 /* common.c */,
+				9EA9F15413C2652F0036B145 /* common.h */,
+				9EA9F15513C2652F0036B145 /* config.h */,
+				9EA9F15613C2652F0036B145 /* dct64_i386.c */,
+				9EA9F15713C2652F0036B145 /* dct64_i386.h */,
+				9EA9F15813C2652F0036B145 /* decode_i386.c */,
+				9EA9F15913C2652F0036B145 /* decode_i386.h */,
+				9EA9F15A13C2652F0036B145 /* encoder.h */,
+				9EA9F15B13C2652F0036B145 /* huffman.h */,
+				9EA9F15C13C2652F0036B145 /* interface.c */,
+				9EA9F15D13C2652F0036B145 /* interface.h */,
+				9EA9F15E13C2652F0036B145 /* l2tables.h */,
+				9EA9F15F13C2652F0036B145 /* lame-analysis.h */,
+				9EA9F16013C2652F0036B145 /* lame.h */,
+				9EA9F16113C2652F0036B145 /* layer1.c */,
+				9EA9F16213C2652F0036B145 /* layer1.h */,
+				9EA9F16313C2652F0036B145 /* layer2.c */,
+				9EA9F16413C2652F0036B145 /* layer2.h */,
+				9EA9F16513C2652F0036B145 /* layer3.c */,
+				9EA9F16613C2652F0036B145 /* layer3.h */,
+				9EA9F16713C2652F0036B145 /* machine.h */,
+				9EA9F16813C2652F0036B145 /* mpg123.h */,
+				9EA9F16913C2652F0036B145 /* mpglib.h */,
+				9EA9F16A13C2652F0036B145 /* tabinit.c */,
+				9EA9F16B13C2652F0036B145 /* tabinit.h */,
+				9EA9F16C13C2652F0036B145 /* VbrTag.h */,
+			);
+			name = mp3libDBL;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		9E3A2AD413C231B400E49A59 /* MP3GainExpress */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9E3A2AF313C231B400E49A59 /* Build configuration list for PBXNativeTarget "MP3GainExpress" */;
+			buildPhases = (
+				9E3A2AD113C231B400E49A59 /* Sources */,
+				9E3A2AD213C231B400E49A59 /* Frameworks */,
+				9E3A2AD313C231B400E49A59 /* Resources */,
+				9E93CC6915E85AF4005A76C5 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = MP3GainExpress;
+			productName = Mp3GainMac;
+			productReference = 9E3A2AD513C231B400E49A59 /* MP3Gain Express.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		9E3A2ACC13C231B400E49A59 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0420;
+			};
+			buildConfigurationList = 9E3A2ACF13C231B400E49A59 /* Build configuration list for PBXProject "MP3GainExpress" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				es,
+			);
+			mainGroup = 9E3A2ACA13C231B400E49A59;
+			productRefGroup = 9E3A2AD613C231B400E49A59 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				9E3A2AD413C231B400E49A59 /* MP3GainExpress */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		9E3A2AD313C231B400E49A59 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9E3A2AE413C231B400E49A59 /* InfoPlist.strings in Resources */,
+				9E3A2AEA13C231B400E49A59 /* Credits.rtf in Resources */,
+				9E3A2AF013C231B400E49A59 /* MainMenu.xib in Resources */,
+				9E3A2AF713C237A000E49A59 /* AddSong.png in Resources */,
+				9E3A2AFB13C23D5200E49A59 /* AddFolder.png in Resources */,
+				9E3A2AFC13C23D5200E49A59 /* ClearAll.png in Resources */,
+				9E3A2AFD13C23D5200E49A59 /* ClearSong.png in Resources */,
+				9E09DDD414B6B35B00CD1614 /* mp3gain.icns in Resources */,
+				9E93CC6515E85107005A76C5 /* ui_text.strings in Resources */,
+				9E93CC6C15E86327005A76C5 /* dsa_pub.pem in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		9E3A2AD113C231B400E49A59 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9E3A2AE613C231B400E49A59 /* main.m in Sources */,
+				9E3A2AED13C231B400E49A59 /* Mp3GainMacAppDelegate.m in Sources */,
+				9EA9F14B13C265020036B145 /* apetag.c in Sources */,
+				9EA9F14C13C265020036B145 /* gain_analysis.c in Sources */,
+				9EA9F14D13C265020036B145 /* id3tag.c in Sources */,
+				9EA9F15013C265020036B145 /* rg_error.c in Sources */,
+				9EA9F16D13C2652F0036B145 /* common.c in Sources */,
+				9EA9F16E13C2652F0036B145 /* dct64_i386.c in Sources */,
+				9EA9F16F13C2652F0036B145 /* decode_i386.c in Sources */,
+				9EA9F17013C2652F0036B145 /* interface.c in Sources */,
+				9EA9F17113C2652F0036B145 /* layer1.c in Sources */,
+				9EA9F17213C2652F0036B145 /* layer2.c in Sources */,
+				9EA9F17313C2652F0036B145 /* layer3.c in Sources */,
+				9EA9F17413C2652F0036B145 /* tabinit.c in Sources */,
+				9EA9F17713C278550036B145 /* m3gInputItem.m in Sources */,
+				9E48BC2A13C3F34A003BDC4F /* m3gInputList.m in Sources */,
+				9E9B74EC13C8FB3200F745AB /* Mp3GainAdapter.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		9E3A2AE213C231B400E49A59 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				9E3A2AE313C231B400E49A59 /* en */,
+				9E93CC6015E847E8005A76C5 /* es */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		9E3A2AE813C231B400E49A59 /* Credits.rtf */ = {
+			isa = PBXVariantGroup;
+			children = (
+				9E3A2AE913C231B400E49A59 /* en */,
+				9E93CC6115E847E8005A76C5 /* es */,
+			);
+			name = Credits.rtf;
+			sourceTree = "<group>";
+		};
+		9E3A2AEE13C231B400E49A59 /* MainMenu.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				9E3A2AEF13C231B400E49A59 /* en */,
+				9E93CC5F15E847E8005A76C5 /* es */,
+			);
+			name = MainMenu.xib;
+			sourceTree = "<group>";
+		};
+		9E93CC6315E85107005A76C5 /* ui_text.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				9E93CC6415E85107005A76C5 /* en */,
+				9E93CC6615E85110005A76C5 /* es */,
+			);
+			name = ui_text.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		9E3A2AF113C231B400E49A59 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.6;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		9E3A2AF213C231B400E49A59 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.6;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		9E3A2AF413C231B400E49A59 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)\"",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Mp3GainMac/MP3GainExpress-Prefix.pch";
+				INFOPLIST_FILE = "Mp3GainMac/MP3GainExpress-Info.plist";
+				MACOSX_DEPLOYMENT_TARGET = 10.6;
+				PRODUCT_NAME = "MP3Gain Express";
+				SDKROOT = macosx10.7;
+				STRIP_INSTALLED_PRODUCT = NO;
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		9E3A2AF513C231B400E49A59 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)\"",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Mp3GainMac/MP3GainExpress-Prefix.pch";
+				INFOPLIST_FILE = "Mp3GainMac/MP3GainExpress-Info.plist";
+				MACOSX_DEPLOYMENT_TARGET = 10.6;
+				PRODUCT_NAME = "MP3Gain Express";
+				SDKROOT = macosx10.7;
+				STRIP_INSTALLED_PRODUCT = NO;
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		9E3A2ACF13C231B400E49A59 /* Build configuration list for PBXProject "MP3GainExpress" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9E3A2AF113C231B400E49A59 /* Debug */,
+				9E3A2AF213C231B400E49A59 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9E3A2AF313C231B400E49A59 /* Build configuration list for PBXNativeTarget "MP3GainExpress" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9E3A2AF413C231B400E49A59 /* Debug */,
+				9E3A2AF513C231B400E49A59 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 9E3A2ACC13C231B400E49A59 /* Project object */;
+}

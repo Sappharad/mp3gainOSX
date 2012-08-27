@@ -1,0 +1,27 @@
+LIBRARY  replaygain.DLL
+
+DESCRIPTION 'ReplayGain.DLL Windows Dynamic Link Library' 
+
+EXPORTS
+
+; ReplayGain Exposures 
+InitGainAnalysis     @1
+InitGainAnalysisAsInt @8
+ResetSampleFrequency @9
+AnalyzeSamples       @2
+AnalyzeSamplesInterleaved @5
+GetRadioGain         @3
+GetTitleGain         @6
+GetAudiophileGain    @4
+GetAlbumGain		 @7
+GetDLLVersion        @10
+
+; MP3 Gain Exposures (leave room, start at ordinal 100)
+ChangeGainOfMP3File	 @100
+StopMP3GainProcessing @101
+
+; Error Reporting (leave room, start at ordinal 300)
+GetMP3GainError      @300
+GetMP3GainErrorStr	 @301
+attachmsgpump        @302
+GetMP3GainErrorStrLen	@303
