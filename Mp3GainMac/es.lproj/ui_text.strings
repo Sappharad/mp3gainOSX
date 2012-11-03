@@ -5,6 +5,12 @@
 "Canceling_soon" = "** Cancelando al terminar la canción... **";
 "Yes" = "Sí";
 "No" = "No";
+"None" = "Nada";
+"1_Below" = "1 subcarpeta debajo";
+"2_Below" = "2 subcarpetas debajo";
+"3_Below" = "3 subcarpetas debajo";
+"4_Below" = "4 subcarpetas debajo";
+"5_Below" = "5 subcarpetas debajo";
 /* Alert messages from Mp3Gain */
 "Not_MP3_file" = "Ningún archivo MP3";
 "OK" = "Aceptar";

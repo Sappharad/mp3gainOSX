@@ -5,6 +5,12 @@
 "Canceling_soon" = "** Canceling soon... **";
 "Yes" = "Yes";
 "No" = "No";
+"None" = "None";
+"1_Below" = "1 subfolder below";
+"2_Below" = "2 subfolders below";
+"3_Below" = "3 subfolders below";
+"4_Below" = "4 subfolders below";
+"5_Below" = "5 subfolders below";
 /* Alert messages from Mp3Gain */
 "Not_MP3_file" = "Not MP3 file";
 "OK" = "OK";

@@ -46,28 +46,37 @@
 	}
 }
 
-- (void)directoryPanelDidEnd:(NSOpenPanel *)panel returnCode:(int)returnCode contextInfo:(void  *)contextInfo{
-	if(returnCode == NSOKButton){
-        NSFileManager* fileManager = [NSFileManager defaultManager];
-        uint folderCount = (uint)[[panel filenames] count];
-        for (uint f=0; f<folderCount; f++) {
-            NSString* folder = [[panel filenames] objectAtIndex:f];
-            NSArray* files = [fileManager contentsOfDirectoryAtPath:folder error:nil];
-            if(files != nil){
-                if(![folder hasSuffix:@"/"]) folder = [folder stringByAppendingString:@"/"];
-                int fileCount = (uint)[files count];
-                for(int j=0; j<fileCount; j++){
-                    NSString* filePath = [folder stringByAppendingString:[files objectAtIndex:j]];
-                    BOOL isDirFlag = false;
-                    if([fileManager fileExistsAtPath:filePath isDirectory:&isDirFlag]==TRUE && isDirFlag==FALSE){
-                        if ([[filePath lowercaseString] hasSuffix:@".mp3"]) {
-                            m3gInputItem* itemToAdd = [[m3gInputItem alloc] init];
-                            itemToAdd.filePath = filePath;
-                            [inputList addObject:itemToAdd];
-                        }
-                    }
+- (void)addDirectory:(NSString*)folderPath subFoldersRemaining:(int)depth{
+    NSFileManager* fileManager = [NSFileManager defaultManager];
+    NSArray* files = [fileManager contentsOfDirectoryAtPath:folderPath error:nil];
+    if(files != nil){
+        if(![folderPath hasSuffix:@"/"]) folderPath = [folderPath stringByAppendingString:@"/"];
+        int fileCount = (uint)[files count];
+        for(int j=0; j<fileCount; j++){
+            NSString* filePath = [folderPath stringByAppendingString:[files objectAtIndex:j]];
+            BOOL isDirFlag = false;
+            if([fileManager fileExistsAtPath:filePath isDirectory:&isDirFlag]==TRUE)
+            {
+                if(isDirFlag==FALSE && [[filePath lowercaseString] hasSuffix:@".mp3"]) {
+                    m3gInputItem* itemToAdd = [[m3gInputItem alloc] init];
+                    itemToAdd.filePath = filePath;
+                    [inputList addObject:itemToAdd];
+                }
+                else if(isDirFlag==TRUE && depth > 0){
+                    [self addDirectory:filePath subFoldersRemaining:(depth-1)];
                 }
             }
+        }
+    }
+}
+
+- (void)directoryPanelDidEnd:(NSOpenPanel *)panel returnCode:(int)returnCode contextInfo:(void  *)contextInfo{
+	if(returnCode == NSOKButton){
+        uint folderCount = (uint)[[panel filenames] count];
+        int depthAmount = (int)[ddlSubfolders indexOfSelectedItem];
+        for (uint f=0; f<folderCount; f++) {
+            NSString* folder = [[panel filenames] objectAtIndex:f];
+            [self addDirectory:folder subFoldersRemaining:depthAmount];
         }
         [tblFileList reloadData];
 	}
@@ -78,6 +87,14 @@
     [fbox setAllowsMultipleSelection:YES];
     [fbox setCanChooseDirectories:TRUE];
     [fbox setCanChooseFiles:FALSE];
+    [ddlSubfolders removeAllItems];
+    [ddlSubfolders addItemWithTitle:NSLocalizedStringFromTable(@"None", @"ui_text", @"None")];
+    [ddlSubfolders addItemWithTitle:NSLocalizedStringFromTable(@"1_Below", @"ui_text", @"1_Below")];
+    [ddlSubfolders addItemWithTitle:NSLocalizedStringFromTable(@"2_Below", @"ui_text", @"2_Below")];
+    [ddlSubfolders addItemWithTitle:NSLocalizedStringFromTable(@"3_Below", @"ui_text", @"3_Below")];
+    [ddlSubfolders addItemWithTitle:NSLocalizedStringFromTable(@"4_Below", @"ui_text", @"4_Below")];
+    [ddlSubfolders addItemWithTitle:NSLocalizedStringFromTable(@"5_Below", @"ui_text", @"5_Below")];
+    [fbox setAccessoryView:vwSubfolderPicker];
 	[fbox beginSheetForDirectory:nil file:nil modalForWindow:_window modalDelegate:self 
                   didEndSelector:@selector(directoryPanelDidEnd: returnCode: contextInfo:) contextInfo:nil];
 }

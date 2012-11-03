@@ -1,9 +1,6 @@
 //
 //  Mp3GainMacAppDelegate.h
-//  Mp3GainMac
-//
-//  Created by Paul Kratt on 7/4/11.
-//  Copyright 2011 __MyCompanyName__. All rights reserved.
+//  Mp3Gain Express for Mac OS X
 //
 
 #import <Cocoa/Cocoa.h>
@@ -20,6 +17,8 @@
     IBOutlet NSProgressIndicator *pbTotalProgress;
     IBOutlet NSButton *btnCancel;
     bool cancelCurrentOperation;
+    IBOutlet NSView *vwSubfolderPicker;
+    IBOutlet NSPopUpButton *ddlSubfolders;
 }
 
 @property (strong) IBOutlet NSWindow *window;
