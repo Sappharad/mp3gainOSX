@@ -24,7 +24,7 @@
     bool hasAlready = false;
     for(int i=0; i<[list count]; i++){
         m3gInputItem* oldThing = [list objectAtIndex:i];
-        if ([oldThing.filePath isEqualToString:item.filePath]) {
+        if ([[oldThing.filePath path] isEqual:[item.filePath path]]) {
             hasAlready = true;
         }
     }

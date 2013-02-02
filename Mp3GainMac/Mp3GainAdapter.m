@@ -127,7 +127,7 @@ unsigned long writebuffercnt;
 unsigned char buffer[BUFFERSIZE];
 
 int writeself = 0;
-int QuietMode = 0;
+int QuietMode = 1; //Disable console output on OS X. For certain folder/filename combinations, stderr output somehow gets written into the MP3 file. WTF.
 int UsingTemp = 0;
 int NowWriting = 0;
 double lastfreq = -1.0;
@@ -562,9 +562,9 @@ unsigned long reportPercentWritten(unsigned long percent, unsigned long bytes)
     int ok = 1;
     
 #ifndef asWIN32DLL
-    fprintf(stderr,"                                                \r %2lu%% of %lu bytes written\r"
+    /*fprintf(stderr,"                                                \r %2lu%% of %lu bytes written\r"
             ,percent,bytes);
-    fflush(stderr);
+    fflush(stderr);*/
 #else
     /* report % back to calling app */
     ok = sendpercentdone( (int)percent, bytes ); 
@@ -954,7 +954,7 @@ static int changeGain(char *filename AACGAIN_ARG(AACGainHandle aacH), int leftga
         
         if (!QuietMode) {
 #ifndef asWIN32DLL
-            fprintf(stderr,"                                                   \r");
+            //fprintf(stderr,"                                                   \r");
 #else
             /* report DONE (100%) message back to calling app */
             sendpercentdone( 100, gFilesize );
@@ -2269,8 +2269,10 @@ void dumpTaginfo(struct MP3GainTagInfo *info) {
                                                 if (!QuietMode) {
                                                     if ( !(++frame % 200)) {
                                                         reportPercentAnalyzed((int)(((double)(filepos-(inbuffer-(curframe+bytesinframe-buffer))) * 100.0) / gFilesize),gFilesize);
-                                                        [progBar setDoubleValue:(((double)(filepos-(inbuffer-(curframe+bytesinframe-buffer))) * 100.0) / gFilesize)];
                                                     }
+                                                }
+                                                else if (!(++frame % 200)) {
+                                                    [progBar setDoubleValue:(((double)(filepos-(inbuffer-(curframe+bytesinframe-buffer))) * 100.0) / gFilesize)];
                                                 }
                                             }
                                         }
@@ -2623,7 +2625,7 @@ void dumpTaginfo(struct MP3GainTagInfo *info) {
 
 
 +(void)AnalyzeFile:(m3gInputItem*)item withVol:(double)desiredDb withProgress:(NSProgressIndicator*)progBar{
-    const char* cFile = [item.filePath fileSystemRepresentation];
+    const char* cFile = [[item.filePath path] fileSystemRepresentation];
     const char* argList[4];
     argList[0] = "mp3gain";
     argList[1] = "-d";
@@ -2634,7 +2636,7 @@ void dumpTaginfo(struct MP3GainTagInfo *info) {
 }
 
 +(void)ModifyFile:(m3gInputItem*)item withVol:(double)desiredDb withProgress:(NSProgressIndicator*)progBar{
-    const char* cFile = [item.filePath fileSystemRepresentation];
+    const char* cFile = [[item.filePath path] fileSystemRepresentation];
     const char* argList[5];
     argList[0] = "mp3gain";
     argList[1] = "-r";
@@ -2643,5 +2645,15 @@ void dumpTaginfo(struct MP3GainTagInfo *info) {
     argList[4] = cFile;
     
     [self mp3gainMain:5 mainArgs:(char**)argList withItem:item withProgress:progBar];
+}
+
++(void)UndoFileModify:(m3gInputItem*)item withProgress:(NSProgressIndicator*)progBar{
+    const char* cFile = [[item.filePath path] fileSystemRepresentation];
+    const char* argList[3];
+    argList[0] = "mp3gain";
+    argList[1] = "-u";
+    argList[2] = cFile;
+    
+    [self mp3gainMain:3 mainArgs:(char**)argList withItem:item withProgress:progBar];
 }
 @end

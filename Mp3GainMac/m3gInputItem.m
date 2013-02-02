@@ -29,7 +29,7 @@
 }
 
 -(NSString*)getFilename{
-    return [[NSURL fileURLWithPath:filePath] lastPathComponent];
+    return [filePath lastPathComponent];
 }
 
 @end

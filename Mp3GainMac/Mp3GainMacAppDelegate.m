@@ -33,10 +33,10 @@
 
 - (void)openPanelDidEnd:(NSOpenPanel *)panel returnCode:(int)returnCode contextInfo:(void  *)contextInfo{
 	if(returnCode == NSOKButton){
-        uint fileCount = (uint)[[panel filenames] count];
+        uint fileCount = (uint)[[panel URLs] count];
         for (uint f=0; f<fileCount; f++) {
-            NSString* selfile = [[panel filenames] objectAtIndex:f];
-            if ([[selfile lowercaseString] hasSuffix:@".mp3"]) {
+            NSURL* selfile = [[panel URLs] objectAtIndex:f];
+            if ([selfile isFileURL] && [[[selfile pathExtension] lowercaseString] isEqualToString:@"mp3"]) {
                 m3gInputItem* itemToAdd = [[m3gInputItem alloc] init];
                 itemToAdd.filePath = selfile;
                 [inputList addObject:itemToAdd];
@@ -59,7 +59,7 @@
             {
                 if(isDirFlag==FALSE && [[filePath lowercaseString] hasSuffix:@".mp3"]) {
                     m3gInputItem* itemToAdd = [[m3gInputItem alloc] init];
-                    itemToAdd.filePath = filePath;
+                    itemToAdd.filePath = [NSURL fileURLWithPath:filePath];
                     [inputList addObject:itemToAdd];
                 }
                 else if(isDirFlag==TRUE && depth > 0){
@@ -184,6 +184,27 @@
         [pbCurrentFile stopAnimation:self];
         [NSApp endSheet:pnlProgressView]; //Tell the sheet we're done.
         [pnlProgressView orderOut:self]; //Lets hide the sheet.    
+        [tblFileList reloadData];
+    });
+}
+
+-(void)undoModify{
+    for(int i=0; i<[inputList count]; i++){
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [pbCurrentFile setMinValue:0.0]; //Reset bar
+            [pbCurrentFile setDoubleValue:0.0];
+            [lblCurrentFile setStringValue:[[inputList objectAtIndex:i] getFilename]];
+        });
+        [Mp3GainAdapter UndoFileModify:[inputList objectAtIndex:i] withProgress:pbCurrentFile];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [pbTotalProgress setDoubleValue:(i+1)];
+        });
+        if(cancelCurrentOperation) break;
+    }
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [pbCurrentFile stopAnimation:self];
+        [NSApp endSheet:pnlProgressView]; //Tell the sheet we're done.
+        [pnlProgressView orderOut:self]; //Lets hide the sheet.
         [tblFileList reloadData];
     });
 }

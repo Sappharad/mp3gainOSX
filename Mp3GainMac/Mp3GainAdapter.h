@@ -11,4 +11,5 @@
 @interface Mp3GainAdapter : NSObject
 +(void)AnalyzeFile:(m3gInputItem*)item withVol:(double)desiredDb withProgress:(NSProgressIndicator*)progBar;
 +(void)ModifyFile:(m3gInputItem*)item withVol:(double)desiredDb withProgress:(NSProgressIndicator*)progBar;
++(void)UndoFileModify:(m3gInputItem*)item withProgress:(NSProgressIndicator*)progBar;
 @end

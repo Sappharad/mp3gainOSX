@@ -9,13 +9,13 @@
 #import <Foundation/Foundation.h>
 
 @interface m3gInputItem : NSObject{
-    NSString* filePath;
+    NSURL* filePath;
     double volume;
     bool clipping;
     double track_gain;
     unsigned short state;
 }
-@property (retain) NSString* filePath;
+@property (retain) NSURL* filePath;
 @property double volume;
 @property bool clipping;
 @property double track_gain;
