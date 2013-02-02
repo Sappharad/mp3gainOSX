@@ -16,3 +16,4 @@
 "OK" = "Aceptar";
 "No_MP3_Frames" = "¡No se puede encontrar ningún Frame MP3 válido en el archivo actual!";
 "MP3Gain_Error" = "Error de MP3Gain";
+"NoUndo" = "No Deshacer";

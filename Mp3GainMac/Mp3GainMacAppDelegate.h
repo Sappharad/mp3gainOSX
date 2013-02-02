@@ -8,6 +8,7 @@
 
 @interface Mp3GainMacAppDelegate : NSObject <NSApplicationDelegate> {
     NSWindow *_window;
+    IBOutlet NSView *vwMainBody;
     IBOutlet NSTableView *tblFileList;
     IBOutlet NSTextField *txtTargetVolume;
     m3gInputList *inputList;
@@ -19,6 +20,9 @@
     bool cancelCurrentOperation;
     IBOutlet NSView *vwSubfolderPicker;
     IBOutlet NSPopUpButton *ddlSubfolders;
+    IBOutlet NSMenu *mnuAdvancedGain;
+    IBOutlet NSButton *chkAvoidClipping;
+    IBOutlet NSButton *btnAdvancedMenu;
 }
 
 @property (strong) IBOutlet NSWindow *window;
@@ -32,7 +36,9 @@
 - (IBAction)btnAnalyze:(id)sender;
 - (IBAction)btnApplyGain:(id)sender;
 - (IBAction)btnCancel:(id)sender;
+- (IBAction)btnShowAdvanced:(id)sender;
+- (IBAction)doGainRemoval:(id)sender;
 -(void)doAnalysis;
--(void)doModify;
+-(void)doModify:(NSNumber*)noClip;
 - (BOOL) applicationShouldTerminateAfterLastWindowClosed: (NSApplication *) theApplication;
 @end

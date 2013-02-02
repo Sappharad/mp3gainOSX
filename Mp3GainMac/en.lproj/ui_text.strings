@@ -16,3 +16,4 @@
 "OK" = "OK";
 "No_MP3_Frames" = "Can't find any valid MP3 frames in the current file!";
 "MP3Gain_Error" = "MP3Gain Error";
+"NoUndo" = "Can't Undo";

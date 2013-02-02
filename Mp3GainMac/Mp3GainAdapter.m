@@ -1447,6 +1447,8 @@ void dumpTaginfo(struct MP3GainTagInfo *info) {
     saveTime = 0;
     fileStart = 1;
     numFiles = 0;
+    undoChanges = 0;
+    m3item.state = 0;
     
     for (i = 1; i < argc; i++) {
         if (((argv[i][0] == '/')||(argv[i][0] == '-'))&&
@@ -1949,8 +1951,10 @@ void dumpTaginfo(struct MP3GainTagInfo *info) {
                 changeGainAndTag(argv[mainloop] AACGAIN_ARG(aacH),
                                  tagInfo[mainloop].undoLeft, tagInfo[mainloop].undoRight,
                                  tagInfo + mainloop, fileTags + mainloop);
-                
+                m3item.track_gain = 0.0; //We removed gain, so show them nothing
+                m3item.volume = 89.0-(tagInfo[mainloop].trackGain); //Show what it'll be after undo is done
             } else {
+                m3item.state = 1; //Nothing to undo
                 if (databaseFormat) {
                     fprintf(stdout,"%s\t0\t0\n",argv[mainloop]);
                 } else if (!QuietMode) {
@@ -2380,6 +2384,7 @@ void dumpTaginfo(struct MP3GainTagInfo *info) {
                                                 if (intGainChange > intMaxNoClipGain) {
                                                     fprintf(stdout,"Applying auto-clipped mp3 gain change of %d to %s\n(Original suggested gain was %d)\n",intMaxNoClipGain,argv[mainloop],intGainChange);
                                                     intGainChange = intMaxNoClipGain;
+                                                    m3item.track_gain = intGainChange;
                                                 }
                                             } else if (!ignoreClipWarning) {
                                                 if (maxsample * (Float_t)(pow(2.0,(double)(intGainChange)/4.0)) > 32767.0) {
@@ -2635,16 +2640,28 @@ void dumpTaginfo(struct MP3GainTagInfo *info) {
     [self mp3gainMain:4 mainArgs:(char**)argList withItem:item withProgress:progBar];
 }
 
-+(void)ModifyFile:(m3gInputItem*)item withVol:(double)desiredDb withProgress:(NSProgressIndicator*)progBar{
++(void)ModifyFile:(m3gInputItem*)item withVol:(double)desiredDb avoidClipping:(bool)dontClip withProgress:(NSProgressIndicator*)progBar{
     const char* cFile = [[item.filePath path] fileSystemRepresentation];
-    const char* argList[5];
-    argList[0] = "mp3gain";
-    argList[1] = "-r";
-    argList[2] = "-d";
-    argList[3] = [[NSString stringWithFormat:@"%f",(desiredDb-89.0)] cStringUsingEncoding:[NSString defaultCStringEncoding]];
-    argList[4] = cFile;
+    if(dontClip){
+        const char* argList[6];
+        argList[0] = "mp3gain";
+        argList[1] = "-r";
+        argList[2] = "-k";
+        argList[3] = "-d";
+        argList[4] = [[NSString stringWithFormat:@"%f",(desiredDb-89.0)] cStringUsingEncoding:[NSString defaultCStringEncoding]];
+        argList[5] = cFile;
+        [self mp3gainMain:6 mainArgs:(char**)argList withItem:item withProgress:progBar];
+    }
+    else{
+        const char* argList[5];
+        argList[0] = "mp3gain";
+        argList[1] = "-r";
+        argList[2] = "-d";
+        argList[3] = [[NSString stringWithFormat:@"%f",(desiredDb-89.0)] cStringUsingEncoding:[NSString defaultCStringEncoding]];
+        argList[4] = cFile;
+        [self mp3gainMain:5 mainArgs:(char**)argList withItem:item withProgress:progBar];
+    }
     
-    [self mp3gainMain:5 mainArgs:(char**)argList withItem:item withProgress:progBar];
 }
 
 +(void)UndoFileModify:(m3gInputItem*)item withProgress:(NSProgressIndicator*)progBar{

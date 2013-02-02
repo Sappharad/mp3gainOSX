@@ -42,8 +42,13 @@
     if([identity isEqualToString:@"File"]){
         return [item getFilename];
     }
-    else if([identity isEqualToString:@"Volume"] && item.volume > 0){
-        return [NSString stringWithFormat:@"%.2f dB", item.volume];
+    else if([identity isEqualToString:@"Volume"]){
+        if(item.volume > 0){
+            return [NSString stringWithFormat:@"%.2f dB", item.volume];
+        }
+        else if(item.state == 1){
+            return NSLocalizedStringFromTable(@"NoUndo", @"ui_text", @"Can't Undo");
+        }
     }
     else if([identity isEqualToString:@"Clipping"]){
         return item.clipping?NSLocalizedStringFromTable(@"Yes", @"ui_text", @"Yes"):NSLocalizedStringFromTable(@"No", @"ui_text", @"No");

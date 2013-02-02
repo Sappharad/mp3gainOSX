@@ -164,17 +164,17 @@
     [btnCancel setEnabled:TRUE];
     cancelCurrentOperation = false;
     
-    [self performSelectorInBackground:@selector(doModify) withObject:nil];
+    [self performSelectorInBackground:@selector(doModify:) withObject:[NSNumber numberWithBool:(chkAvoidClipping.state == NSOnState)]];
 }
 
--(void)doModify{
+-(void)doModify:(NSNumber*)noClip{
     for(int i=0; i<[inputList count]; i++){
         dispatch_async(dispatch_get_main_queue(), ^{
             [pbCurrentFile setMinValue:0.0]; //Reset bar
             [pbCurrentFile setDoubleValue:0.0];
             [lblCurrentFile setStringValue:[[inputList objectAtIndex:i] getFilename]];
         });
-        [Mp3GainAdapter ModifyFile:[inputList objectAtIndex:i] withVol:[txtTargetVolume doubleValue] withProgress:pbCurrentFile];
+        [Mp3GainAdapter ModifyFile:[inputList objectAtIndex:i] withVol:[txtTargetVolume doubleValue] avoidClipping:[noClip boolValue] withProgress:pbCurrentFile];
         dispatch_async(dispatch_get_main_queue(), ^{
             [pbTotalProgress setDoubleValue:(i+1)];
         });
@@ -186,6 +186,21 @@
         [pnlProgressView orderOut:self]; //Lets hide the sheet.    
         [tblFileList reloadData];
     });
+}
+
+- (IBAction)doGainRemoval:(id)sender {
+    [NSApp beginSheet:pnlProgressView modalForWindow:_window modalDelegate:nil didEndSelector:nil contextInfo:nil]; //Make a sheet
+    [pbCurrentFile setUsesThreadedAnimation:YES]; //Make sure it animates.
+    [pbCurrentFile startAnimation:self];
+    [pbTotalProgress setUsesThreadedAnimation:YES];
+    [pbTotalProgress startAnimation:self];
+    [pbTotalProgress setMinValue:0.0];
+    [pbTotalProgress setMaxValue:[inputList count]];
+    [pbTotalProgress setDoubleValue:0.0];
+    [btnCancel setEnabled:TRUE];
+    cancelCurrentOperation = false;
+    
+    [self performSelectorInBackground:@selector(undoModify) withObject:nil];
 }
 
 -(void)undoModify{
@@ -213,6 +228,11 @@
     cancelCurrentOperation = true;
     [lblCurrentFile setStringValue:NSLocalizedStringFromTable(@"Canceling_soon", @"ui_text", @"Canceling soon")];
     [btnCancel setEnabled:FALSE];
+}
+
+- (IBAction)btnShowAdvanced:(id)sender {
+    [mnuAdvancedGain popUpMenuPositioningItem:nil atLocation:[btnAdvancedMenu frame].origin inView:vwMainBody];
+    
 }
 
 - (BOOL) applicationShouldTerminateAfterLastWindowClosed: (NSApplication *) theApplication{

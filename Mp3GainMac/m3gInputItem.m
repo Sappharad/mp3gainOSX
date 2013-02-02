@@ -23,6 +23,7 @@
         volume = 0;
         track_gain = 0;
         clipping = NO;
+        state = 0;
     }
     
     return self;
