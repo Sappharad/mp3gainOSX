@@ -81,4 +81,76 @@
     [list removeObjectAtIndex:idx];
 }
 
+#pragma mark Drag and Drop
+
+-(NSDragOperation)tableView:(NSTableView *)tableView validateDrop:(id<NSDraggingInfo>)info proposedRow:(NSInteger)row proposedDropOperation:(NSTableViewDropOperation)dropOperation{
+    [tableView setDropRow:-1 dropOperation:NSTableViewDropOn]; //We always want to light up the table itself
+    NSArray* fileList = [[info draggingPasteboard] readObjectsForClasses:@[[NSURL class]] options:nil];
+    if(fileList.count > 0){
+        bool hasFiles = NO;
+        for(NSURL* url in fileList){
+            if(url.isFileURL){
+                hasFiles = YES;
+                break;
+            }
+        }
+        if(hasFiles){
+            return NSDragOperationCopy;
+        }
+    }
+    return NSDragOperationNone;
+}
+
+-(BOOL)tableView:(NSTableView *)tableView acceptDrop:(id<NSDraggingInfo>)info row:(NSInteger)row dropOperation:(NSTableViewDropOperation)dropOperation{
+    NSArray* fileList = [[info draggingPasteboard] readObjectsForClasses:@[[NSURL class]] options:nil];
+    NSFileManager* fileMgr = [NSFileManager defaultManager];
+    for(NSURL* url in fileList){
+        if(url.isFileURL){
+            BOOL isDir = NO;
+            if([fileMgr fileExistsAtPath:url.path isDirectory:&isDir]){
+                if(isDir){
+                    //You're getting 5 as the default, unless I make this configurable some day
+                    [self addDirectory:url.path subFoldersRemaining:5];
+                }
+                else{
+                    [self addFile:url.path];
+                }
+            }
+        }
+    }
+    [tableView reloadData];
+    return NO;
+}
+
+-(void)addFile:(NSString*)filePath{
+    //Note: Assumes file already exists. You should check this before calling this.
+    if([[filePath lowercaseString] hasSuffix:@".mp3"]) {
+        m3gInputItem* itemToAdd = [[m3gInputItem alloc] init];
+        itemToAdd.filePath = [NSURL fileURLWithPath:filePath];
+        [self addObject:itemToAdd];
+    }
+}
+
+- (void)addDirectory:(NSString*)folderPath subFoldersRemaining:(int)depth{
+    NSFileManager* fileManager = [NSFileManager defaultManager];
+    NSArray* files = [fileManager contentsOfDirectoryAtPath:folderPath error:nil];
+    if(files != nil){
+        if(![folderPath hasSuffix:@"/"]) folderPath = [folderPath stringByAppendingString:@"/"];
+        int fileCount = (uint)[files count];
+        for(int j=0; j<fileCount; j++){
+            NSString* filePath = [folderPath stringByAppendingString:[files objectAtIndex:j]];
+            BOOL isDirFlag = false;
+            if([fileManager fileExistsAtPath:filePath isDirectory:&isDirFlag]==TRUE)
+            {
+                if(isDirFlag==FALSE) {
+                    [self addFile:filePath];
+                }
+                else if(isDirFlag==TRUE && depth > 0){
+                    [self addDirectory:filePath subFoldersRemaining:(depth-1)];
+                }
+            }
+        }
+    }
+}
+
 @end

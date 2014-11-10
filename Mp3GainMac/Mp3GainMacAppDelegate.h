@@ -5,6 +5,7 @@
 
 #import <Cocoa/Cocoa.h>
 #import "m3gInputList.h"
+#import <AppKit/AppKit.h>
 
 @interface Mp3GainMacAppDelegate : NSObject <NSApplicationDelegate> {
     NSWindow *_window;

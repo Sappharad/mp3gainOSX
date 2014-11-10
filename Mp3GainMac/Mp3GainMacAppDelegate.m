@@ -22,6 +22,7 @@
     // Insert code here to initialize your application
     inputList = [[m3gInputList alloc] init];
     [tblFileList setDataSource:inputList];
+    [tblFileList registerForDraggedTypes:[NSArray arrayWithObjects:NSURLPboardType, nil]];
 }
 
 - (IBAction)btnAddFiles:(id)sender {
@@ -36,38 +37,12 @@
         uint fileCount = (uint)[[panel URLs] count];
         for (uint f=0; f<fileCount; f++) {
             NSURL* selfile = [[panel URLs] objectAtIndex:f];
-            if ([selfile isFileURL] && [[[selfile pathExtension] lowercaseString] isEqualToString:@"mp3"]) {
-                m3gInputItem* itemToAdd = [[m3gInputItem alloc] init];
-                itemToAdd.filePath = selfile;
-                [inputList addObject:itemToAdd];
+            if ([selfile isFileURL]) {
+                [inputList addFile:selfile.path];
             }
         }
         [tblFileList reloadData];
 	}
-}
-
-- (void)addDirectory:(NSString*)folderPath subFoldersRemaining:(int)depth{
-    NSFileManager* fileManager = [NSFileManager defaultManager];
-    NSArray* files = [fileManager contentsOfDirectoryAtPath:folderPath error:nil];
-    if(files != nil){
-        if(![folderPath hasSuffix:@"/"]) folderPath = [folderPath stringByAppendingString:@"/"];
-        int fileCount = (uint)[files count];
-        for(int j=0; j<fileCount; j++){
-            NSString* filePath = [folderPath stringByAppendingString:[files objectAtIndex:j]];
-            BOOL isDirFlag = false;
-            if([fileManager fileExistsAtPath:filePath isDirectory:&isDirFlag]==TRUE)
-            {
-                if(isDirFlag==FALSE && [[filePath lowercaseString] hasSuffix:@".mp3"]) {
-                    m3gInputItem* itemToAdd = [[m3gInputItem alloc] init];
-                    itemToAdd.filePath = [NSURL fileURLWithPath:filePath];
-                    [inputList addObject:itemToAdd];
-                }
-                else if(isDirFlag==TRUE && depth > 0){
-                    [self addDirectory:filePath subFoldersRemaining:(depth-1)];
-                }
-            }
-        }
-    }
 }
 
 - (void)directoryPanelDidEnd:(NSOpenPanel *)panel returnCode:(int)returnCode contextInfo:(void  *)contextInfo{
@@ -76,7 +51,7 @@
         int depthAmount = (int)[ddlSubfolders indexOfSelectedItem];
         for (uint f=0; f<folderCount; f++) {
             NSString* folder = [[panel filenames] objectAtIndex:f];
-            [self addDirectory:folder subFoldersRemaining:depthAmount];
+            [inputList addDirectory:folder subFoldersRemaining:depthAmount];
         }
         [tblFileList reloadData];
 	}
@@ -238,4 +213,5 @@
 - (BOOL) applicationShouldTerminateAfterLastWindowClosed: (NSApplication *) theApplication{
     return TRUE;
 }
+
 @end

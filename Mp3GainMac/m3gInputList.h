@@ -10,12 +10,15 @@
 #import "m3gInputItem.h"
 
 @interface m3gInputList : NSObject<NSTableViewDataSource>{
-    NSMutableArray *list;    
+    NSMutableArray *list;
 }
 -(NSUInteger)count;
 -(void)addObject:(m3gInputItem*)item;
 -(m3gInputItem*)objectAtIndex:(int)idx;
 -(void)clear;
 -(void)removeAtIndex:(int)idx;
+
+-(void)addFile:(NSString*)filePath;
+- (void)addDirectory:(NSString*)folderPath subFoldersRemaining:(int)depth;
 
 @end
