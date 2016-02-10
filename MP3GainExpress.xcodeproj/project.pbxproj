@@ -22,7 +22,7 @@
 		9E48BC2A13C3F34A003BDC4F /* m3gInputList.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E48BC2913C3F34A003BDC4F /* m3gInputList.m */; };
 		9E93CC6515E85107005A76C5 /* ui_text.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9E93CC6315E85107005A76C5 /* ui_text.strings */; };
 		9E93CC6815E85A99005A76C5 /* Sparkle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E93CC6715E85A99005A76C5 /* Sparkle.framework */; };
-		9E93CC6A15E85B04005A76C5 /* Sparkle.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 9E93CC6715E85A99005A76C5 /* Sparkle.framework */; };
+		9E93CC6A15E85B04005A76C5 /* Sparkle.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 9E93CC6715E85A99005A76C5 /* Sparkle.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		9E93CC6C15E86327005A76C5 /* dsa_pub.pem in Resources */ = {isa = PBXBuildFile; fileRef = 9E93CC6B15E86327005A76C5 /* dsa_pub.pem */; };
 		9E9B74EC13C8FB3200F745AB /* Mp3GainAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E9B74EB13C8FB3200F745AB /* Mp3GainAdapter.m */; };
 		9EA9F14B13C265020036B145 /* apetag.c in Sources */ = {isa = PBXBuildFile; fileRef = 9EA9F13F13C265010036B145 /* apetag.c */; };
@@ -279,7 +279,7 @@
 		9E3A2ACC13C231B400E49A59 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0420;
+				LastUpgradeCheck = 0720;
 			};
 			buildConfigurationList = 9E3A2ACF13C231B400E49A59 /* Build configuration list for PBXProject "MP3GainExpress" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -390,11 +390,20 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD)";
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
@@ -405,10 +414,13 @@
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				ONLY_ACTIVE_ARCH = YES;
-				SDKROOT = macosx10.9;
+				SDKROOT = macosx;
 			};
 			name = Debug;
 		};
@@ -416,24 +428,36 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD)";
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				MACOSX_DEPLOYMENT_TARGET = 10.7;
-				SDKROOT = macosx10.9;
+				SDKROOT = macosx;
 			};
 			name = Release;
 		};
 		9E3A2AF413C231B400E49A59 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
@@ -442,8 +466,9 @@
 				GCC_PREFIX_HEADER = "Mp3GainMac/MP3GainExpress-Prefix.pch";
 				INFOPLIST_FILE = "Mp3GainMac/MP3GainExpress-Info.plist";
 				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.sappharad.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "MP3Gain Express";
-				SDKROOT = macosx10.9;
+				SDKROOT = macosx;
 				STRIP_INSTALLED_PRODUCT = NO;
 				WRAPPER_EXTENSION = app;
 			};
@@ -452,6 +477,7 @@
 		9E3A2AF513C231B400E49A59 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
@@ -460,8 +486,9 @@
 				GCC_PREFIX_HEADER = "Mp3GainMac/MP3GainExpress-Prefix.pch";
 				INFOPLIST_FILE = "Mp3GainMac/MP3GainExpress-Info.plist";
 				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.sappharad.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "MP3Gain Express";
-				SDKROOT = macosx10.9;
+				SDKROOT = macosx;
 				STRIP_INSTALLED_PRODUCT = NO;
 				WRAPPER_EXTENSION = app;
 			};
