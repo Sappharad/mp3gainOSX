@@ -1,60 +1,47 @@
 //
 //  Mp3GainMacAppDelegate.m
-//  Mp3GainMac
-//
-//  Created by Paul Kratt on 7/4/11.
-//  Copyright 2011 __MyCompanyName__. All rights reserved.
+//  MP3Gain Express
 //
 
 #import "Mp3GainMacAppDelegate.h"
 #import "m3gInputItem.h"
-#import "Mp3GainAdapter.h"
+#import "Mp3GainTask.h"
+#import "FileProgressViewItem.h"
 
 @implementation Mp3GainMacAppDelegate
 
 @synthesize window = _window;
-@synthesize lblCurrentFile;
-@synthesize pbCurrentFile;
 @synthesize pbTotalProgress;
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
-    // Insert code here to initialize your application
     inputList = [[m3gInputList alloc] init];
     [tblFileList setDataSource:inputList];
     [tblFileList registerForDraggedTypes:[NSArray arrayWithObjects:NSURLPboardType, nil]];
+    
+    //Note: Intentionally using the legacy API here for compatbility with older versions of macOS.
+    [cvProcessFiles setItemPrototype:[FileProgressViewItem new]];
+    [cvProcessFiles setMaxItemSize:NSMakeSize(0, 52.0f)];
+    [cvProcessFiles setMinItemSize:NSMakeSize(0, 52.0f)];
+    
+    self.NumConcurrentTasks = 2; //TODO: Calculate this
 }
 
 - (IBAction)btnAddFiles:(id)sender {
     NSOpenPanel *fbox = [NSOpenPanel openPanel];
     [fbox setAllowsMultipleSelection:YES];
-	[fbox beginSheetForDirectory:nil file:nil modalForWindow:_window modalDelegate:self 
-                  didEndSelector:@selector(openPanelDidEnd: returnCode: contextInfo:) contextInfo:nil];
-}
-
-- (void)openPanelDidEnd:(NSOpenPanel *)panel returnCode:(int)returnCode contextInfo:(void  *)contextInfo{
-	if(returnCode == NSOKButton){
-        uint fileCount = (uint)[[panel URLs] count];
-        for (uint f=0; f<fileCount; f++) {
-            NSURL* selfile = [[panel URLs] objectAtIndex:f];
-            if ([selfile isFileURL]) {
-                [inputList addFile:selfile.path];
+    [fbox beginSheetModalForWindow:_window completionHandler:^(NSInteger result) {
+        if(result == NSOKButton){
+            uint fileCount = (uint)[[fbox URLs] count];
+            for (uint f=0; f<fileCount; f++) {
+                NSURL* selfile = [[fbox URLs] objectAtIndex:f];
+                if ([selfile isFileURL]) {
+                    [inputList addFile:selfile.path];
+                }
             }
+            [tblFileList reloadData];
         }
-        [tblFileList reloadData];
-	}
-}
-
-- (void)directoryPanelDidEnd:(NSOpenPanel *)panel returnCode:(int)returnCode contextInfo:(void  *)contextInfo{
-	if(returnCode == NSOKButton){
-        uint folderCount = (uint)[[panel filenames] count];
-        int depthAmount = (int)[ddlSubfolders indexOfSelectedItem];
-        for (uint f=0; f<folderCount; f++) {
-            NSString* folder = [[panel filenames] objectAtIndex:f];
-            [inputList addDirectory:folder subFoldersRemaining:depthAmount];
-        }
-        [tblFileList reloadData];
-	}
+    }];
 }
 
 - (IBAction)btnAddFolder:(id)sender {
@@ -70,8 +57,21 @@
     [ddlSubfolders addItemWithTitle:NSLocalizedStringFromTable(@"4_Below", @"ui_text", @"4_Below")];
     [ddlSubfolders addItemWithTitle:NSLocalizedStringFromTable(@"5_Below", @"ui_text", @"5_Below")];
     [fbox setAccessoryView:vwSubfolderPicker];
-	[fbox beginSheetForDirectory:nil file:nil modalForWindow:_window modalDelegate:self 
-                  didEndSelector:@selector(directoryPanelDidEnd: returnCode: contextInfo:) contextInfo:nil];
+    if([fbox respondsToSelector:@selector(isAccessoryViewDisclosed)]){
+        
+    }
+    fbox.accessoryViewDisclosed = YES;
+    [fbox beginSheetModalForWindow:_window completionHandler:^(NSInteger result) {
+        if(result == NSOKButton){
+            uint folderCount = (uint)[[fbox URLs] count];
+            int depthAmount = (int)[ddlSubfolders indexOfSelectedItem];
+            for (uint f=0; f<folderCount; f++) {
+                NSURL* folder = [[fbox URLs] objectAtIndex:f];
+                [inputList addDirectory:[folder path] subFoldersRemaining:depthAmount];
+            }
+            [tblFileList reloadData];
+        }
+    }];
 }
 
 - (IBAction)btnClearFile:(id)sender {
@@ -91,123 +91,196 @@
     [tblFileList reloadData];
 }
 
-- (IBAction)btnAnalyze:(id)sender {
-    [NSApp beginSheet:pnlProgressView modalForWindow:_window modalDelegate:nil didEndSelector:nil contextInfo:nil]; //Make a sheet
-    [pbCurrentFile setUsesThreadedAnimation:YES]; //Make sure it animates.
-    [pbCurrentFile startAnimation:self];
-    [pbTotalProgress setUsesThreadedAnimation:YES];
-    [pbTotalProgress startAnimation:self];
-    [pbTotalProgress setMinValue:0.0];
-    [pbTotalProgress setMaxValue:[inputList count]];
-    [pbTotalProgress setDoubleValue:0.0];
-    [btnCancel setEnabled:TRUE];
-    cancelCurrentOperation = false;
-    
-    [self performSelectorInBackground:@selector(doAnalysis) withObject:nil];
+-(BOOL)checkValidOperation{
+    float gain = [txtTargetVolume floatValue];
+    if(gain < 50.0 || gain >= 100.0){
+        NSAlert *alert = [NSAlert new];
+        [alert setMessageText:NSLocalizedStringFromTable(@"InvalidVolume", @"ui_text", @"Invalid target volume!")];
+        [alert setInformativeText:NSLocalizedStringFromTable(@"VolumeInfo", @"ui_text", @"The target volume should be a number between 50 and 100 dB.")];
+        [alert addButtonWithTitle:NSLocalizedStringFromTable(@"OK", @"ui_text", @"OK")];
+        [alert runModal];
+        return NO;
+    }
+    return YES;
 }
 
--(void)doAnalysis{
-    for(int i=0; i<[inputList count]; i++){
-        dispatch_async(dispatch_get_main_queue(), ^{
-            [pbCurrentFile setMinValue:0.0]; //Reset bar
-            [pbCurrentFile setDoubleValue:0.0];
-            [lblCurrentFile setStringValue:[[inputList objectAtIndex:i] getFilename]];
-        });
-        [Mp3GainAdapter AnalyzeFile:[inputList objectAtIndex:i] withVol:[txtTargetVolume doubleValue] withProgress:pbCurrentFile];
-        dispatch_async(dispatch_get_main_queue(), ^{
-            [pbTotalProgress setDoubleValue:(i+1)];
-        });
-        if(cancelCurrentOperation) break;
+- (IBAction)btnAnalyze:(id)sender {
+    if([self checkValidOperation] && inputList.count > 0){
+        [NSApp beginSheet:pnlProgressView modalForWindow:_window modalDelegate:nil didEndSelector:nil contextInfo:nil]; //Make a sheet
+        [pbTotalProgress setUsesThreadedAnimation:YES];
+        [pbTotalProgress startAnimation:self];
+        [pbTotalProgress setMinValue:0.0];
+        [pbTotalProgress setMaxValue:[inputList count]];
+        [pbTotalProgress setDoubleValue:0.0];
+        [btnCancel setEnabled:TRUE];
+        cancelCurrentOperation = false;
+        
+        BOOL albumGain = (chkAlbumGain.state == NSOnState);
+        [self doAnalysis:albumGain];
     }
+}
+
+-(void)doAnalysis:(BOOL)album{
+    NSMutableArray<Mp3GainTask*>* tasks = [NSMutableArray new];
+    for(int i=0; i<[inputList count]; i++){
+        Mp3GainTask* m3t = [Mp3GainTask taskWithFile:[inputList objectAtIndex:i] action:M3G_Analyze];
+        m3t.DesiredDb = [NSNumber numberWithDouble:[txtTargetVolume floatValue]];
+        __weak Mp3GainTask* taskBackup = m3t;
+        m3t.onProcessingComplete = ^{
+            [self handleTaskCompletion:taskBackup];
+        };
+        [tasks addObject:m3t];
+    }
+    if(album && inputList.count > 1){
+        Mp3GainTask* m3t = [Mp3GainTask taskWithFiles:[inputList allObjects] action:M3G_Analyze];
+        m3t.DesiredDb = [NSNumber numberWithDouble:[txtTargetVolume floatValue]];
+        __weak Mp3GainTask* taskBackup = m3t;
+        m3t.onProcessingComplete = ^{
+            [self handleTaskCompletion:taskBackup];
+        };
+        [tasks addObject:m3t];
+    }
+    
+    [cvProcessFiles setContent:tasks];
+    for(int i=0; i<inputList.count && i<self.NumConcurrentTasks; i++){
+        [[tasks objectAtIndex:i] process];
+    }
+}
+
+-(void)handleTaskCompletion:(Mp3GainTask*)task{
     dispatch_async(dispatch_get_main_queue(), ^{
-        [pbCurrentFile stopAnimation:self];
-        [NSApp endSheet:pnlProgressView]; //Tell the sheet we're done.
-        [pnlProgressView orderOut:self]; //Lets hide the sheet.    
-        [tblFileList reloadData];
+        NSMutableArray<Mp3GainTask*>* replacement = [NSMutableArray new];
+        for (Mp3GainTask* origTask in cvProcessFiles.content) {
+            if(origTask != task){
+                [replacement addObject:origTask];
+            }
+        }
+        [cvProcessFiles setContent:replacement];
+        double total = inputList.count - replacement.count;
+        [pbTotalProgress setDoubleValue:total];
+        
+        NSUInteger filesLeft = replacement.count;
+        if(filesLeft == 0){
+            [NSApp endSheet:pnlProgressView]; //Tell the sheet we're done.
+            [pnlProgressView orderOut:self]; //Lets hide the sheet.
+            [tblFileList reloadData];
+        }
+        else{
+            //Find next file to begin processing
+            for (Mp3GainTask* nextTask in replacement) {
+                //Album task MUST be processed last, so check files left even though it should always be at the end of the list.
+                if(!nextTask.InProgress && (filesLeft == 1 || nextTask.Files.count == 1)){
+                    [nextTask process];
+                    break;
+                }
+            }
+        }
     });
 }
 
 - (IBAction)btnApplyGain:(id)sender {
-    [NSApp beginSheet:pnlProgressView modalForWindow:_window modalDelegate:nil didEndSelector:nil contextInfo:nil]; //Make a sheet
-    [pbCurrentFile setUsesThreadedAnimation:YES]; //Make sure it animates.
-    [pbCurrentFile startAnimation:self];
-    [pbTotalProgress setUsesThreadedAnimation:YES];
-    [pbTotalProgress startAnimation:self];
-    [pbTotalProgress setMinValue:0.0];
-    [pbTotalProgress setMaxValue:[inputList count]];
-    [pbTotalProgress setDoubleValue:0.0];
-    [btnCancel setEnabled:TRUE];
-    cancelCurrentOperation = false;
-    
-    [self performSelectorInBackground:@selector(doModify:) withObject:[NSNumber numberWithBool:(chkAvoidClipping.state == NSOnState)]];
+    if([self checkValidOperation] && inputList.count > 0){
+        [NSApp beginSheet:pnlProgressView modalForWindow:_window modalDelegate:nil didEndSelector:nil contextInfo:nil]; //Make a sheet
+        [pbTotalProgress setUsesThreadedAnimation:YES];
+        [pbTotalProgress startAnimation:self];
+        [pbTotalProgress setMinValue:0.0];
+        [pbTotalProgress setMaxValue:[inputList count]];
+        [pbTotalProgress setDoubleValue:0.0];
+        [btnCancel setEnabled:TRUE];
+        cancelCurrentOperation = false;
+        
+        BOOL albumGain = (chkAlbumGain.state == NSOnState);
+        BOOL avoidClipping = (chkAvoidClipping.state == NSOnState);
+        
+        [self doModify:avoidClipping albumMode:albumGain];
+    }
 }
 
--(void)doModify:(NSNumber*)noClip{
-    for(int i=0; i<[inputList count]; i++){
-        dispatch_async(dispatch_get_main_queue(), ^{
-            [pbCurrentFile setMinValue:0.0]; //Reset bar
-            [pbCurrentFile setDoubleValue:0.0];
-            [lblCurrentFile setStringValue:[[inputList objectAtIndex:i] getFilename]];
-        });
-        [Mp3GainAdapter ModifyFile:[inputList objectAtIndex:i] withVol:[txtTargetVolume doubleValue] avoidClipping:[noClip boolValue] withProgress:pbCurrentFile];
-        dispatch_async(dispatch_get_main_queue(), ^{
-            [pbTotalProgress setDoubleValue:(i+1)];
-        });
-        if(cancelCurrentOperation) break;
+-(void)doModify:(BOOL)noClip albumMode:(BOOL)album{
+    NSMutableArray<Mp3GainTask*>* tasks = [NSMutableArray new];
+    MP3GActionType firstAction = M3G_Apply;
+    if(album && inputList.count > 1){
+        firstAction = M3G_Analyze;
     }
-    dispatch_async(dispatch_get_main_queue(), ^{
-        [pbCurrentFile stopAnimation:self];
-        [NSApp endSheet:pnlProgressView]; //Tell the sheet we're done.
-        [pnlProgressView orderOut:self]; //Lets hide the sheet.    
-        [tblFileList reloadData];
-    });
+    for(int i=0; i<[inputList count]; i++){
+        Mp3GainTask* m3t = [Mp3GainTask taskWithFile:[inputList objectAtIndex:i] action:firstAction];
+        m3t.NoClipping = noClip;
+        m3t.DesiredDb = [NSNumber numberWithDouble:[txtTargetVolume floatValue]];
+        __weak Mp3GainTask* taskBackup = m3t;
+        m3t.onProcessingComplete = ^{
+            [self handleTaskCompletion:taskBackup];
+        };
+        [tasks addObject:m3t];
+    }
+    if(album && inputList.count > 1){
+        Mp3GainTask* m3t = [Mp3GainTask taskWithFiles:[inputList allObjects] action:M3G_Apply];
+        m3t.NoClipping = noClip;
+        m3t.DesiredDb = [NSNumber numberWithDouble:[txtTargetVolume floatValue]];
+        __weak Mp3GainTask* taskBackup = m3t;
+        m3t.onProcessingComplete = ^{
+            [self handleTaskCompletion:taskBackup];
+        };
+        [tasks addObject:m3t];
+    }
+    
+    [cvProcessFiles setContent:tasks];
+    for(int i=0; i<inputList.count && i<self.NumConcurrentTasks; i++){
+        [[tasks objectAtIndex:i] process];
+    }
 }
 
 - (IBAction)doGainRemoval:(id)sender {
-    [NSApp beginSheet:pnlProgressView modalForWindow:_window modalDelegate:nil didEndSelector:nil contextInfo:nil]; //Make a sheet
-    [pbCurrentFile setUsesThreadedAnimation:YES]; //Make sure it animates.
-    [pbCurrentFile startAnimation:self];
-    [pbTotalProgress setUsesThreadedAnimation:YES];
-    [pbTotalProgress startAnimation:self];
-    [pbTotalProgress setMinValue:0.0];
-    [pbTotalProgress setMaxValue:[inputList count]];
-    [pbTotalProgress setDoubleValue:0.0];
-    [btnCancel setEnabled:TRUE];
-    cancelCurrentOperation = false;
-    
-    [self performSelectorInBackground:@selector(undoModify) withObject:nil];
+    if(inputList.count > 0){
+        [NSApp beginSheet:pnlProgressView modalForWindow:_window modalDelegate:nil didEndSelector:nil contextInfo:nil]; //Make a sheet
+        [pbTotalProgress setUsesThreadedAnimation:YES];
+        [pbTotalProgress startAnimation:self];
+        [pbTotalProgress setMinValue:0.0];
+        [pbTotalProgress setMaxValue:[inputList count]];
+        [pbTotalProgress setDoubleValue:0.0];
+        [btnCancel setEnabled:TRUE];
+        cancelCurrentOperation = false;
+        
+        [self undoModify];
+    }
 }
 
 -(void)undoModify{
+    NSMutableArray<Mp3GainTask*>* tasks = [NSMutableArray new];
     for(int i=0; i<[inputList count]; i++){
-        dispatch_async(dispatch_get_main_queue(), ^{
-            [pbCurrentFile setMinValue:0.0]; //Reset bar
-            [pbCurrentFile setDoubleValue:0.0];
-            [lblCurrentFile setStringValue:[[inputList objectAtIndex:i] getFilename]];
-        });
-        [Mp3GainAdapter UndoFileModify:[inputList objectAtIndex:i] withProgress:pbCurrentFile];
-        dispatch_async(dispatch_get_main_queue(), ^{
-            [pbTotalProgress setDoubleValue:(i+1)];
-        });
-        if(cancelCurrentOperation) break;
+        Mp3GainTask* m3t = [Mp3GainTask taskWithFile:[inputList objectAtIndex:i] action:M3G_Undo];
+        __weak Mp3GainTask* taskBackup = m3t;
+        m3t.onProcessingComplete = ^{
+            [self handleTaskCompletion:taskBackup];
+        };
+        [tasks addObject:m3t];
     }
-    dispatch_async(dispatch_get_main_queue(), ^{
-        [pbCurrentFile stopAnimation:self];
-        [NSApp endSheet:pnlProgressView]; //Tell the sheet we're done.
-        [pnlProgressView orderOut:self]; //Lets hide the sheet.
-        [tblFileList reloadData];
-    });
+    
+    [cvProcessFiles setContent:tasks];
+    for(int i=0; i<tasks.count && i<self.NumConcurrentTasks; i++){
+        [[tasks objectAtIndex:i] process];
+    }
 }
 
 - (IBAction)btnCancel:(id)sender {
+    //Clicking cancel stops after the currently processing files are done. It removes any that haven't started yet.
     cancelCurrentOperation = true;
-    [lblCurrentFile setStringValue:NSLocalizedStringFromTable(@"Canceling_soon", @"ui_text", @"Canceling soon")];
+    [lblStatus setStringValue:NSLocalizedStringFromTable(@"Canceling_soon", @"ui_text", @"Canceling soon")];
     [btnCancel setEnabled:FALSE];
+    
+    //Rebuild the pending file list without tasks that haven't started yet.
+    NSMutableArray<Mp3GainTask*>* replacement = [NSMutableArray new];
+    for (Mp3GainTask* task in cvProcessFiles.content) {
+        if(task.InProgress){
+            [replacement addObject:task];
+        }
+    }
+    [cvProcessFiles setContent:replacement];
+    double total = inputList.count - replacement.count;
+    [pbTotalProgress setDoubleValue:total];
 }
 
 - (IBAction)btnShowAdvanced:(id)sender {
     [mnuAdvancedGain popUpMenuPositioningItem:nil atLocation:[btnAdvancedMenu frame].origin inView:vwMainBody];
-    
 }
 
 - (BOOL) applicationShouldTerminateAfterLastWindowClosed: (NSApplication *) theApplication{

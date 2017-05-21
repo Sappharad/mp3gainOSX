@@ -10,11 +10,12 @@
 #import "m3gInputItem.h"
 
 @interface m3gInputList : NSObject<NSTableViewDataSource>{
-    NSMutableArray *list;
+    NSMutableArray<m3gInputItem*>* list;
 }
 -(NSUInteger)count;
 -(void)addObject:(m3gInputItem*)item;
 -(m3gInputItem*)objectAtIndex:(int)idx;
+-(NSMutableArray<m3gInputItem*>*)allObjects;
 -(void)clear;
 -(void)removeAtIndex:(int)idx;
 

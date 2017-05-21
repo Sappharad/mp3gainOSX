@@ -1369,17 +1369,6 @@ void dumpTaginfo(struct MP3GainTagInfo *info) {
 }
 
 @implementation Mp3GainAdapter
-
-- (id)init
-{
-    self = [super init];
-    if (self) {
-        // Initialization code here.
-    }
-    
-    return self;
-}
-
 +(int)mp3gainMain:(int)argc mainArgs:(char**)argv withItem:(m3gInputItem*)m3item withProgress:(NSProgressIndicator*)progBar {
     MPSTR mp;
     unsigned long ok;

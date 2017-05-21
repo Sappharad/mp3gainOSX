@@ -73,6 +73,10 @@
     return [list objectAtIndex:idx];
 }
 
+-(NSMutableArray<m3gInputItem*>*)allObjects{
+    return list;
+}
+
 -(void)clear{
     [list removeAllObjects];
 }
@@ -84,21 +88,21 @@
 #pragma mark Drag and Drop
 
 -(NSDragOperation)tableView:(NSTableView *)tableView validateDrop:(id<NSDraggingInfo>)info proposedRow:(NSInteger)row proposedDropOperation:(NSTableViewDropOperation)dropOperation{
-    [tableView setDropRow:-1 dropOperation:NSTableViewDropOn]; //We always want to light up the table itself
-    NSArray* fileList = [[info draggingPasteboard] readObjectsForClasses:@[[NSURL class]] options:nil];
-    if(fileList.count > 0){
-        bool hasFiles = NO;
-        for(NSURL* url in fileList){
-            if(url.isFileURL){
-                hasFiles = YES;
-                break;
-            }
-        }
-        if(hasFiles){
-            return NSDragOperationCopy;
-        }
-    }
-    return NSDragOperationNone;
+	    [tableView setDropRow:-1 dropOperation:NSTableViewDropOn]; //We always want to light up the table itself
+	    NSArray* fileList = [[info draggingPasteboard] readObjectsForClasses:@[[NSURL class]] options:nil];
+	    if(fileList.count > 0){
+	        bool hasFiles = NO;
+	        for(NSURL* url in fileList){
+	            if(url.isFileURL){
+	                hasFiles = YES;
+	                break;
+	            }
+	        }
+	        if(hasFiles){
+	            return NSDragOperationCopy;
+	        }
+	    }
+	    return NSDragOperationNone;
 }
 
 -(BOOL)tableView:(NSTableView *)tableView acceptDrop:(id<NSDraggingInfo>)info row:(NSInteger)row dropOperation:(NSTableViewDropOperation)dropOperation{

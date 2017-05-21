@@ -14,8 +14,8 @@
     IBOutlet NSTextField *txtTargetVolume;
     m3gInputList *inputList;
     IBOutlet NSPanel *pnlProgressView;
-    IBOutlet NSTextField *lblCurrentFile;
-    IBOutlet NSProgressIndicator *pbCurrentFile;
+    IBOutlet NSCollectionView *cvProcessFiles;
+    __weak IBOutlet NSTextField *lblStatus;
     IBOutlet NSProgressIndicator *pbTotalProgress;
     IBOutlet NSButton *btnCancel;
     bool cancelCurrentOperation;
@@ -24,12 +24,12 @@
     IBOutlet NSMenu *mnuAdvancedGain;
     IBOutlet NSButton *chkAvoidClipping;
     IBOutlet NSButton *btnAdvancedMenu;
+    IBOutlet NSButton *chkAlbumGain;
 }
 
 @property (strong) IBOutlet NSWindow *window;
-@property (strong) IBOutlet NSTextField *lblCurrentFile;
-@property (strong) IBOutlet NSProgressIndicator *pbCurrentFile;
 @property (strong) IBOutlet NSProgressIndicator *pbTotalProgress;
+@property (atomic) int NumConcurrentTasks;
 - (IBAction)btnAddFiles:(id)sender;
 - (IBAction)btnAddFolder:(id)sender;
 - (IBAction)btnClearFile:(id)sender;
@@ -39,7 +39,4 @@
 - (IBAction)btnCancel:(id)sender;
 - (IBAction)btnShowAdvanced:(id)sender;
 - (IBAction)doGainRemoval:(id)sender;
--(void)doAnalysis;
--(void)doModify:(NSNumber*)noClip;
-- (BOOL) applicationShouldTerminateAfterLastWindowClosed: (NSApplication *) theApplication;
 @end
