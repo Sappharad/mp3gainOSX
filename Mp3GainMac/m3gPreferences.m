@@ -92,4 +92,18 @@ static m3gPreferences* _preferences;
     [userDefaults setBool:noClipping forKey:@"m3g_NoClipping"];
 }
 
+-(BOOL)getHideWarning{
+    BOOL retval = NO;
+    NSUserDefaults* userDefaults = [NSUserDefaults standardUserDefaults];
+    if([userDefaults objectForKey:@"m3g_HideWarning"]){
+        retval = [userDefaults boolForKey:@"m3g_HideWarning"];
+    }
+    return retval;
+}
+
+-(void)setHideWarning:(BOOL)hideWarning{
+    NSUserDefaults* userDefaults = [NSUserDefaults standardUserDefaults];
+    [userDefaults setBool:hideWarning forKey:@"m3g_HideWarning"];
+}
+
 @end

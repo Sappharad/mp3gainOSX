@@ -30,6 +30,9 @@
         [txtTargetVolume setFloatValue:prefs.Volume];
         [chkAvoidClipping setState:prefs.NoClipping?NSOnState:NSOffState];
     }
+    if(!prefs.HideWarning){
+        [pnlWarning setIsVisible:YES];
+    }
 }
 
 -(void)applicationWillTerminate:(NSNotification *)notification{

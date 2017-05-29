@@ -16,5 +16,6 @@
 @property (getter=getRememberOptions, setter=setRememberOptions:) BOOL RememberOptions;
 @property (getter=getVolume, setter=setVolume:) float Volume;
 @property (getter=getNoClipping, setter=setNoClipping:) BOOL NoClipping;
+@property (getter=getHideWarning, setter=setHideWarning:) BOOL HideWarning;
 
 @end

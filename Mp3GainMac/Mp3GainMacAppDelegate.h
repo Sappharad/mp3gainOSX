@@ -26,6 +26,7 @@
     IBOutlet NSButton *btnAdvancedMenu;
     IBOutlet NSButton *chkAlbumGain;
     __weak IBOutlet NSWindow *wndPreferences;
+    __weak IBOutlet NSPanel *pnlWarning;
 }
 
 @property (strong) IBOutlet NSWindow *window;
