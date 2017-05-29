@@ -10,8 +10,6 @@
 
 @implementation M3GWindow
 
-NSView* _originalView;
-
 -(void)awakeFromNib{
     NSString *osxMode = [[NSUserDefaults standardUserDefaults] stringForKey:@"AppleInterfaceStyle"];
     if([osxMode isEqualToString:@"Dark"]){

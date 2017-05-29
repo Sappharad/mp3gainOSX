@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="12120" systemVersion="16F73" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <deployment identifier="macosx"/>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="12120"/>
@@ -35,7 +35,11 @@
                                 </connections>
                             </menuItem>
                             <menuItem isSeparatorItem="YES" id="603"/>
-                            <menuItem title="Preferences…" keyEquivalent="," id="129"/>
+                            <menuItem title="Preferences…" keyEquivalent="," id="129">
+                                <connections>
+                                    <action selector="showPreferences:" target="494" id="p6C-j4-1pg"/>
+                                </connections>
+                            </menuItem>
                             <menuItem isSeparatorItem="YES" id="143">
                                 <modifierMask key="keyEquivalentModifierMask" command="YES"/>
                             </menuItem>
@@ -665,10 +669,11 @@
                 <outlet property="vwMainBody" destination="372" id="630"/>
                 <outlet property="vwSubfolderPicker" destination="605" id="614"/>
                 <outlet property="window" destination="371" id="532"/>
+                <outlet property="wndPreferences" destination="Aev-Ki-F4W" id="AC3-ne-FE9"/>
             </connections>
         </customObject>
         <customObject id="420" customClass="NSFontManager"/>
-        <window title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" hidesOnDeactivate="YES" oneShot="NO" showsToolbarButton="NO" visibleAtLaunch="NO" animationBehavior="default" id="581" customClass="NSPanel">
+        <window title="Processing" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" hidesOnDeactivate="YES" oneShot="NO" showsToolbarButton="NO" visibleAtLaunch="NO" animationBehavior="default" id="581" customClass="NSPanel">
             <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES" utility="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
             <rect key="contentRect" x="196" y="132" width="430" height="240"/>
@@ -733,6 +738,7 @@ Gw
             </view>
             <point key="canvasLocation" x="-325" y="59"/>
         </window>
+        <customObject id="Pcg-zA-uve" userLabel="Preferences" customClass="m3gPreferences"/>
         <customObject id="601" customClass="SUUpdater"/>
         <customView id="605">
             <rect key="frame" x="0.0" y="0.0" width="356" height="35"/>
@@ -774,6 +780,94 @@ Gw
             </items>
         </menu>
         <collectionViewItem id="QGr-V9-XS9"/>
+        <window title="Preferences" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" frameAutosaveName="" animationBehavior="default" id="Aev-Ki-F4W" customClass="M3GWindow">
+            <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" texturedBackground="YES"/>
+            <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
+            <rect key="contentRect" x="303" y="715" width="381" height="101"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="1920" height="1058"/>
+            <view key="contentView" id="Nl2-49-Unk">
+                <rect key="frame" x="0.0" y="0.0" width="381" height="101"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <textField verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pkk-iv-JZU">
+                        <rect key="frame" x="286" y="73" width="60" height="22"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="60" id="2PP-a2-720"/>
+                        </constraints>
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" title="2" drawsBackground="YES" id="KYc-Sl-pe2">
+                            <numberFormatter key="formatter" formatterBehavior="default10_4" numberStyle="decimal" minimumIntegerDigits="1" maximumIntegerDigits="2000000000" maximumFractionDigits="3" id="X3B-wG-ydH">
+                                <real key="minimum" value="1"/>
+                                <real key="maximum" value="4"/>
+                            </numberFormatter>
+                            <font key="font" metaFont="system"/>
+                            <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                        <connections>
+                            <binding destination="Pcg-zA-uve" name="maxValue" keyPath="MaxCores" id="cY7-5E-4Jc"/>
+                            <binding destination="Pcg-zA-uve" name="value" keyPath="NumProcesses" previousBinding="cY7-5E-4Jc" id="GMl-nr-557"/>
+                        </connections>
+                    </textField>
+                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Xc-Sb-5b0">
+                        <rect key="frame" x="18" y="76" width="262" height="17"/>
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="right" title="Number of files to process concurrently:" id="crR-ku-ywK">
+                            <font key="font" metaFont="system"/>
+                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                    </textField>
+                    <button translatesAutoresizingMaskIntoConstraints="NO" id="VJB-bz-rw8">
+                        <rect key="frame" x="18" y="38" width="204" height="18"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="200" id="S3l-FP-FLc"/>
+                        </constraints>
+                        <buttonCell key="cell" type="check" title="Remember Volume settings" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="irH-wR-qXa">
+                            <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                            <font key="font" metaFont="system"/>
+                        </buttonCell>
+                        <connections>
+                            <binding destination="Pcg-zA-uve" name="value" keyPath="RememberOptions" id="imz-Vm-5uR"/>
+                        </connections>
+                    </button>
+                    <button translatesAutoresizingMaskIntoConstraints="NO" id="OWC-Zb-8h1">
+                        <rect key="frame" x="18" y="18" width="142" height="18"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="138" id="HwO-Bg-qwo"/>
+                        </constraints>
+                        <buttonCell key="cell" type="check" title="Check for Updates" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="OoD-7m-r77">
+                            <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                            <font key="font" metaFont="system"/>
+                        </buttonCell>
+                        <connections>
+                            <binding destination="601" name="value" keyPath="automaticallyChecksForUpdates" id="mGm-gA-OJt"/>
+                        </connections>
+                    </button>
+                    <stepper horizontalHuggingPriority="750" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="ZDO-RX-a3X">
+                        <rect key="frame" x="347" y="70" width="19" height="27"/>
+                        <stepperCell key="cell" continuous="YES" alignment="left" minValue="1" maxValue="4" doubleValue="1" id="Dze-8J-Fiy"/>
+                        <connections>
+                            <binding destination="Pcg-zA-uve" name="maxValue" keyPath="MaxCores" id="zp4-2O-mPy"/>
+                            <binding destination="Pcg-zA-uve" name="value" keyPath="NumProcesses" previousBinding="zp4-2O-mPy" id="EKW-qf-noM"/>
+                        </connections>
+                    </stepper>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="6Xc-Sb-5b0" firstAttribute="leading" secondItem="VJB-bz-rw8" secondAttribute="leading" id="9xT-KS-drg"/>
+                    <constraint firstItem="Pkk-iv-JZU" firstAttribute="leading" secondItem="6Xc-Sb-5b0" secondAttribute="trailing" constant="8" symbolic="YES" id="B10-mR-C2V"/>
+                    <constraint firstItem="VJB-bz-rw8" firstAttribute="leading" secondItem="OWC-Zb-8h1" secondAttribute="leading" id="Cku-AJ-bWl"/>
+                    <constraint firstItem="VJB-bz-rw8" firstAttribute="top" secondItem="6Xc-Sb-5b0" secondAttribute="bottom" constant="22" id="GQb-A4-MTj"/>
+                    <constraint firstItem="6Xc-Sb-5b0" firstAttribute="leading" secondItem="Nl2-49-Unk" secondAttribute="leading" constant="20" symbolic="YES" id="cEu-4d-p7u"/>
+                    <constraint firstItem="6Xc-Sb-5b0" firstAttribute="baseline" secondItem="Pkk-iv-JZU" secondAttribute="baseline" id="cZM-N3-izc"/>
+                    <constraint firstItem="OWC-Zb-8h1" firstAttribute="top" secondItem="VJB-bz-rw8" secondAttribute="bottom" constant="6" symbolic="YES" id="gmI-BZ-hS4"/>
+                    <constraint firstItem="ZDO-RX-a3X" firstAttribute="leading" secondItem="Pkk-iv-JZU" secondAttribute="trailing" constant="4" id="gpV-gJ-ET6"/>
+                    <constraint firstAttribute="bottom" secondItem="OWC-Zb-8h1" secondAttribute="bottom" constant="20" symbolic="YES" id="gzW-Dq-a8K"/>
+                    <constraint firstItem="Pkk-iv-JZU" firstAttribute="top" secondItem="ZDO-RX-a3X" secondAttribute="top" id="lXi-wR-VwA"/>
+                    <constraint firstAttribute="trailing" secondItem="ZDO-RX-a3X" secondAttribute="trailing" constant="18" id="zbl-Bj-yql"/>
+                </constraints>
+            </view>
+            <point key="canvasLocation" x="139.5" y="-10.5"/>
+        </window>
+        <userDefaultsController representsSharedInstance="YES" id="elj-bg-ril"/>
     </objects>
     <resources>
         <image name="AddFolder" width="256" height="256"/>

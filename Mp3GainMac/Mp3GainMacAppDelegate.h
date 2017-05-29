@@ -25,11 +25,12 @@
     IBOutlet NSButton *chkAvoidClipping;
     IBOutlet NSButton *btnAdvancedMenu;
     IBOutlet NSButton *chkAlbumGain;
+    __weak IBOutlet NSWindow *wndPreferences;
 }
 
 @property (strong) IBOutlet NSWindow *window;
 @property (strong) IBOutlet NSProgressIndicator *pbTotalProgress;
-@property (atomic) int NumConcurrentTasks;
+- (IBAction)showPreferences:(id)sender;
 - (IBAction)btnAddFiles:(id)sender;
 - (IBAction)btnAddFolder:(id)sender;
 - (IBAction)btnClearFile:(id)sender;

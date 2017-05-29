@@ -8,7 +8,8 @@
 
 #import <Cocoa/Cocoa.h>
 
-@interface M3GWindow : NSWindow <NSWindowDelegate>
-
+@interface M3GWindow : NSWindow <NSWindowDelegate>{
+    NSView* _originalView;
+}
 
 @end

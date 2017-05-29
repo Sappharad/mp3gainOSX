@@ -7,6 +7,7 @@
 #import "m3gInputItem.h"
 #import "Mp3GainTask.h"
 #import "FileProgressViewItem.h"
+#import "m3gPreferences.h"
 
 @implementation Mp3GainMacAppDelegate
 
@@ -24,7 +25,26 @@
     [cvProcessFiles setMaxItemSize:NSMakeSize(0, 52.0f)];
     [cvProcessFiles setMinItemSize:NSMakeSize(0, 52.0f)];
     
-    self.NumConcurrentTasks = 2; //TODO: Calculate this
+    m3gPreferences* prefs = [m3gPreferences SharedPreferences];
+    if(prefs.RememberOptions){
+        [txtTargetVolume setFloatValue:prefs.Volume];
+        [chkAvoidClipping setState:prefs.NoClipping?NSOnState:NSOffState];
+    }
+}
+
+-(void)applicationWillTerminate:(NSNotification *)notification{
+    m3gPreferences* prefs = [m3gPreferences SharedPreferences];
+    if(prefs.RememberOptions){
+        float targetVol = [txtTargetVolume floatValue];
+        if(targetVol >= 50 && targetVol <= 100){
+            prefs.Volume = targetVol;
+        }
+        prefs.NoClipping = (chkAvoidClipping.state == NSOnState);
+    }
+}
+
+- (IBAction)showPreferences:(id)sender {
+    [wndPreferences makeKeyAndOrderFront:self];
 }
 
 - (IBAction)btnAddFiles:(id)sender {
@@ -120,6 +140,10 @@
     }
 }
 
+-(int)getNumConcurrentTasks{
+    return [m3gPreferences SharedPreferences].NumProcesses;
+}
+
 -(void)doAnalysis:(BOOL)album{
     NSMutableArray<Mp3GainTask*>* tasks = [NSMutableArray new];
     for(int i=0; i<[inputList count]; i++){
@@ -142,7 +166,7 @@
     }
     
     [cvProcessFiles setContent:tasks];
-    for(int i=0; i<inputList.count && i<self.NumConcurrentTasks; i++){
+    for(int i=0; i<inputList.count && i<[self getNumConcurrentTasks]; i++){
         [[tasks objectAtIndex:i] process];
     }
 }
@@ -224,7 +248,7 @@
     }
     
     [cvProcessFiles setContent:tasks];
-    for(int i=0; i<inputList.count && i<self.NumConcurrentTasks; i++){
+    for(int i=0; i<inputList.count && i<[self getNumConcurrentTasks]; i++){
         [[tasks objectAtIndex:i] process];
     }
 }
@@ -256,7 +280,7 @@
     }
     
     [cvProcessFiles setContent:tasks];
-    for(int i=0; i<tasks.count && i<self.NumConcurrentTasks; i++){
+    for(int i=0; i<tasks.count && i<[self getNumConcurrentTasks]; i++){
         [[tasks objectAtIndex:i] process];
     }
 }
