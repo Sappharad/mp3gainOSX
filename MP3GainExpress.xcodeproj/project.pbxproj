@@ -18,12 +18,12 @@
 		9E3A2AFB13C23D5200E49A59 /* AddFolder.png in Resources */ = {isa = PBXBuildFile; fileRef = 9E3A2AF813C23D5200E49A59 /* AddFolder.png */; };
 		9E3A2AFC13C23D5200E49A59 /* ClearAll.png in Resources */ = {isa = PBXBuildFile; fileRef = 9E3A2AF913C23D5200E49A59 /* ClearAll.png */; };
 		9E3A2AFD13C23D5200E49A59 /* ClearSong.png in Resources */ = {isa = PBXBuildFile; fileRef = 9E3A2AFA13C23D5200E49A59 /* ClearSong.png */; };
-		9E3AC90C1D4EDFEF007F69C8 /* mp3gain in Resources */ = {isa = PBXBuildFile; fileRef = 9E3AC90B1D4EDFEF007F69C8 /* mp3gain */; };
 		9E4132901D52DEE600F0A004 /* Mp3GainTask.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E41328F1D52DEE600F0A004 /* Mp3GainTask.m */; };
 		9E431AEF1D4AFBE100A69E9D /* Sparkle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E93CC6715E85A99005A76C5 /* Sparkle.framework */; };
 		9E431AF11D4AFBE700A69E9D /* Sparkle.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 9E93CC6715E85A99005A76C5 /* Sparkle.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		9E431AF41D4AFC2800A69E9D /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E431AF31D4AFC2800A69E9D /* CoreFoundation.framework */; };
 		9E431AF61D4AFC3700A69E9D /* AppKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E431AF51D4AFC3700A69E9D /* AppKit.framework */; };
+		9E46184C1EDBC36100C12330 /* aacgain in Resources */ = {isa = PBXBuildFile; fileRef = 9E46184B1EDBC36100C12330 /* aacgain */; };
 		9E48BC2A13C3F34A003BDC4F /* m3gInputList.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E48BC2913C3F34A003BDC4F /* m3gInputList.m */; };
 		9E5E0AC11ED8D0E500B2D422 /* m3gPreferences.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E5E0AC01ED8D0E500B2D422 /* m3gPreferences.m */; };
 		9E93CC6515E85107005A76C5 /* ui_text.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9E93CC6315E85107005A76C5 /* ui_text.strings */; };
@@ -64,11 +64,11 @@
 		9E3A2AF813C23D5200E49A59 /* AddFolder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = AddFolder.png; sourceTree = "<group>"; };
 		9E3A2AF913C23D5200E49A59 /* ClearAll.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ClearAll.png; sourceTree = "<group>"; };
 		9E3A2AFA13C23D5200E49A59 /* ClearSong.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ClearSong.png; sourceTree = "<group>"; };
-		9E3AC90B1D4EDFEF007F69C8 /* mp3gain */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.executable"; path = mp3gain; sourceTree = "<group>"; };
 		9E41328E1D52DEE600F0A004 /* Mp3GainTask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Mp3GainTask.h; sourceTree = "<group>"; };
 		9E41328F1D52DEE600F0A004 /* Mp3GainTask.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Mp3GainTask.m; sourceTree = "<group>"; };
 		9E431AF31D4AFC2800A69E9D /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
 		9E431AF51D4AFC3700A69E9D /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
+		9E46184B1EDBC36100C12330 /* aacgain */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.executable"; path = aacgain; sourceTree = "<group>"; };
 		9E48BC2813C3F34A003BDC4F /* m3gInputList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = m3gInputList.h; sourceTree = "<group>"; };
 		9E48BC2913C3F34A003BDC4F /* m3gInputList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = m3gInputList.m; sourceTree = "<group>"; };
 		9E5E0ABF1ED8D0E500B2D422 /* m3gPreferences.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = m3gPreferences.h; sourceTree = "<group>"; };
@@ -131,7 +131,7 @@
 		9E3A2ADF13C231B400E49A59 /* Mp3GainMac */ = {
 			isa = PBXGroup;
 			children = (
-				9E3AC90B1D4EDFEF007F69C8 /* mp3gain */,
+				9E46184B1EDBC36100C12330 /* aacgain */,
 				9E48BC2813C3F34A003BDC4F /* m3gInputList.h */,
 				9E48BC2913C3F34A003BDC4F /* m3gInputList.m */,
 				9EA9F17513C278550036B145 /* m3gInputItem.h */,
@@ -226,11 +226,11 @@
 			files = (
 				9E3A2AE413C231B400E49A59 /* InfoPlist.strings in Resources */,
 				9EB6852C1EB839E7003DD377 /* Resources.xcassets in Resources */,
+				9E46184C1EDBC36100C12330 /* aacgain in Resources */,
 				9E3A2AEA13C231B400E49A59 /* Credits.rtf in Resources */,
 				9E3A2AF013C231B400E49A59 /* MainMenu.xib in Resources */,
 				9E3A2AF713C237A000E49A59 /* AddSong.png in Resources */,
 				9E14A37B1DA358940083378F /* FileProgressViewItem.xib in Resources */,
-				9E3AC90C1D4EDFEF007F69C8 /* mp3gain in Resources */,
 				9E3A2AFB13C23D5200E49A59 /* AddFolder.png in Resources */,
 				9E3A2AFC13C23D5200E49A59 /* ClearAll.png in Resources */,
 				9E3A2AFD13C23D5200E49A59 /* ClearSong.png in Resources */,

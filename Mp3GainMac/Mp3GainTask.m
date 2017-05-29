@@ -99,7 +99,7 @@
 
 -(void)doProcessing:(NSArray<NSString*>*)arguments{
     _task = [NSTask new];
-    NSString* launchPath = [[NSBundle mainBundle] pathForResource:@"mp3gain" ofType:nil];
+    NSString* launchPath = [[NSBundle mainBundle] pathForResource:@"aacgain" ofType:nil];
     [_task setLaunchPath:launchPath];
     [_task setArguments:arguments];
     

@@ -128,7 +128,9 @@
 
 -(void)addFile:(NSString*)filePath{
     //Note: Assumes file already exists. You should check this before calling this.
-    if([[filePath lowercaseString] hasSuffix:@".mp3"]) {
+    if([[filePath lowercaseString] hasSuffix:@".mp3"] ||
+       [[filePath lowercaseString] hasSuffix:@".mp4"] ||
+       [[filePath lowercaseString] hasSuffix:@".m4a"]) {
         m3gInputItem* itemToAdd = [[m3gInputItem alloc] init];
         itemToAdd.filePath = [NSURL fileURLWithPath:filePath];
         [self addObject:itemToAdd];

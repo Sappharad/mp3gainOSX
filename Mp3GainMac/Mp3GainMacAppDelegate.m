@@ -78,9 +78,8 @@
     [ddlSubfolders addItemWithTitle:NSLocalizedStringFromTable(@"5_Below", @"ui_text", @"5_Below")];
     [fbox setAccessoryView:vwSubfolderPicker];
     if([fbox respondsToSelector:@selector(isAccessoryViewDisclosed)]){
-        
+        fbox.accessoryViewDisclosed = YES;
     }
-    fbox.accessoryViewDisclosed = YES;
     [fbox beginSheetModalForWindow:_window completionHandler:^(NSInteger result) {
         if(result == NSOKButton){
             uint folderCount = (uint)[[fbox URLs] count];
