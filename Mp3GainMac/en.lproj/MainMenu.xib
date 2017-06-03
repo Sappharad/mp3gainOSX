@@ -473,7 +473,7 @@
                         <rect key="frame" x="20" y="48" width="475" height="265"/>
                         <clipView key="contentView" id="2Xe-Og-NCU">
                             <rect key="frame" x="1" y="0.0" width="473" height="264"/>
-                            <autoresizingMask key="autoresizingMask"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             <subviews>
                                 <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="firstColumnOnly" columnSelection="YES" autosaveColumns="NO" headerView="554" id="556">
                                     <rect key="frame" x="0.0" y="0.0" width="473" height="241"/>
@@ -658,6 +658,7 @@
                 <outlet property="btnCancel" destination="590" id="600"/>
                 <outlet property="chkAlbumGain" destination="4sL-Ot-xGx" id="hLY-tF-jkA"/>
                 <outlet property="chkAvoidClipping" destination="622" id="627"/>
+                <outlet property="chkDoNotWarnAgain" destination="VRi-vX-dgm" id="d1W-Me-Iuj"/>
                 <outlet property="cvProcessFiles" destination="StW-OE-VCo" id="1hd-vk-EXl"/>
                 <outlet property="ddlSubfolders" destination="606" id="615"/>
                 <outlet property="lblStatus" destination="h0N-US-ct8" id="K44-QJ-SOp"/>
@@ -866,6 +867,7 @@ Gw
                     <constraint firstAttribute="trailing" secondItem="ZDO-RX-a3X" secondAttribute="trailing" constant="18" id="zbl-Bj-yql"/>
                 </constraints>
             </view>
+            <contentBorderThickness minY="0.0" maxY="0.0"/>
             <point key="canvasLocation" x="139.5" y="-10.5"/>
         </window>
         <userDefaultsController representsSharedInstance="YES" id="elj-bg-ril"/>
@@ -878,7 +880,7 @@ Gw
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="VRi-vX-dgm">
-                        <rect key="frame" x="18" y="18" width="212" height="18"/>
+                        <rect key="frame" x="18" y="18" width="254" height="18"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <buttonCell key="cell" type="check" title="Do not show this warning again" bezelStyle="regularSquare" imagePosition="left" inset="2" id="n96-eJ-xcx">
                             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>

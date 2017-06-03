@@ -15,7 +15,7 @@
     m3gInputList *inputList;
     IBOutlet NSPanel *pnlProgressView;
     IBOutlet NSCollectionView *cvProcessFiles;
-    __weak IBOutlet NSTextField *lblStatus;
+    IBOutlet NSTextField *lblStatus;
     IBOutlet NSProgressIndicator *pbTotalProgress;
     IBOutlet NSButton *btnCancel;
     bool cancelCurrentOperation;
@@ -25,8 +25,9 @@
     IBOutlet NSButton *chkAvoidClipping;
     IBOutlet NSButton *btnAdvancedMenu;
     IBOutlet NSButton *chkAlbumGain;
-    __weak IBOutlet NSWindow *wndPreferences;
-    __weak IBOutlet NSPanel *pnlWarning;
+    IBOutlet NSWindow *wndPreferences;
+    IBOutlet NSPanel *pnlWarning;
+    IBOutlet NSButton *chkDoNotWarnAgain;
 }
 
 @property (strong) IBOutlet NSWindow *window;

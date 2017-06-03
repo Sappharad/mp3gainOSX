@@ -31,6 +31,9 @@
         [chkAvoidClipping setState:prefs.NoClipping?NSOnState:NSOffState];
     }
     if(!prefs.HideWarning){
+        NSMutableAttributedString *attrTitle = [[NSMutableAttributedString alloc] initWithString:NSLocalizedStringFromTable(@"DontWarnAgain", @"ui_text", @"Do not show this warning again")];
+        [attrTitle addAttribute:NSForegroundColorAttributeName value:[NSColor whiteColor] range:NSMakeRange(0, attrTitle.length)];
+        [chkDoNotWarnAgain setAttributedTitle:attrTitle];
         [pnlWarning setIsVisible:YES];
     }
 }
