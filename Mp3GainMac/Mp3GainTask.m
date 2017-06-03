@@ -13,6 +13,7 @@
     task.Action = action;
     task.InProgress = NO;
     task.TwoPass = NO;
+    file.state = 0;
     return task;
 }
 
@@ -27,11 +28,18 @@
 
 -(void)process{
     self.InProgress = YES;
+    if(self.Files.count == 1){
+        for (m3gInputItem* file in self.Files) {
+            file.clipping = NO; //Clear clipping flag, will be set later.
+        }
+    }
     if(self.Action == M3G_Analyze){
         [self AnalyzeFile];
     }
     else if(self.Action == M3G_Apply){
-        if(self.Files.count == 1 && [self.Files objectAtIndex:0].volume == 0){
+        if(self.Files.count == 1 && (!self.NoClipping || [self.Files objectAtIndex:0].volume == 0)){
+            //Always need 2 passes if NoClipping is off, because we don't get notified about clipping during the Apply process.
+            //Can't trust previous data because they could change the desired volume on us.
             self.TwoPass = YES;
             [self AnalyzeFile];
         }
@@ -130,7 +138,14 @@
         //NSLog(@"%@", detailsOutput);
         [weakSelf parseProcessDetails:detailsOutput];
         
-        if(weakSelf.TwoPass == YES && weakSelf.Action == M3G_Apply){
+        if(myself.terminationStatus > 0){
+            for (m3gInputItem* file in weakSelf.Files) {
+                if(file.state == 0){
+                    file.state = 2; //MP3Gain exited with an error.
+                }
+            }
+        }
+        if(myself.terminationStatus == 0 && weakSelf.TwoPass == YES && weakSelf.Action == M3G_Apply){
             weakSelf.TwoPass = NO;
             [weakSelf ApplyGain];
         }
@@ -144,9 +159,6 @@
 
 -(void)parseProcessDetails:(NSString*)details{
     NSArray<NSString*>* lines = [details componentsSeparatedByCharactersInSet:[NSCharacterSet newlineCharacterSet]];
-    for (m3gInputItem* file in self.Files) {
-        file.clipping = NO;
-    }
     for (NSString* line in lines) {
         NSNumberFormatter* numberParse = [NSNumberFormatter new];
         [numberParse setLocale:[NSLocale localeWithLocaleIdentifier:@"en_US_POSIX"]];
@@ -155,6 +167,7 @@
         NSRange clipping = [line rangeOfString:@"WARNING: some clipping may occur with this gain change!"];
         NSRange applyClipped = [line rangeOfString:@"Applying auto-clipped mp3 gain change of "];
         NSRange albumGain = [line rangeOfString:@"Recommended \"Album\" dB change for all files: "];
+        NSRange notMp3 = [line rangeOfString:@"Can't find any valid MP3 frames"];
         if(trackChange.location != NSNotFound){
             NSNumber* dbChange = [numberParse numberFromString:[line substringFromIndex:trackChange.location+trackChange.length]];
             if(dbChange){
@@ -200,6 +213,11 @@
                 }
             }
         }
+        else if(notMp3.location != NSNotFound){
+            for (m3gInputItem* file in self.Files) {
+                file.state = 2;
+            }
+        }
     }
     
 }
@@ -214,12 +232,19 @@
         actualText = [actualText stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
         
         NSRange percentLoc = [actualText rangeOfCharacterFromSet:[NSCharacterSet characterSetWithCharactersInString:@"%"]];
+        NSRange noChangesToUndo = [actualText rangeOfString:@"No changes to undo in"];
+        NSRange noUnfoInfo = [actualText rangeOfString:@"No undo information in"];
         if(actualText.length > 4 && percentLoc.location != NSNotFound && percentLoc.length == 1){
             //Find the % and convert it to a double
             NSString* number = [actualText substringWithRange:NSMakeRange(0, percentLoc.location)];
             NSNumber* progress = [[NSNumberFormatter new] numberFromString:number];
             if(progress && _onStatusUpdate){
                 _onStatusUpdate([progress doubleValue]);
+            }
+        }
+        else if(noChangesToUndo.location != NSNotFound || noUnfoInfo.location != NSNotFound){
+            for (m3gInputItem* file in self.Files) {
+                file.state = 1; //Nothing to undo
             }
         }
         

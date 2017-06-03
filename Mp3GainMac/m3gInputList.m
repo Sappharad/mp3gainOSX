@@ -49,6 +49,9 @@
         else if(item.state == 1){
             return NSLocalizedStringFromTable(@"NoUndo", @"ui_text", @"Can't Undo");
         }
+        else if(item.state == 2){
+            return NSLocalizedStringFromTable(@"UnsupportedFile", @"ui_text", @"Unsupported File");
+        }
     }
     else if([identity isEqualToString:@"Clipping"]){
         return item.clipping?NSLocalizedStringFromTable(@"Yes", @"ui_text", @"Yes"):NSLocalizedStringFromTable(@"No", @"ui_text", @"No");

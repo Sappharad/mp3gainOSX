@@ -19,6 +19,12 @@
 @property double volume;
 @property bool clipping;
 @property double track_gain;
+/* 
+ State values:
+ 0 - Normal
+ 1 - Cannot undo
+ 2 - Unsupported file 
+ */
 @property unsigned short state;
 -(NSString*)getFilename;
 
