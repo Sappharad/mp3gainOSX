@@ -73,7 +73,6 @@
 		9E48BC2913C3F34A003BDC4F /* m3gInputList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = m3gInputList.m; sourceTree = "<group>"; };
 		9E5E0ABF1ED8D0E500B2D422 /* m3gPreferences.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = m3gPreferences.h; sourceTree = "<group>"; };
 		9E5E0AC01ED8D0E500B2D422 /* m3gPreferences.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = m3gPreferences.m; sourceTree = "<group>"; };
-		9E93CC5F15E847E8005A76C5 /* es */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = es; path = es.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		9E93CC6015E847E8005A76C5 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		9E93CC6115E847E8005A76C5 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = es; path = es.lproj/Credits.rtf; sourceTree = "<group>"; };
 		9E93CC6415E85107005A76C5 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/ui_text.strings; sourceTree = "<group>"; };
@@ -83,6 +82,7 @@
 		9EA9F17513C278550036B145 /* m3gInputItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = m3gInputItem.h; sourceTree = "<group>"; };
 		9EA9F17613C278550036B145 /* m3gInputItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = m3gInputItem.m; sourceTree = "<group>"; };
 		9EB6852B1EB839E7003DD377 /* Resources.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Resources.xcassets; sourceTree = "<group>"; };
+		9EBD959E1EE26DA800CFEF8D /* es */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = es; path = es.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		9EBDFE2C1EB53E4300C0F9F4 /* M3GWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = M3GWindow.h; sourceTree = "<group>"; };
 		9EBDFE2D1EB53E4300C0F9F4 /* M3GWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = M3GWindow.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -282,7 +282,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				9E3A2AEF13C231B400E49A59 /* en */,
-				9E93CC5F15E847E8005A76C5 /* es */,
+				9EBD959E1EE26DA800CFEF8D /* es */,
 			);
 			name = MainMenu.xib;
 			sourceTree = "<group>";
