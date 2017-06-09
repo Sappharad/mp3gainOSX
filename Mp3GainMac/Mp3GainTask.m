@@ -141,13 +141,13 @@
         if(myself.terminationStatus > 0){
             for (m3gInputItem* file in weakSelf.Files) {
                 if(file.state == 0){
-                    file.state = 2; //MP3Gain exited with an error.
+                    file.state = 2; //MP3Gain exited with an error. Show 'Bad File' error.
                 }
             }
         }
         if(myself.terminationStatus == 0 && weakSelf.TwoPass == YES && weakSelf.Action == M3G_Apply){
             weakSelf.TwoPass = NO;
-            [weakSelf ApplyGain];
+            [weakSelf cleanupTaskAndApply];
         }
         else if(weakSelf.onProcessingComplete){
             weakSelf.onProcessingComplete();
@@ -156,6 +156,20 @@
     [_task launch];
 }
 
+-(void)cleanupTaskAndApply{
+    if(_statusHandle){
+        [[NSNotificationCenter defaultCenter] removeObserver:self name:NSFileHandleDataAvailableNotification object:_statusHandle];
+        [_statusHandle closeFile];
+    }
+    _detailsPipe = nil;
+    _statusPipe = nil;
+    _statusHandle = nil;
+    _task = nil;
+    
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self ApplyGain];
+    });
+}
 
 -(void)parseProcessDetails:(NSString*)details{
     NSArray<NSString*>* lines = [details componentsSeparatedByCharactersInSet:[NSCharacterSet newlineCharacterSet]];
@@ -168,6 +182,7 @@
         NSRange applyClipped = [line rangeOfString:@"Applying auto-clipped mp3 gain change of "];
         NSRange albumGain = [line rangeOfString:@"Recommended \"Album\" dB change for all files: "];
         NSRange notMp3 = [line rangeOfString:@"Can't find any valid MP3 frames"];
+        NSRange alsoNotMp3 = [line rangeOfString:@"MPEG Layer I file, not a layer III file"];
         if(trackChange.location != NSNotFound){
             NSNumber* dbChange = [numberParse numberFromString:[line substringFromIndex:trackChange.location+trackChange.length]];
             if(dbChange){
@@ -213,9 +228,9 @@
                 }
             }
         }
-        else if(notMp3.location != NSNotFound){
+        else if(notMp3.location != NSNotFound || alsoNotMp3.location != NSNotFound){
             for (m3gInputItem* file in self.Files) {
-                file.state = 2;
+                file.state = 3; //Not MP3 Error
             }
         }
     }

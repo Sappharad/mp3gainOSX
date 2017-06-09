@@ -52,6 +52,9 @@
         else if(item.state == 2){
             return NSLocalizedStringFromTable(@"UnsupportedFile", @"ui_text", @"Unsupported File");
         }
+        else if(item.state == 3){
+            return NSLocalizedStringFromTable(@"Not_MP3_file", @"ui_text", @"Not MP3 file");
+        }
     }
     else if([identity isEqualToString:@"Clipping"]){
         return item.clipping?NSLocalizedStringFromTable(@"Yes", @"ui_text", @"Yes"):NSLocalizedStringFromTable(@"No", @"ui_text", @"No");
