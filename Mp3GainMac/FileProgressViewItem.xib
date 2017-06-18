@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="12118" systemVersion="16E195" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="12118"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="12121"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -10,6 +10,7 @@
             <connections>
                 <outlet property="lblFilename" destination="8JT-HI-GnD" id="73T-Pu-pYc"/>
                 <outlet property="pbStatus" destination="ALn-cP-RWd" id="Y1n-8O-Nss"/>
+                <outlet property="pbStatusOld" destination="rtM-cR-9gV" id="OfN-jc-7Xs"/>
                 <outlet property="view" destination="Hz6-mo-xeY" id="0bl-1N-x8E"/>
             </connections>
         </customObject>
@@ -19,20 +20,33 @@
             <rect key="frame" x="0.0" y="0.0" width="280" height="52"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
             <subviews>
-                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8JT-HI-GnD">
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8JT-HI-GnD">
                     <rect key="frame" x="8" y="26" width="263" height="17"/>
-                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="left" title="Unknown.mp3" id="Su8-RQ-uyT">
                         <font key="font" metaFont="system"/>
                         <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
                 </textField>
-                <progressIndicator wantsLayer="YES" fixedFrame="YES" maxValue="100" style="bar" translatesAutoresizingMaskIntoConstraints="NO" id="ALn-cP-RWd">
+                <progressIndicator autoresizesSubviews="NO" wantsLayer="YES" canDrawConcurrently="YES" maxValue="100" style="bar" translatesAutoresizingMaskIntoConstraints="NO" id="ALn-cP-RWd">
                     <rect key="frame" x="10" y="4" width="259" height="20"/>
-                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                 </progressIndicator>
+                <levelIndicator hidden="YES" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="rtM-cR-9gV">
+                    <rect key="frame" x="10" y="6" width="259" height="16"/>
+                    <levelIndicatorCell key="cell" alignment="left" maxValue="100" warningValue="2" criticalValue="2" levelIndicatorStyle="continuousCapacity" id="fCa-dN-IhQ"/>
+                </levelIndicator>
             </subviews>
+            <constraints>
+                <constraint firstItem="8JT-HI-GnD" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" constant="9" id="0eb-3Z-QbB"/>
+                <constraint firstItem="ALn-cP-RWd" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" constant="10" id="4gB-LV-PU2"/>
+                <constraint firstItem="8JT-HI-GnD" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" constant="10" id="DhY-04-UQZ"/>
+                <constraint firstItem="rtM-cR-9gV" firstAttribute="top" secondItem="8JT-HI-GnD" secondAttribute="bottom" constant="4" id="Fbq-f3-gfJ"/>
+                <constraint firstAttribute="trailing" secondItem="ALn-cP-RWd" secondAttribute="trailing" constant="11" id="L5V-TL-35r"/>
+                <constraint firstAttribute="trailing" secondItem="rtM-cR-9gV" secondAttribute="trailing" constant="11" id="Oa1-5B-4sW"/>
+                <constraint firstItem="rtM-cR-9gV" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" constant="10" id="XET-hL-5Zz"/>
+                <constraint firstAttribute="trailing" secondItem="8JT-HI-GnD" secondAttribute="trailing" constant="11" id="XTt-Qw-p5U"/>
+                <constraint firstItem="ALn-cP-RWd" firstAttribute="top" secondItem="8JT-HI-GnD" secondAttribute="bottom" constant="3" id="wSD-WU-mxC"/>
+            </constraints>
             <point key="canvasLocation" x="-519" y="-13"/>
         </customView>
     </objects>

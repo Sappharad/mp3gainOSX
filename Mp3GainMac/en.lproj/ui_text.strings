@@ -12,6 +12,7 @@
 "4_Below" = "4 subfolders below";
 "5_Below" = "5 subfolders below";
 "DontWarnAgain" = "Do not show this warning again";
+"Working" = "Working...";
 /* Alert messages from Mp3Gain */
 "Not_MP3_file" = "Not MP3 file";
 "UnsupportedFile" = "Bad file!";

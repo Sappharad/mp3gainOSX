@@ -131,7 +131,8 @@
 
 - (IBAction)btnAnalyze:(id)sender {
     if([self checkValidOperation] && inputList.count > 0){
-        [NSApp beginSheet:pnlProgressView modalForWindow:_window modalDelegate:nil didEndSelector:nil contextInfo:nil]; //Make a sheet
+        [NSApp beginSheet:pnlProgressView modalForWindow:_window modalDelegate:nil didEndSelector:nil contextInfo:nil];
+        [lblStatus setStringValue:NSLocalizedStringFromTable(@"Working", @"ui_text", @"Working...")];
         [pbTotalProgress setUsesThreadedAnimation:YES];
         [pbTotalProgress startAnimation:self];
         [pbTotalProgress setMinValue:0.0];
@@ -209,7 +210,8 @@
 
 - (IBAction)btnApplyGain:(id)sender {
     if([self checkValidOperation] && inputList.count > 0){
-        [NSApp beginSheet:pnlProgressView modalForWindow:_window modalDelegate:nil didEndSelector:nil contextInfo:nil]; //Make a sheet
+        [NSApp beginSheet:pnlProgressView modalForWindow:_window modalDelegate:nil didEndSelector:nil contextInfo:nil];
+        [lblStatus setStringValue:NSLocalizedStringFromTable(@"Working", @"ui_text", @"Working...")];
         [pbTotalProgress setUsesThreadedAnimation:YES];
         [pbTotalProgress startAnimation:self];
         [pbTotalProgress setMinValue:0.0];
@@ -260,7 +262,8 @@
 
 - (IBAction)doGainRemoval:(id)sender {
     if(inputList.count > 0){
-        [NSApp beginSheet:pnlProgressView modalForWindow:_window modalDelegate:nil didEndSelector:nil contextInfo:nil]; //Make a sheet
+        [NSApp beginSheet:pnlProgressView modalForWindow:_window modalDelegate:nil didEndSelector:nil contextInfo:nil];
+        [lblStatus setStringValue:NSLocalizedStringFromTable(@"Working", @"ui_text", @"Working...")];
         [pbTotalProgress setUsesThreadedAnimation:YES];
         [pbTotalProgress startAnimation:self];
         [pbTotalProgress setMinValue:0.0];
