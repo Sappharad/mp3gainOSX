@@ -2,7 +2,8 @@ mp3gainOSX
 ==========
 
 MP3Gain Express for Mac OS X<br/>
-Based on MP3Gain by Glen Sawyer<br/>
+Based on MP3Gain by Glen Sawyer with AACGain by David Lasker<br/>
+
 Mac OS X Express version by Paul Kratt
 
 <dl>
