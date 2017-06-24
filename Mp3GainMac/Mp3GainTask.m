@@ -84,10 +84,10 @@
     }
     NSMutableArray<NSString*>* arguments;
     if(self.NoClipping){
-        arguments = [NSMutableArray arrayWithObjects:@"-r",@"-k",@"-d",[NSString stringWithFormat:@"%f",(desiredDb-89.0)],[[self.Files objectAtIndex:0].filePath path],nil];
+        arguments = [NSMutableArray arrayWithObjects:@"-r",@"-k",@"-d",[NSString stringWithFormat:@"%f",(desiredDb-89.0)],nil];
     }
     else{
-        arguments = [NSMutableArray arrayWithObjects:@"-r",@"-c",@"-d",[NSString stringWithFormat:@"%f",(desiredDb-89.0)],[[self.Files objectAtIndex:0].filePath path],nil];
+        arguments = [NSMutableArray arrayWithObjects:@"-r",@"-c",@"-d",[NSString stringWithFormat:@"%f",(desiredDb-89.0)],nil];
     }
     if(self.Files.count > 1){
         [arguments replaceObjectAtIndex:0 withObject:@"-a"];

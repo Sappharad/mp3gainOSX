@@ -25,7 +25,7 @@
         vev.frame = contentFrame;
         vev.blendingMode = NSVisualEffectBlendingModeBehindWindow;
         vev.state = NSVisualEffectStateActive;
-        vev.material = NSVisualEffectMaterialUltraDark;
+        vev.material = NSVisualEffectMaterialUltraDark; //Ultra dark is only available in 10.11 or later.
         self.styleMask = self.styleMask | NSFullSizeContentViewWindowMask;
         self.contentView = vev;
         
