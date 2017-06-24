@@ -12,7 +12,7 @@
 
 -(void)awakeFromNib{
     NSString *osxMode = [[NSUserDefaults standardUserDefaults] stringForKey:@"AppleInterfaceStyle"];
-    if([osxMode isEqualToString:@"Dark"]){
+    if([osxMode isEqualToString:@"Dark"] && NSAppKitVersionNumber >= NSAppKitVersionNumber10_11){
         _originalView = self.contentView;
         NSRect contentFrame = self.contentView.frame;
         NSRect windowFrame = self.frame;
