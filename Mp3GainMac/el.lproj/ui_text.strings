@@ -1,0 +1,57 @@
+/* 1_Below */
+"1_Below" = "1 υποφάκελος κάτω";
+
+/* 2_Below */
+"2_Below" = "2 υποφάκελοι κάτω";
+
+/* 3_Below */
+"3_Below" = "3 υποφάκελοι κάτω";
+
+/* 4_Below */
+"4_Below" = "4 υποφάκελοι κάτω";
+
+/* 5_Below */
+"5_Below" = "5 υποφάκελοι κάτω";
+
+/* Canceling soon */
+"Canceling_soon" = "** Ακυρωση σε εξέλιξη... **";
+
+/* Do not show this warning again */
+"DontWarnAgain" = "Να μην ξαναεμφανιστεί";
+
+/* Invalid target volume! */
+"InvalidVolume" = "Μη αποδεκτή τιμή έντασης!";
+
+/* (No Commment) */
+"MP3Gain_Error" = "Σφάλμα MP3Gain";
+
+/* No */
+"No" = "Όχι";
+
+/* Can't Undo */
+"NoUndo" = "Αναίρεση Αδύνατη";
+
+/* (No Commment) */
+"No_MP3_Frames" = "Δεν βρέθηκαν έγκυρα MP3 frames στο τρέχον αρχείο!";
+
+/* None */
+"None" = "Κανένα";
+
+/* Not MP3 file */
+"Not_MP3_file" = "Μή έγκυρο αρχείο MP3";
+
+/* OK */
+"OK" = "Εντάξει";
+
+/* Unsupported File */
+"UnsupportedFile" = "Μη υποστηριζόμενο αρχείο!";
+
+/* The target volume should be a number between 50 and 100 dB. */
+"VolumeInfo" = "Η τιμή έντασης του αρχείου προορισμού πρέπει να είναι μεταξύ 50 και 100 dB.";
+
+/* Working... */
+"Working" = "Σε Εξέλιξη...";
+
+/* Yes */
+"Yes" = "Ναι";
+

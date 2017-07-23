@@ -59,7 +59,6 @@
 		9E3A2AE913C231B400E49A59 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = en.lproj/Credits.rtf; sourceTree = "<group>"; };
 		9E3A2AEB13C231B400E49A59 /* Mp3GainMacAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Mp3GainMacAppDelegate.h; sourceTree = "<group>"; };
 		9E3A2AEC13C231B400E49A59 /* Mp3GainMacAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Mp3GainMacAppDelegate.m; sourceTree = "<group>"; };
-		9E3A2AEF13C231B400E49A59 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		9E3A2AF613C237A000E49A59 /* AddSong.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = AddSong.png; sourceTree = "<group>"; };
 		9E3A2AF813C23D5200E49A59 /* AddFolder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = AddFolder.png; sourceTree = "<group>"; };
 		9E3A2AF913C23D5200E49A59 /* ClearAll.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ClearAll.png; sourceTree = "<group>"; };
@@ -73,6 +72,12 @@
 		9E48BC2913C3F34A003BDC4F /* m3gInputList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = m3gInputList.m; sourceTree = "<group>"; };
 		9E5E0ABF1ED8D0E500B2D422 /* m3gPreferences.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = m3gPreferences.h; sourceTree = "<group>"; };
 		9E5E0AC01ED8D0E500B2D422 /* m3gPreferences.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = m3gPreferences.m; sourceTree = "<group>"; };
+		9E92CCC61F2428F800EA5637 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		9E92CCC81F24291600EA5637 /* el */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = el; path = el.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		9E92CCC91F24291600EA5637 /* el */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = el; path = el.lproj/Credits.rtf; sourceTree = "<group>"; };
+		9E92CCCA1F24291600EA5637 /* el */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = el; path = el.lproj/ui_text.strings; sourceTree = "<group>"; };
+		9E92CCCD1F242AC700EA5637 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		9E92CCCE1F242AD200EA5637 /* el */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = el; path = el.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		9E93CC6015E847E8005A76C5 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		9E93CC6115E847E8005A76C5 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = es; path = es.lproj/Credits.rtf; sourceTree = "<group>"; };
 		9E93CC6415E85107005A76C5 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/ui_text.strings; sourceTree = "<group>"; };
@@ -208,6 +213,8 @@
 			knownRegions = (
 				en,
 				es,
+				Base,
+				el,
 			);
 			mainGroup = 9E3A2ACA13C231B400E49A59;
 			productRefGroup = 9E3A2AD613C231B400E49A59 /* Products */;
@@ -265,6 +272,7 @@
 			children = (
 				9E3A2AE313C231B400E49A59 /* en */,
 				9E93CC6015E847E8005A76C5 /* es */,
+				9E92CCC81F24291600EA5637 /* el */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
@@ -274,6 +282,7 @@
 			children = (
 				9E3A2AE913C231B400E49A59 /* en */,
 				9E93CC6115E847E8005A76C5 /* es */,
+				9E92CCC91F24291600EA5637 /* el */,
 			);
 			name = Credits.rtf;
 			sourceTree = "<group>";
@@ -281,8 +290,10 @@
 		9E3A2AEE13C231B400E49A59 /* MainMenu.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
-				9E3A2AEF13C231B400E49A59 /* en */,
 				9EBD959E1EE26DA800CFEF8D /* es */,
+				9E92CCC61F2428F800EA5637 /* Base */,
+				9E92CCCD1F242AC700EA5637 /* en */,
+				9E92CCCE1F242AD200EA5637 /* el */,
 			);
 			name = MainMenu.xib;
 			sourceTree = "<group>";
@@ -292,6 +303,7 @@
 			children = (
 				9E93CC6415E85107005A76C5 /* en */,
 				9E93CC6615E85110005A76C5 /* es */,
+				9E92CCCA1F24291600EA5637 /* el */,
 			);
 			name = ui_text.strings;
 			sourceTree = "<group>";
