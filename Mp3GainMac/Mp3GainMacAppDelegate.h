@@ -28,6 +28,10 @@
     IBOutlet NSWindow *wndPreferences;
     IBOutlet NSPanel *pnlWarning;
     IBOutlet NSButton *chkDoNotWarnAgain;
+    IBOutlet NSToolbarItem *tbiAddFile;
+    IBOutlet NSToolbarItem *tbiAddFolder;
+    IBOutlet NSToolbarItem *tbiClearFile;
+    IBOutlet NSToolbarItem *tbiClearAll;
 }
 
 @property (strong) IBOutlet NSWindow *window;

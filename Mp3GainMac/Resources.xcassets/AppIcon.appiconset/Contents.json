@@ -3,35 +3,37 @@
     {
       "size" : "16x16",
       "idiom" : "mac",
-      "filename" : "mp3gain_textLess-1.png",
+      "filename" : "mp3gain16.png",
       "scale" : "1x"
     },
     {
       "size" : "16x16",
       "idiom" : "mac",
-      "filename" : "mp3gain_textLess.png",
+      "filename" : "mp3gain32.png",
       "scale" : "2x"
     },
     {
       "size" : "32x32",
       "idiom" : "mac",
-      "filename" : "mp3gain_32@2x-1.png",
+      "filename" : "mp3gain32-1.png",
       "scale" : "1x"
     },
     {
       "size" : "32x32",
       "idiom" : "mac",
-      "filename" : "mp3gain_32@2x.png",
+      "filename" : "mp3gain64.png",
       "scale" : "2x"
     },
     {
-      "idiom" : "mac",
       "size" : "128x128",
+      "idiom" : "mac",
+      "filename" : "mp3gain128.png",
       "scale" : "1x"
     },
     {
-      "idiom" : "mac",
       "size" : "128x128",
+      "idiom" : "mac",
+      "filename" : "mp3gain256.png",
       "scale" : "2x"
     },
     {
@@ -47,13 +49,13 @@
     {
       "size" : "512x512",
       "idiom" : "mac",
-      "filename" : "mp3gain.png",
+      "filename" : "mp3gain512.png",
       "scale" : "1x"
     },
     {
       "size" : "512x512",
       "idiom" : "mac",
-      "filename" : "mp3gain_512@2x.png",
+      "filename" : "mp3gain1024.png",
       "scale" : "2x"
     }
   ],

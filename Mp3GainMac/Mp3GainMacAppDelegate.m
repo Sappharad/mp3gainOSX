@@ -36,6 +36,19 @@
         [chkDoNotWarnAgain setAttributedTitle:attrTitle];
         [pnlWarning setIsVisible:YES];
     }
+    //Set toolbar images at template, so when we're in dark mode they get inverted automatically:
+    NSImage* addSong = [NSImage imageNamed:@"AddSong.png"];
+    [addSong setTemplate:YES];
+    [tbiAddFile setImage:addSong];
+    NSImage* addFolder = [NSImage imageNamed:@"AddFolder.png"];
+    [addFolder setTemplate:YES];
+    [tbiAddFolder setImage:addFolder];
+    NSImage* clearSong = [NSImage imageNamed:@"ClearSong.png"];
+    [clearSong setTemplate:YES];
+    [tbiClearFile setImage:clearSong];
+    NSImage* clearAll = [NSImage imageNamed:@"ClearAll.png"];
+    [clearAll setTemplate:YES];
+    [tbiClearAll setImage:clearAll];
 }
 
 -(void)applicationWillTerminate:(NSNotification *)notification{
