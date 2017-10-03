@@ -13,6 +13,7 @@
     task.Action = action;
     task.InProgress = NO;
     task.TwoPass = NO;
+    task.FailureCount = 0;
     file.state = 0;
     return task;
 }
@@ -23,6 +24,7 @@
     task.Action = action;
     task.InProgress = NO;
     task.TwoPass = NO;
+    task.FailureCount = 0;
     return task;
 }
 
@@ -153,7 +155,26 @@
             weakSelf.onProcessingComplete();
         }
     };
-    [_task launch];
+    @try{
+        [_task launch];
+    } @catch (NSException* exception){
+        //Failed to launch mp3gain command line tool for some reason.
+        //Add this task to the end of the list if this was the first time it failed, otherwise remove it and mark it as failed.
+        if(self.FailureCount == 1){
+            for (m3gInputItem* file in weakSelf.Files) {
+                if(file.state == 0){
+                    file.state = 2; //MP3Gain exited with an error. Show 'Bad File' error.
+                }
+            }
+        }
+        self.FailureCount = self.FailureCount + 1;
+        if(self.FailureCount == 1){
+            self.InProgress = NO;
+        }
+        if(self.onProcessingComplete){
+            self.onProcessingComplete(); //Not actually complete, but this will check FailureCount and requeue the failures.
+        }
+    }
 }
 
 -(void)cleanupTaskAndApply{

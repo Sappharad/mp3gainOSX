@@ -198,6 +198,10 @@
                 [replacement addObject:origTask];
             }
         }
+        if(task.FailureCount == 1){
+            //Re-add file to end of the list on the first failure.
+            [replacement addObject:task];
+        }
         [cvProcessFiles setContent:replacement];
         double total = inputList.count - replacement.count;
         [pbTotalProgress setDoubleValue:total];
