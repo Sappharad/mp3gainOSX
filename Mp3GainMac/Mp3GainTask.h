@@ -25,7 +25,7 @@ typedef enum : NSUInteger {
 @property BOOL InProgress;
 @property BOOL TwoPass;
 @property int FailureCount;
-@property (nonatomic, copy) void(^onProcessingComplete)();
+@property (nonatomic, copy) void(^onProcessingComplete)(void);
 @property (nonatomic, copy) void(^onStatusUpdate)(double percentComplete);
 
 +(Mp3GainTask*)taskWithFile:(m3gInputItem*)file action:(MP3GActionType)action;
