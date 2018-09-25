@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="14113" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
-        <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="12121"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14113"/>
         <capability name="box content view" minToolsVersion="7.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -397,13 +396,13 @@
                     </menu>
                 </menuItem>
             </items>
-            <point key="canvasLocation" x="-349" y="-208"/>
+            <point key="canvasLocation" x="-613" y="-1780"/>
         </menu>
         <window title="MP3Gain Express" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" animationBehavior="default" id="371" userLabel="MainWindow" customClass="M3GWindow">
             <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES" texturedBackground="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
             <rect key="contentRect" x="335" y="390" width="535" height="360"/>
-            <rect key="screenRect" x="0.0" y="0.0" width="1920" height="1058"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="2560" height="1417"/>
             <view key="contentView" id="372">
                 <rect key="frame" x="0.0" y="0.0" width="535" height="360"/>
                 <autoresizingMask key="autoresizingMask"/>
@@ -414,7 +413,7 @@
                             <rect key="frame" x="1" y="1" width="499" height="33"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             <subviews>
-                                <textField verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="546">
+                                <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="546">
                                     <rect key="frame" x="15" y="9" width="168" height="17"/>
                                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Volumen &quot;Normalizado&quot;:" id="547">
                                         <font key="font" metaFont="system"/>
@@ -422,7 +421,7 @@
                                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                     </textFieldCell>
                                 </textField>
-                                <textField verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="548">
+                                <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="548">
                                     <rect key="frame" x="179" y="6" width="50" height="22"/>
                                     <constraints>
                                         <constraint firstAttribute="width" constant="50" id="69U-pN-2ZI"/>
@@ -433,7 +432,7 @@
                                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                     </textFieldCell>
                                 </textField>
-                                <textField verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="550">
+                                <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="550">
                                     <rect key="frame" x="234" y="9" width="139" height="17"/>
                                     <constraints>
                                         <constraint firstAttribute="width" constant="135" id="xVq-Vt-xhY"/>
@@ -650,7 +649,7 @@
                     <toolbarItem reference="544"/>
                 </defaultToolbarItems>
             </toolbar>
-            <point key="canvasLocation" x="-315.5" y="492"/>
+            <point key="canvasLocation" x="-564" y="-1414"/>
         </window>
         <customObject id="494" customClass="Mp3GainMacAppDelegate">
             <connections>
@@ -675,11 +674,11 @@
             </connections>
         </customObject>
         <customObject id="420" customClass="NSFontManager"/>
-        <window title="Tratamiento" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" hidesOnDeactivate="YES" oneShot="NO" showsToolbarButton="NO" visibleAtLaunch="NO" animationBehavior="default" id="581" customClass="NSPanel">
+        <window title="Trabajando" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" hidesOnDeactivate="YES" oneShot="NO" showsToolbarButton="NO" visibleAtLaunch="NO" animationBehavior="default" id="581" customClass="NSPanel">
             <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES" utility="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
             <rect key="contentRect" x="196" y="132" width="430" height="240"/>
-            <rect key="screenRect" x="0.0" y="0.0" width="1920" height="1058"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="2560" height="1417"/>
             <view key="contentView" id="582">
                 <rect key="frame" x="0.0" y="0.0" width="430" height="240"/>
                 <autoresizingMask key="autoresizingMask"/>
@@ -727,12 +726,12 @@ Gw
                         <rect key="frame" x="155" y="11" width="176" height="20"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                     </progressIndicator>
-                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h0N-US-ct8">
+                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="h0N-US-ct8">
                         <rect key="frame" x="11" y="14" width="138" height="17"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="134" id="Ymv-hX-NCU"/>
                         </constraints>
-                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Explotación..." id="g6k-a3-omT">
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Procesando..." id="g6k-a3-omT">
                             <font key="font" metaFont="system"/>
                             <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
@@ -744,7 +743,7 @@ Gw
                     <constraint firstAttribute="bottom" secondItem="h0N-US-ct8" secondAttribute="bottom" constant="14" id="mn8-uS-UhB"/>
                 </constraints>
             </view>
-            <point key="canvasLocation" x="-325" y="59"/>
+            <point key="canvasLocation" x="48" y="-1659"/>
         </window>
         <customObject id="Pcg-zA-uve" userLabel="Preferences" customClass="m3gPreferences"/>
         <customObject id="601" customClass="SUUpdater"/>
@@ -766,7 +765,7 @@ Gw
                         </menu>
                     </popUpButtonCell>
                 </popUpButton>
-                <textField verticalHuggingPriority="750" fixedFrame="YES" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="612">
+                <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="612">
                     <rect key="frame" x="17" y="10" width="135" height="17"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Incluir subcarpetas:" id="613">
@@ -776,6 +775,7 @@ Gw
                     </textFieldCell>
                 </textField>
             </subviews>
+            <point key="canvasLocation" x="177" y="-1069.5"/>
         </customView>
         <menu id="618">
             <items>
@@ -786,18 +786,19 @@ Gw
                     </connections>
                 </menuItem>
             </items>
+            <point key="canvasLocation" x="-722" y="-1147"/>
         </menu>
         <collectionViewItem id="QGr-V9-XS9"/>
         <window title="Preferencias" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" frameAutosaveName="" animationBehavior="default" id="Aev-Ki-F4W" customClass="M3GWindow">
             <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" texturedBackground="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
             <rect key="contentRect" x="303" y="715" width="423" height="101"/>
-            <rect key="screenRect" x="0.0" y="0.0" width="1920" height="1058"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="2560" height="1417"/>
             <view key="contentView" id="Nl2-49-Unk">
                 <rect key="frame" x="0.0" y="0.0" width="423" height="101"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <textField verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pkk-iv-JZU">
+                    <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Pkk-iv-JZU">
                         <rect key="frame" x="328" y="73" width="60" height="22"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="60" id="2PP-a2-720"/>
@@ -816,9 +817,9 @@ Gw
                             <binding destination="Pcg-zA-uve" name="value" keyPath="NumProcesses" previousBinding="cY7-5E-4Jc" id="GMl-nr-557"/>
                         </connections>
                     </textField>
-                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Xc-Sb-5b0">
+                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="6Xc-Sb-5b0">
                         <rect key="frame" x="18" y="76" width="304" height="17"/>
-                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="right" title="Número de archivos a procesar simultáneamente:" id="crR-ku-ywK">
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="left" title="Número de archivos que procesar a la vez:" id="crR-ku-ywK">
                             <font key="font" metaFont="system"/>
                             <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
@@ -874,19 +875,19 @@ Gw
                 </constraints>
             </view>
             <contentBorderThickness minY="0.0" maxY="0.0"/>
-            <point key="canvasLocation" x="163" y="-11"/>
+            <point key="canvasLocation" x="-301" y="-1068"/>
         </window>
         <userDefaultsController representsSharedInstance="YES" id="elj-bg-ril"/>
         <window title="Advertencia" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" frameAutosaveName="" animationBehavior="default" id="G5f-zl-mMe" userLabel="Warning" customClass="NSPanel">
-            <windowStyleMask key="styleMask" titled="YES" closable="YES" utility="YES" HUD="YES"/>
+            <windowStyleMask key="styleMask" titled="YES" closable="YES" texturedBackground="YES"/>
             <rect key="contentRect" x="136" y="163" width="392" height="135"/>
-            <rect key="screenRect" x="0.0" y="0.0" width="1920" height="1058"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="2560" height="1417"/>
             <view key="contentView" wantsLayer="YES" id="c5w-SR-UOa">
                 <rect key="frame" x="0.0" y="0.0" width="392" height="135"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="VRi-vX-dgm">
-                        <rect key="frame" x="18" y="18" width="254" height="18"/>
+                        <rect key="frame" x="18" y="18" width="258" height="18"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <buttonCell key="cell" type="check" title="No volver a mostrar esta advertencia" bezelStyle="regularSquare" imagePosition="left" inset="2" id="n96-eJ-xcx">
                             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
@@ -896,19 +897,19 @@ Gw
                             <binding destination="Pcg-zA-uve" name="value" keyPath="HideWarning" id="VOg-bc-z6e"/>
                         </connections>
                     </button>
-                    <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" allowsCharacterPickerTouchBarItem="NO" preferredMaxLayoutWidth="352" translatesAutoresizingMaskIntoConstraints="NO" id="QZT-1w-Zkt">
+                    <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" preferredMaxLayoutWidth="352" translatesAutoresizingMaskIntoConstraints="NO" id="QZT-1w-Zkt">
                         <rect key="frame" x="18" y="42" width="356" height="85"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <textFieldCell key="cell" controlSize="mini" sendsActionOnEndEditing="YES" id="HI7-yn-PLY">
+                        <textFieldCell key="cell" controlSize="mini" sendsActionOnEndEditing="YES" alignment="justified" id="HI7-yn-PLY">
                             <font key="font" metaFont="system"/>
                             <string key="title">En algunas situaciones las modificaciones realizadas por MP3Gain podrían dañar sus archivos. Si nunca ha utilizado esta aplicación antes o está preocupado por los resultados, haga una copia de seguridad de los archivos originales antes de realizar cambios en ellos.</string>
-                            <color key="textColor" name="selectedMenuItemTextColor" catalog="System" colorSpace="catalog"/>
+                            <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
                             <color key="backgroundColor" name="selectedTextBackgroundColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
                     </textField>
                 </subviews>
             </view>
-            <point key="canvasLocation" x="212" y="455.5"/>
+            <point key="canvasLocation" x="86" y="-1367.5"/>
         </window>
     </objects>
     <resources>

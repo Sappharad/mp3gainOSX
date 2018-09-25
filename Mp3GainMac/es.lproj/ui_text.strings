@@ -12,13 +12,13 @@
 "4_Below" = "4 subcarpetas debajo";
 "5_Below" = "5 subcarpetas debajo";
 "DontWarnAgain" = "No volver a mostrar esta advertencia";
-"Working" = "Explotación...";
+"Working" = "Procesando...";
 /* Alert messages from Mp3Gain */
 "Not_MP3_file" = "Ningún archivo MP3";
-"UnsupportedFile" = "Mal archivo!";
+"UnsupportedFile" = "¡Archivo no soportado!";
 "OK" = "Aceptar";
 "No_MP3_Frames" = "¡No se puede encontrar ningún Frame MP3 válido en el archivo actual!";
 "MP3Gain_Error" = "Error de MP3Gain";
 "NoUndo" = "No Deshacer";
 "InvalidVolume" = "¡Volumen de destino no válido!";
-"VolumeInfo" = "El volumen objetivo debe ser un número entre 50 y 100 dB.";
+"VolumeInfo" = "El volumen elegido debe ser un número entre 50 y 100 dB.";
