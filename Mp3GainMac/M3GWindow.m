@@ -12,7 +12,9 @@
 
 -(void)awakeFromNib{
     NSString *osxMode = [[NSUserDefaults standardUserDefaults] stringForKey:@"AppleInterfaceStyle"];
-    if([osxMode isEqualToString:@"Dark"] && NSAppKitVersionNumber >= NSAppKitVersionNumber10_11 && !NSWorkspace.sharedWorkspace.accessibilityDisplayShouldIncreaseContrast){
+    //Note that since Dark Mode is officially supported in macOS 10.14, this hack is only used from 10.11 to 10.13.
+    //I could have removed it completely, but some people might like having the feature.
+    if([osxMode isEqualToString:@"Dark"] && NSAppKitVersionNumber >= NSAppKitVersionNumber10_11 && NSAppKitVersionNumber <= NSAppKitVersionNumber10_13 && !NSWorkspace.sharedWorkspace.accessibilityDisplayShouldIncreaseContrast){
         //This dark mode hack breaks if "Increase Contrast" is enabled in Accessiblity settings, so we don't support that.
         //Since I'm already doing something that I'm not supposed to, fixing it would be a lot more work than just disabling it.
         _originalView = self.contentView;
