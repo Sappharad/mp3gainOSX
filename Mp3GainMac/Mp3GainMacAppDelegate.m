@@ -68,6 +68,8 @@
 
 - (IBAction)btnAddFiles:(id)sender {
     NSOpenPanel *fbox = [NSOpenPanel openPanel];
+    fbox.allowedFileTypes = @[@"mp3",@"mp4",@"m4a"];
+    fbox.allowsOtherFileTypes = YES;
     [fbox setAllowsMultipleSelection:YES];
     [fbox beginSheetModalForWindow:_window completionHandler:^(NSInteger result) {
         if(result == NSOKButton){
@@ -75,10 +77,10 @@
             for (uint f=0; f<fileCount; f++) {
                 NSURL* selfile = [[fbox URLs] objectAtIndex:f];
                 if ([selfile isFileURL]) {
-                    [inputList addFile:selfile.path];
+                    [self->inputList addFile:selfile.path];
                 }
             }
-            [tblFileList reloadData];
+            [self->tblFileList reloadData];
         }
     }];
 }
@@ -102,12 +104,12 @@
     [fbox beginSheetModalForWindow:_window completionHandler:^(NSInteger result) {
         if(result == NSOKButton){
             uint folderCount = (uint)[[fbox URLs] count];
-            int depthAmount = (int)[ddlSubfolders indexOfSelectedItem];
+            int depthAmount = (int)[self->ddlSubfolders indexOfSelectedItem];
             for (uint f=0; f<folderCount; f++) {
                 NSURL* folder = [[fbox URLs] objectAtIndex:f];
-                [inputList addDirectory:[folder path] subFoldersRemaining:depthAmount];
+                [self->inputList addDirectory:[folder path] subFoldersRemaining:depthAmount];
             }
-            [tblFileList reloadData];
+            [self->tblFileList reloadData];
         }
     }];
 }
@@ -193,7 +195,7 @@
 -(void)handleTaskCompletion:(Mp3GainTask*)task{
     dispatch_async(dispatch_get_main_queue(), ^{
         NSMutableArray<Mp3GainTask*>* replacement = [NSMutableArray new];
-        for (Mp3GainTask* origTask in cvProcessFiles.content) {
+        for (Mp3GainTask* origTask in self->cvProcessFiles.content) {
             if(origTask != task){
                 [replacement addObject:origTask];
             }
@@ -202,15 +204,15 @@
             //Re-add file to end of the list on the first failure.
             [replacement addObject:task];
         }
-        [cvProcessFiles setContent:replacement];
-        double total = inputList.count - replacement.count;
-        [pbTotalProgress setDoubleValue:total];
+        [self->cvProcessFiles setContent:replacement];
+        double total = self->inputList.count - replacement.count;
+        [self->pbTotalProgress setDoubleValue:total];
         
         NSUInteger filesLeft = replacement.count;
         if(filesLeft == 0){
-            [NSApp endSheet:pnlProgressView]; //Tell the sheet we're done.
-            [pnlProgressView orderOut:self]; //Lets hide the sheet.
-            [tblFileList reloadData];
+            [NSApp endSheet:self->pnlProgressView]; //Tell the sheet we're done.
+            [self->pnlProgressView orderOut:self]; //Lets hide the sheet.
+            [self->tblFileList reloadData];
         }
         else{
             //Find next file to begin processing
