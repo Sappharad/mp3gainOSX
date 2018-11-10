@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <deployment version="1080" identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14313.18"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14460.31"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -893,7 +893,7 @@ Gw
                         </textFieldCell>
                     </textField>
                     <button translatesAutoresizingMaskIntoConstraints="NO" id="VRi-vX-dgm">
-                        <rect key="frame" x="18" y="8" width="241" height="18"/>
+                        <rect key="frame" x="18" y="8" width="356" height="18"/>
                         <buttonCell key="cell" type="check" title="Diese Warnung nicht mehr anzeigen" bezelStyle="regularSquare" imagePosition="left" inset="2" id="n96-eJ-xcx">
                             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                             <font key="font" metaFont="system"/>
@@ -904,12 +904,12 @@ Gw
                     </button>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="VRi-vX-dgm" firstAttribute="top" secondItem="QZT-1w-Zkt" secondAttribute="bottom" constant="8" symbolic="YES" id="0uW-2P-llA"/>
-                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="VRi-vX-dgm" secondAttribute="trailing" constant="20" symbolic="YES" id="B72-lJ-i0m"/>
-                    <constraint firstItem="QZT-1w-Zkt" firstAttribute="leading" secondItem="VRi-vX-dgm" secondAttribute="leading" id="ORF-FQ-ozN"/>
-                    <constraint firstItem="VRi-vX-dgm" firstAttribute="leading" secondItem="c5w-SR-UOa" secondAttribute="leading" constant="20" symbolic="YES" id="Tkd-bM-fVG"/>
                     <constraint firstAttribute="trailing" secondItem="QZT-1w-Zkt" secondAttribute="trailing" constant="20" symbolic="YES" id="VRe-BE-eP6"/>
-                    <constraint firstAttribute="bottom" secondItem="VRi-vX-dgm" secondAttribute="bottom" constant="10" id="vT7-fD-WvS"/>
+                    <constraint firstAttribute="bottom" secondItem="VRi-vX-dgm" secondAttribute="bottom" constant="10" id="ZMb-bo-u76"/>
+                    <constraint firstItem="VRi-vX-dgm" firstAttribute="leading" secondItem="c5w-SR-UOa" secondAttribute="leading" constant="20" symbolic="YES" id="icJ-64-8vX"/>
+                    <constraint firstItem="VRi-vX-dgm" firstAttribute="leading" secondItem="QZT-1w-Zkt" secondAttribute="leading" id="jmI-KG-QuI"/>
+                    <constraint firstItem="VRi-vX-dgm" firstAttribute="trailing" secondItem="QZT-1w-Zkt" secondAttribute="trailing" id="mu2-8x-9ZA"/>
+                    <constraint firstItem="VRi-vX-dgm" firstAttribute="top" secondItem="QZT-1w-Zkt" secondAttribute="bottom" constant="8" symbolic="YES" id="z9r-4B-DF4"/>
                 </constraints>
             </view>
             <point key="canvasLocation" x="-1290" y="-113"/>
