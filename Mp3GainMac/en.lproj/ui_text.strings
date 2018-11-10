@@ -22,3 +22,4 @@
 "NoUndo" = "Can't Undo";
 "InvalidVolume" = "Invalid target volume!";
 "VolumeInfo" = "The target volume should be a number between 50 and 100 dB.";
+"reprocessAlbum" = "Reprocess as Album...";

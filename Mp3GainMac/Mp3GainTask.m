@@ -59,7 +59,7 @@
             //When in Album mode, we always scan the tracks individually so that multiple tracks can be scanned at the same time.
             //Then we run it again in album mode, which doesn't need to rescan the files because ReplayGain tags were generated
             //during the initial scan. This allows album mode to benefit from the performance gained by scanning multiple files at once.
-            return @"Reprocess as Album...";
+            return NSLocalizedStringFromTable(@"reprocessAlbum", @"ui_text", @"Reprocess as Album...");
         }
         return [[self.Files objectAtIndex:0] getFilename];
     }
