@@ -21,5 +21,5 @@
 "MP3Gain_Error" = "MP3Gain Fehler";
 "NoUndo" = "Kein Undo möglich";
 "InvalidVolume" = "Ungültige Ziellautstärke!";
-"VolumeInfo" = "Die gewählte Lautstärke muss eine Zahl zwischen 50 und 100 dB sein.";
-"reprocessAlbum" = "Nachbearbeiten als Album...";
+"VolumeInfo" = "Die gewählte Lautstärke muss zwischen 50 und 100 dB liegen.";
+"reprocessAlbum" = "Nachbearbeiten als Album ...";
