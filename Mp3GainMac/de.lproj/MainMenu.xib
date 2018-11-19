@@ -677,7 +677,7 @@
                         <rect key="frame" x="-1" y="40" width="432" height="201"/>
                         <clipView key="contentView" drawsBackground="NO" id="NqQ-xz-Xft">
                             <rect key="frame" x="1" y="1" width="430" height="199"/>
-                            <autoresizingMask key="autoresizingMask"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             <subviews>
                                 <collectionView maxNumberOfColumns="1" id="StW-OE-VCo">
                                     <rect key="frame" x="0.0" y="0.0" width="430" height="199"/>
@@ -892,7 +892,7 @@ Gw
                             <color key="backgroundColor" name="selectedTextBackgroundColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
                     </textField>
-                    <button translatesAutoresizingMaskIntoConstraints="NO" id="VRi-vX-dgm">
+                    <button autoresizesSubviews="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VRi-vX-dgm">
                         <rect key="frame" x="18" y="8" width="356" height="18"/>
                         <buttonCell key="cell" type="check" title="Diese Warnung nicht mehr anzeigen" bezelStyle="regularSquare" imagePosition="left" inset="2" id="n96-eJ-xcx">
                             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
