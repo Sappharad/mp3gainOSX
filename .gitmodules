@@ -1,0 +1,3 @@
+[submodule "aacgain"]
+	path = aacgain
+	url = https://github.com/Sappharad/aacgain.git
