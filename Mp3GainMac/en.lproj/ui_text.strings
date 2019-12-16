@@ -15,11 +15,11 @@
 "Working" = "Working...";
 /* Alert messages from Mp3Gain */
 "Not_MP3_file" = "Not MP3 file";
-"UnsupportedFile" = "Bad file!";
+"UnsupportedFile" = "Not compatible!";
 "OK" = "OK";
 "No_MP3_Frames" = "Can't find any valid MP3 frames in the current file!";
 "MP3Gain_Error" = "MP3Gain Error";
 "NoUndo" = "Can't Undo";
 "InvalidVolume" = "Invalid target volume!";
 "VolumeInfo" = "The target volume should be a number between 50 and 100 dB.";
-"reprocessAlbum" = "Reprocess as Album...";
+"reprocessAlbum" = "Process as Album...";

@@ -22,4 +22,4 @@
 "NoUndo" = "Kein Undo möglich";
 "InvalidVolume" = "Ungültige Ziellautstärke!";
 "VolumeInfo" = "Die gewählte Lautstärke muss zwischen 50 und 100 dB liegen.";
-"reprocessAlbum" = "Nachbearbeiten als Album ...";
+"reprocessAlbum" = "Verarbeiten als Album ...";

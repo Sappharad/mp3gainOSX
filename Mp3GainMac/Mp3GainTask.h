@@ -24,6 +24,7 @@ typedef enum : NSUInteger {
 @property BOOL NoClipping;
 @property BOOL InProgress;
 @property BOOL TwoPass;
+@property BOOL FatalError;
 @property int FailureCount;
 @property (nonatomic, copy) void(^onProcessingComplete)(void);
 @property (nonatomic, copy) void(^onStatusUpdate)(double percentComplete);

@@ -22,4 +22,4 @@
 "NoUndo" = "No Deshacer";
 "InvalidVolume" = "¡Volumen de destino no válido!";
 "VolumeInfo" = "El volumen elegido debe ser un número entre 50 y 100 dB.";
-"reprocessAlbum" = "Reprocesar como álbum...";
+"reprocessAlbum" = "Procesar como álbum...";

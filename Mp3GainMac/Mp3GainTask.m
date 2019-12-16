@@ -14,6 +14,7 @@
     task.InProgress = NO;
     task.TwoPass = NO;
     task.FailureCount = 0;
+    task.FatalError = NO;
     file.state = 0;
     return task;
 }
@@ -25,6 +26,7 @@
     task.InProgress = NO;
     task.TwoPass = NO;
     task.FailureCount = 0;
+    task.FatalError = NO;
     return task;
 }
 
@@ -59,7 +61,7 @@
             //When in Album mode, we always scan the tracks individually so that multiple tracks can be scanned at the same time.
             //Then we run it again in album mode, which doesn't need to rescan the files because ReplayGain tags were generated
             //during the initial scan. This allows album mode to benefit from the performance gained by scanning multiple files at once.
-            return NSLocalizedStringFromTable(@"reprocessAlbum", @"ui_text", @"Reprocess as Album...");
+            return NSLocalizedStringFromTable(@"reprocessAlbum", @"ui_text", @"Process as Album...");
         }
         return [[self.Files objectAtIndex:0] getFilename];
     }
@@ -117,11 +119,11 @@
     [_task setStandardInput:[NSPipe pipe]];
     [_task setStandardOutput:_detailsPipe];
     
+    //Fun fact: Having status on stderr caused file corruption in previous releases when mp3gain was internal
+    _statusPipe = [NSPipe pipe];
+    [_task setStandardError:_statusPipe];
+    
     if(self.Files.count == 1){
-        _statusPipe = [NSPipe pipe];
-        [_task setStandardError:_statusPipe];
-        //Fun fact: Having status on stderr caused file corruption in previous releases when mp3gain was internal
-        
         _statusHandle = [_statusPipe fileHandleForReading];
         [[NSNotificationCenter defaultCenter] addObserver:self
                                                  selector:@selector(handleIncomingStatus:)
@@ -131,23 +133,32 @@
     }
     
     __weak Mp3GainTask* weakSelf = self;
-    __weak NSPipe* weakPipe = _detailsPipe;
+    __weak NSPipe* weakDetails = _detailsPipe;
+    __weak NSPipe* weakStatus = _statusPipe;
     _task.terminationHandler = ^(NSTask* myself)
     {
-        NSData* detailsData = [[weakPipe fileHandleForReading] readDataToEndOfFile];
+        NSData* statusData = [[weakStatus fileHandleForReading] readDataToEndOfFile];
+        NSString* statusOutput = [[NSString alloc] initWithData:statusData encoding:NSUTF8StringEncoding];
+        NSData* detailsData = [[weakDetails fileHandleForReading] readDataToEndOfFile];
         NSString* detailsOutput = [[NSString alloc] initWithData:detailsData encoding:NSUTF8StringEncoding];
         
         //NSLog(@"%@", detailsOutput);
-        [weakSelf parseProcessDetails:detailsOutput];
-        
-        if(myself.terminationStatus > 0){
+        [weakSelf handleErrorStream:statusOutput];
+        if(!weakSelf.FatalError){
+            [weakSelf parseProcessDetails:detailsOutput];
+        }
+        if(weakSelf.FatalError && weakSelf.onProcessingComplete){
+            weakSelf.FailureCount = 2; //Do not try again
+            weakSelf.onProcessingComplete();
+        }
+        else if(myself.terminationStatus > 0){
             for (m3gInputItem* file in weakSelf.Files) {
                 if(file.state == 0){
                     file.state = 2; //MP3Gain exited with an error. Show 'Bad File' error.
                 }
             }
         }
-        if(myself.terminationStatus == 0 && weakSelf.TwoPass == YES && weakSelf.Action == M3G_Apply){
+        else if(myself.terminationStatus == 0 && weakSelf.TwoPass == YES && weakSelf.Action == M3G_Apply){
             weakSelf.TwoPass = NO;
             [weakSelf cleanupTaskAndApply];
         }
@@ -255,7 +266,6 @@
             }
         }
     }
-    
 }
 
 -(void)handleIncomingStatus:(NSNotification*)notification
@@ -267,26 +277,40 @@
         NSString* actualText = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
         actualText = [actualText stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
         
-        NSRange percentLoc = [actualText rangeOfCharacterFromSet:[NSCharacterSet characterSetWithCharactersInString:@"%"]];
-        NSRange noChangesToUndo = [actualText rangeOfString:@"No changes to undo in"];
-        NSRange noUnfoInfo = [actualText rangeOfString:@"No undo information in"];
-        if(actualText.length > 4 && percentLoc.location != NSNotFound && percentLoc.length == 1){
-            //Find the % and convert it to a double
-            NSString* number = [actualText substringWithRange:NSMakeRange(0, percentLoc.location)];
-            NSNumber* progress = [[NSNumberFormatter new] numberFromString:number];
-            if(progress && _onStatusUpdate){
-                _onStatusUpdate([progress doubleValue]);
-            }
-        }
-        else if(noChangesToUndo.location != NSNotFound || noUnfoInfo.location != NSNotFound){
-            for (m3gInputItem* file in self.Files) {
-                file.state = 1; //Nothing to undo
-            }
-        }
+        [self handleErrorStream:actualText];
         
         [fileHandle waitForDataInBackgroundAndNotify];
     } else {
         [[NSNotificationCenter defaultCenter] removeObserver:self name:NSFileHandleDataAvailableNotification object:fileHandle];
+    }
+}
+
+-(void)handleErrorStream:(NSString*)actualText{
+    NSRange percentLoc = [actualText rangeOfCharacterFromSet:[NSCharacterSet characterSetWithCharactersInString:@"%"]];
+    NSRange noChangesToUndo = [actualText rangeOfString:@"No changes to undo in"];
+    NSRange noUnfoInfo = [actualText rangeOfString:@"No undo information in"];
+    NSRange failedToModify = [actualText rangeOfString:@"The file was not modified."];
+    if(failedToModify.location != NSNotFound){
+        //If the end result is the file not being processed, throw away previous results
+        //because we can't use them.
+        for (m3gInputItem* file in self.Files) {
+            file.state = 2; //Unsupported file
+            file.volume = 0;
+            self.FatalError = YES;
+        }
+    }
+    else if(noChangesToUndo.location != NSNotFound || noUnfoInfo.location != NSNotFound){
+        for (m3gInputItem* file in self.Files) {
+            file.state = 1; //Nothing to undo
+        }
+    }
+    else if(self.FatalError == NO && self.Files.count == 1 && actualText.length > 4 && percentLoc.location != NSNotFound && percentLoc.length == 1){
+        //Find the % and convert it to a double
+        NSString* number = [actualText substringWithRange:NSMakeRange(0, percentLoc.location)];
+        NSNumber* progress = [[NSNumberFormatter new] numberFromString:number];
+        if(progress && _onStatusUpdate){
+            _onStatusUpdate([progress doubleValue]);
+        }
     }
 }
 

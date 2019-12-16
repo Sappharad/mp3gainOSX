@@ -167,16 +167,19 @@
 
 -(void)doAnalysis:(BOOL)album{
     NSMutableArray<Mp3GainTask*>* tasks = [NSMutableArray new];
-    for(int i=0; i<[inputList count]; i++){
-        Mp3GainTask* m3t = [Mp3GainTask taskWithFile:[inputList objectAtIndex:i] action:M3G_Analyze];
-        m3t.DesiredDb = [NSNumber numberWithDouble:[txtTargetVolume floatValue]];
-        __weak Mp3GainTask* taskBackup = m3t;
-        m3t.onProcessingComplete = ^{
-            [self handleTaskCompletion:taskBackup];
-        };
-        [tasks addObject:m3t];
+    if(!album || inputList.count == 1){
+        for(int i=0; i<[inputList count]; i++){
+            Mp3GainTask* m3t = [Mp3GainTask taskWithFile:[inputList objectAtIndex:i] action:M3G_Analyze];
+            m3t.DesiredDb = [NSNumber numberWithDouble:[txtTargetVolume floatValue]];
+            __weak Mp3GainTask* taskBackup = m3t;
+            m3t.onProcessingComplete = ^{
+                [self handleTaskCompletion:taskBackup];
+            };
+            [tasks addObject:m3t];
+        }
     }
-    if(album && inputList.count > 1){
+    else{
+        //This is an album - Do not process it twice because reprocessing doesn't use single file data.
         Mp3GainTask* m3t = [Mp3GainTask taskWithFiles:[inputList allObjects] action:M3G_Analyze];
         m3t.DesiredDb = [NSNumber numberWithDouble:[txtTargetVolume floatValue]];
         __weak Mp3GainTask* taskBackup = m3t;
@@ -187,7 +190,7 @@
     }
     
     [cvProcessFiles setContent:tasks];
-    for(int i=0; i<inputList.count && i<[self getNumConcurrentTasks]; i++){
+    for(int i=0; i<tasks.count && i<[self getNumConcurrentTasks]; i++){
         [[tasks objectAtIndex:i] process];
     }
 }
@@ -248,21 +251,20 @@
 
 -(void)doModify:(BOOL)noClip albumMode:(BOOL)album{
     NSMutableArray<Mp3GainTask*>* tasks = [NSMutableArray new];
-    MP3GActionType firstAction = M3G_Apply;
-    if(album && inputList.count > 1){
-        firstAction = M3G_Analyze;
+    if(!album || inputList.count == 1){
+        for(int i=0; i<[inputList count]; i++){
+            Mp3GainTask* m3t = [Mp3GainTask taskWithFile:[inputList objectAtIndex:i] action:M3G_Apply];
+            m3t.NoClipping = noClip;
+            m3t.DesiredDb = [NSNumber numberWithDouble:[txtTargetVolume floatValue]];
+            __weak Mp3GainTask* taskBackup = m3t;
+            m3t.onProcessingComplete = ^{
+                [self handleTaskCompletion:taskBackup];
+            };
+            [tasks addObject:m3t];
+        }
     }
-    for(int i=0; i<[inputList count]; i++){
-        Mp3GainTask* m3t = [Mp3GainTask taskWithFile:[inputList objectAtIndex:i] action:firstAction];
-        m3t.NoClipping = noClip;
-        m3t.DesiredDb = [NSNumber numberWithDouble:[txtTargetVolume floatValue]];
-        __weak Mp3GainTask* taskBackup = m3t;
-        m3t.onProcessingComplete = ^{
-            [self handleTaskCompletion:taskBackup];
-        };
-        [tasks addObject:m3t];
-    }
-    if(album && inputList.count > 1){
+    else{
+        //Album mode - Don't process twice because it doesn't use analyze data
         Mp3GainTask* m3t = [Mp3GainTask taskWithFiles:[inputList allObjects] action:M3G_Apply];
         m3t.NoClipping = noClip;
         m3t.DesiredDb = [NSNumber numberWithDouble:[txtTargetVolume floatValue]];
@@ -274,7 +276,7 @@
     }
     
     [cvProcessFiles setContent:tasks];
-    for(int i=0; i<inputList.count && i<[self getNumConcurrentTasks]; i++){
+    for(int i=0; i<tasks.count && i<[self getNumConcurrentTasks]; i++){
         [[tasks objectAtIndex:i] process];
     }
 }
