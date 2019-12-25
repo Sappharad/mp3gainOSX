@@ -5,7 +5,6 @@
 
 #import "Mp3GainMacAppDelegate.h"
 #import "m3gInputItem.h"
-#import "Mp3GainTask.h"
 #import "FileProgressViewItem.h"
 #import "m3gPreferences.h"
 
@@ -16,8 +15,8 @@
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
-    inputList = [[m3gInputList alloc] init];
-    [tblFileList setDataSource:inputList];
+    _inputList = [[m3gInputList alloc] init];
+    [tblFileList setDataSource:_inputList];
     [tblFileList registerForDraggedTypes:[NSArray arrayWithObjects:NSURLPboardType, nil]];
     
     //Note: Intentionally using the legacy API here for compatbility with older versions of macOS.
@@ -77,7 +76,7 @@
             for (uint f=0; f<fileCount; f++) {
                 NSURL* selfile = [[fbox URLs] objectAtIndex:f];
                 if ([selfile isFileURL]) {
-                    [self->inputList addFile:selfile.path];
+                    [self->_inputList addFile:selfile.path];
                 }
             }
             [self->tblFileList reloadData];
@@ -107,7 +106,7 @@
             int depthAmount = (int)[self->ddlSubfolders indexOfSelectedItem];
             for (uint f=0; f<folderCount; f++) {
                 NSURL* folder = [[fbox URLs] objectAtIndex:f];
-                [self->inputList addDirectory:[folder path] subFoldersRemaining:depthAmount];
+                [self->_inputList addDirectory:[folder path] subFoldersRemaining:depthAmount];
             }
             [self->tblFileList reloadData];
         }
@@ -120,14 +119,14 @@
     NSUInteger curidx = [selRows lastIndex];
     while (curidx != NSNotFound)
     {
-        [inputList removeAtIndex:(int)curidx];
+        [_inputList removeAtIndex:(int)curidx];
         curidx = [selRows indexLessThanIndex: curidx];
     }
     [tblFileList reloadData];
 }
 
 - (IBAction)btnClearAll:(id)sender {
-    [inputList clear];
+    [_inputList clear];
     [tblFileList reloadData];
 }
 
@@ -145,13 +144,13 @@
 }
 
 - (IBAction)btnAnalyze:(id)sender {
-    if([self checkValidOperation] && inputList.count > 0){
+    if([self checkValidOperation] && _inputList.count > 0){
         [NSApp beginSheet:pnlProgressView modalForWindow:_window modalDelegate:nil didEndSelector:nil contextInfo:nil];
         [lblStatus setStringValue:NSLocalizedStringFromTable(@"Working", @"ui_text", @"Working...")];
         [pbTotalProgress setUsesThreadedAnimation:YES];
         [pbTotalProgress startAnimation:self];
         [pbTotalProgress setMinValue:0.0];
-        [pbTotalProgress setMaxValue:[inputList count]];
+        [pbTotalProgress setMaxValue:[_inputList count]];
         [pbTotalProgress setDoubleValue:0.0];
         [btnCancel setEnabled:TRUE];
         cancelCurrentOperation = false;
@@ -166,39 +165,39 @@
 }
 
 -(void)doAnalysis:(BOOL)album{
-    NSMutableArray<Mp3GainTask*>* tasks = [NSMutableArray new];
-    if(!album || inputList.count == 1){
-        for(int i=0; i<[inputList count]; i++){
-            Mp3GainTask* m3t = [Mp3GainTask taskWithFile:[inputList objectAtIndex:i] action:M3G_Analyze];
+    _tasks = [NSMutableArray new];
+    if(!album || _inputList.count == 1){
+        for(int i=0; i<[_inputList count]; i++){
+            Mp3GainTask* m3t = [Mp3GainTask taskWithFile:[_inputList objectAtIndex:i] action:M3G_Analyze];
             m3t.DesiredDb = [NSNumber numberWithDouble:[txtTargetVolume floatValue]];
             __weak Mp3GainTask* taskBackup = m3t;
             m3t.onProcessingComplete = ^{
                 [self handleTaskCompletion:taskBackup];
             };
-            [tasks addObject:m3t];
+            [_tasks addObject:m3t];
         }
     }
     else{
         //This is an album - Do not process it twice because reprocessing doesn't use single file data.
-        Mp3GainTask* m3t = [Mp3GainTask taskWithFiles:[inputList allObjects] action:M3G_Analyze];
+        Mp3GainTask* m3t = [Mp3GainTask taskWithFiles:[_inputList allObjects] action:M3G_Analyze];
         m3t.DesiredDb = [NSNumber numberWithDouble:[txtTargetVolume floatValue]];
         __weak Mp3GainTask* taskBackup = m3t;
         m3t.onProcessingComplete = ^{
             [self handleTaskCompletion:taskBackup];
         };
-        [tasks addObject:m3t];
+        [_tasks addObject:m3t];
     }
     
-    [cvProcessFiles setContent:tasks];
-    for(int i=0; i<tasks.count && i<[self getNumConcurrentTasks]; i++){
-        [[tasks objectAtIndex:i] process];
+    [cvProcessFiles setContent:_tasks];
+    for(int i=0; i<_tasks.count && i<[self getNumConcurrentTasks]; i++){
+        [[_tasks objectAtIndex:i] process];
     }
 }
 
 -(void)handleTaskCompletion:(Mp3GainTask*)task{
     dispatch_async(dispatch_get_main_queue(), ^{
         NSMutableArray<Mp3GainTask*>* replacement = [NSMutableArray new];
-        for (Mp3GainTask* origTask in self->cvProcessFiles.content) {
+        for (Mp3GainTask* origTask in self->_tasks) {
             if(origTask != task){
                 [replacement addObject:origTask];
             }
@@ -208,7 +207,8 @@
             [replacement addObject:task];
         }
         [self->cvProcessFiles setContent:replacement];
-        double total = self->inputList.count - replacement.count;
+        self->_tasks = replacement;
+        double total = self->_inputList.count - replacement.count;
         [self->pbTotalProgress setDoubleValue:total];
         
         NSUInteger filesLeft = replacement.count;
@@ -216,6 +216,8 @@
             [NSApp endSheet:self->pnlProgressView]; //Tell the sheet we're done.
             [self->pnlProgressView orderOut:self]; //Lets hide the sheet.
             [self->tblFileList reloadData];
+            [self->_tasks removeAllObjects];
+            self->_tasks = nil;
         }
         else{
             //Find next file to begin processing
@@ -231,13 +233,13 @@
 }
 
 - (IBAction)btnApplyGain:(id)sender {
-    if([self checkValidOperation] && inputList.count > 0){
+    if([self checkValidOperation] && _inputList.count > 0){
         [NSApp beginSheet:pnlProgressView modalForWindow:_window modalDelegate:nil didEndSelector:nil contextInfo:nil];
         [lblStatus setStringValue:NSLocalizedStringFromTable(@"Working", @"ui_text", @"Working...")];
         [pbTotalProgress setUsesThreadedAnimation:YES];
         [pbTotalProgress startAnimation:self];
         [pbTotalProgress setMinValue:0.0];
-        [pbTotalProgress setMaxValue:[inputList count]];
+        [pbTotalProgress setMaxValue:[_inputList count]];
         [pbTotalProgress setDoubleValue:0.0];
         [btnCancel setEnabled:TRUE];
         cancelCurrentOperation = false;
@@ -250,45 +252,45 @@
 }
 
 -(void)doModify:(BOOL)noClip albumMode:(BOOL)album{
-    NSMutableArray<Mp3GainTask*>* tasks = [NSMutableArray new];
-    if(!album || inputList.count == 1){
-        for(int i=0; i<[inputList count]; i++){
-            Mp3GainTask* m3t = [Mp3GainTask taskWithFile:[inputList objectAtIndex:i] action:M3G_Apply];
+    _tasks = [NSMutableArray new];
+    if(!album || _inputList.count == 1){
+        for(int i=0; i<[_inputList count]; i++){
+            Mp3GainTask* m3t = [Mp3GainTask taskWithFile:[_inputList objectAtIndex:i] action:M3G_Apply];
             m3t.NoClipping = noClip;
             m3t.DesiredDb = [NSNumber numberWithDouble:[txtTargetVolume floatValue]];
             __weak Mp3GainTask* taskBackup = m3t;
             m3t.onProcessingComplete = ^{
                 [self handleTaskCompletion:taskBackup];
             };
-            [tasks addObject:m3t];
+            [_tasks addObject:m3t];
         }
     }
     else{
         //Album mode - Don't process twice because it doesn't use analyze data
-        Mp3GainTask* m3t = [Mp3GainTask taskWithFiles:[inputList allObjects] action:M3G_Apply];
+        Mp3GainTask* m3t = [Mp3GainTask taskWithFiles:[_inputList allObjects] action:M3G_Apply];
         m3t.NoClipping = noClip;
         m3t.DesiredDb = [NSNumber numberWithDouble:[txtTargetVolume floatValue]];
         __weak Mp3GainTask* taskBackup = m3t;
         m3t.onProcessingComplete = ^{
             [self handleTaskCompletion:taskBackup];
         };
-        [tasks addObject:m3t];
+        [_tasks addObject:m3t];
     }
     
-    [cvProcessFiles setContent:tasks];
-    for(int i=0; i<tasks.count && i<[self getNumConcurrentTasks]; i++){
-        [[tasks objectAtIndex:i] process];
+    [cvProcessFiles setContent:_tasks];
+    for(int i=0; i<_tasks.count && i<[self getNumConcurrentTasks]; i++){
+        [[_tasks objectAtIndex:i] process];
     }
 }
 
 - (IBAction)doGainRemoval:(id)sender {
-    if(inputList.count > 0){
+    if(_inputList.count > 0){
         [NSApp beginSheet:pnlProgressView modalForWindow:_window modalDelegate:nil didEndSelector:nil contextInfo:nil];
         [lblStatus setStringValue:NSLocalizedStringFromTable(@"Working", @"ui_text", @"Working...")];
         [pbTotalProgress setUsesThreadedAnimation:YES];
         [pbTotalProgress startAnimation:self];
         [pbTotalProgress setMinValue:0.0];
-        [pbTotalProgress setMaxValue:[inputList count]];
+        [pbTotalProgress setMaxValue:[_inputList count]];
         [pbTotalProgress setDoubleValue:0.0];
         [btnCancel setEnabled:TRUE];
         cancelCurrentOperation = false;
@@ -299,8 +301,8 @@
 
 -(void)undoModify{
     NSMutableArray<Mp3GainTask*>* tasks = [NSMutableArray new];
-    for(int i=0; i<[inputList count]; i++){
-        Mp3GainTask* m3t = [Mp3GainTask taskWithFile:[inputList objectAtIndex:i] action:M3G_Undo];
+    for(int i=0; i<[_inputList count]; i++){
+        Mp3GainTask* m3t = [Mp3GainTask taskWithFile:[_inputList objectAtIndex:i] action:M3G_Undo];
         __weak Mp3GainTask* taskBackup = m3t;
         m3t.onProcessingComplete = ^{
             [self handleTaskCompletion:taskBackup];
@@ -322,13 +324,14 @@
     
     //Rebuild the pending file list without tasks that haven't started yet.
     NSMutableArray<Mp3GainTask*>* replacement = [NSMutableArray new];
-    for (Mp3GainTask* task in cvProcessFiles.content) {
+    for (Mp3GainTask* task in _tasks) {
         if(task.InProgress){
             [replacement addObject:task];
         }
     }
     [cvProcessFiles setContent:replacement];
-    double total = inputList.count - replacement.count;
+    _tasks = replacement;
+    double total = _inputList.count - replacement.count;
     [pbTotalProgress setDoubleValue:total];
 }
 

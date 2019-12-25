@@ -6,13 +6,15 @@
 #import <Cocoa/Cocoa.h>
 #import "m3gInputList.h"
 #import <AppKit/AppKit.h>
+#import "Mp3GainTask.h"
 
 @interface Mp3GainMacAppDelegate : NSObject <NSApplicationDelegate> {
+    m3gInputList *_inputList;
+    NSMutableArray<Mp3GainTask*> *_tasks;
     NSWindow *_window;
     IBOutlet NSView *vwMainBody;
     IBOutlet NSTableView *tblFileList;
     IBOutlet NSTextField *txtTargetVolume;
-    m3gInputList *inputList;
     IBOutlet NSPanel *pnlProgressView;
     IBOutlet NSCollectionView *cvProcessFiles;
     IBOutlet NSTextField *lblStatus;

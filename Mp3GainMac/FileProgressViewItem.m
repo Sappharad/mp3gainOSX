@@ -31,16 +31,24 @@
         if(self.itemTask.Files.count > 1){
             [self.pbStatus setIndeterminate:YES];
         }
-        else{
-            self.itemTask.onStatusUpdate = ^(double percentComplete) {
-                dispatch_async(dispatch_get_main_queue(), ^{
-                    if(self.pbStatus){
-                        if(!self.IsStarted){
-                            if(NSAppKitVersionNumber >= NSAppKitVersionNumber10_10){
-                                [self.pbStatus startAnimation:self];
-                            }
-                            self.IsStarted = YES;
+        self.itemTask.onStatusUpdate = ^(double percentComplete) {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                if(self.pbStatus){
+                    if(!self.IsStarted){
+                        if(self.itemTask.Files.count > 1){
+                            [self.pbStatus setIndeterminate:NO];
                         }
+                        if(NSAppKitVersionNumber >= NSAppKitVersionNumber10_10){
+                            [self.pbStatus startAnimation:self];
+                        }
+                        self.IsStarted = YES;
+                    }
+                    if(percentComplete == 100.0 && self.itemTask.Files.count > 1){
+                        //Go back to indeterminate at the end of Album gain because it takes a few seconds to apply
+                        //changes to all files after the scanning has finished.
+                        [self.pbStatus setIndeterminate:YES];
+                    }
+                    else{
                         if(NSAppKitVersionNumber < NSAppKitVersionNumber10_10){
                             [self.pbStatusOld setDoubleValue:percentComplete];
                         }
@@ -48,9 +56,10 @@
                             self.pbStatus.doubleValue = (double)percentComplete;
                         }
                     }
-                });
-            };
-        }
+                }
+            });
+        };
+        
         [_lblFilename setStringValue:[self.itemTask getDescription]];
     }
 }

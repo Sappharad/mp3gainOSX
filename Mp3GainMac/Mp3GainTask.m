@@ -123,14 +123,12 @@
     _statusPipe = [NSPipe pipe];
     [_task setStandardError:_statusPipe];
     
-    if(self.Files.count == 1){
-        _statusHandle = [_statusPipe fileHandleForReading];
-        [[NSNotificationCenter defaultCenter] addObserver:self
-                                                 selector:@selector(handleIncomingStatus:)
-                                                     name:NSFileHandleDataAvailableNotification
-                                                   object:_statusHandle];
-        [_statusHandle waitForDataInBackgroundAndNotifyForModes:@[NSDefaultRunLoopMode]];
-    }
+    _statusHandle = [_statusPipe fileHandleForReading];
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(handleIncomingStatus:)
+                                                 name:NSFileHandleDataAvailableNotification
+                                               object:_statusHandle];
+    [_statusHandle waitForDataInBackgroundAndNotifyForModes:@[NSDefaultRunLoopMode]];
     
     __weak Mp3GainTask* weakSelf = self;
     __weak NSPipe* weakDetails = _detailsPipe;
@@ -287,6 +285,7 @@
 
 -(void)handleErrorStream:(NSString*)actualText{
     NSRange percentLoc = [actualText rangeOfCharacterFromSet:[NSCharacterSet characterSetWithCharactersInString:@"%"]];
+    NSRange albumFiles = [actualText rangeOfString:[NSString stringWithFormat:@"/%lu]",(unsigned long)self.Files.count]];
     NSRange noChangesToUndo = [actualText rangeOfString:@"No changes to undo in"];
     NSRange noUnfoInfo = [actualText rangeOfString:@"No undo information in"];
     NSRange failedToModify = [actualText rangeOfString:@"The file was not modified."];
@@ -312,6 +311,35 @@
             _onStatusUpdate([progress doubleValue]);
         }
     }
+    else if(self.FatalError == NO && self.Files.count > 1 && actualText.length > 4 && albumFiles.location != NSNotFound){
+        NSUInteger bracketStart = [self findLeftBracket:actualText endingAt:albumFiles.location];
+        if(bracketStart != NSNotFound){
+            NSString* number = [actualText substringWithRange:NSMakeRange(bracketStart+1, albumFiles.location-1)];
+            NSNumber* progress = [[NSNumberFormatter new] numberFromString:number];
+            if(progress){
+                if(progress.intValue == self.Files.count){
+                    if(_onStatusUpdate){
+                        _onStatusUpdate(100.0);
+                    }
+                }
+                else{
+                    double percent = (progress.intValue-1) * 100.0 / self.Files.count;
+                    if(_onStatusUpdate){
+                        _onStatusUpdate(percent);
+                    }
+                }
+            }
+        }
+    }
+}
+
+-(NSInteger)findLeftBracket:(NSString*)actualText endingAt:(NSUInteger)end{
+    for(NSUInteger x = end; x >= 0; x--){
+        if([actualText characterAtIndex:x] == '['){
+            return x;
+        }
+    }
+    return NSNotFound;
 }
 
 @end
