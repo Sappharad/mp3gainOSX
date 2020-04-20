@@ -300,19 +300,19 @@
 }
 
 -(void)undoModify{
-    NSMutableArray<Mp3GainTask*>* tasks = [NSMutableArray new];
+    _tasks = [NSMutableArray new];
     for(int i=0; i<[_inputList count]; i++){
         Mp3GainTask* m3t = [Mp3GainTask taskWithFile:[_inputList objectAtIndex:i] action:M3G_Undo];
         __weak Mp3GainTask* taskBackup = m3t;
         m3t.onProcessingComplete = ^{
             [self handleTaskCompletion:taskBackup];
         };
-        [tasks addObject:m3t];
+        [_tasks addObject:m3t];
     }
     
-    [cvProcessFiles setContent:tasks];
-    for(int i=0; i<tasks.count && i<[self getNumConcurrentTasks]; i++){
-        [[tasks objectAtIndex:i] process];
+    [cvProcessFiles setContent:_tasks];
+    for(int i=0; i<_tasks.count && i<[self getNumConcurrentTasks]; i++){
+        [[_tasks objectAtIndex:i] process];
     }
 }
 
