@@ -71,7 +71,7 @@
     fbox.allowsOtherFileTypes = YES;
     [fbox setAllowsMultipleSelection:YES];
     [fbox beginSheetModalForWindow:_window completionHandler:^(NSInteger result) {
-        if(result == NSOKButton){
+        if(result == NSModalResponseOK){
             uint fileCount = (uint)[[fbox URLs] count];
             for (uint f=0; f<fileCount; f++) {
                 NSURL* selfile = [[fbox URLs] objectAtIndex:f];
@@ -101,7 +101,7 @@
         fbox.accessoryViewDisclosed = YES;
     }
     [fbox beginSheetModalForWindow:_window completionHandler:^(NSInteger result) {
-        if(result == NSOKButton){
+        if(result == NSModalResponseOK){
             uint folderCount = (uint)[[fbox URLs] count];
             int depthAmount = (int)[self->ddlSubfolders indexOfSelectedItem];
             for (uint f=0; f<folderCount; f++) {
@@ -145,7 +145,7 @@
 
 - (IBAction)btnAnalyze:(id)sender {
     if([self checkValidOperation] && _inputList.count > 0){
-        [NSApp beginSheet:pnlProgressView modalForWindow:_window modalDelegate:nil didEndSelector:nil contextInfo:nil];
+        [_window beginSheet:pnlProgressView completionHandler:nil];
         [lblStatus setStringValue:NSLocalizedStringFromTable(@"Working", @"ui_text", @"Working...")];
         [pbTotalProgress setUsesThreadedAnimation:YES];
         [pbTotalProgress startAnimation:self];
@@ -234,7 +234,7 @@
 
 - (IBAction)btnApplyGain:(id)sender {
     if([self checkValidOperation] && _inputList.count > 0){
-        [NSApp beginSheet:pnlProgressView modalForWindow:_window modalDelegate:nil didEndSelector:nil contextInfo:nil];
+        [_window beginSheet:pnlProgressView completionHandler:nil];
         [lblStatus setStringValue:NSLocalizedStringFromTable(@"Working", @"ui_text", @"Working...")];
         [pbTotalProgress setUsesThreadedAnimation:YES];
         [pbTotalProgress startAnimation:self];
@@ -285,7 +285,7 @@
 
 - (IBAction)doGainRemoval:(id)sender {
     if(_inputList.count > 0){
-        [NSApp beginSheet:pnlProgressView modalForWindow:_window modalDelegate:nil didEndSelector:nil contextInfo:nil];
+        [_window beginSheet:pnlProgressView completionHandler:nil];
         [lblStatus setStringValue:NSLocalizedStringFromTable(@"Working", @"ui_text", @"Working...")];
         [pbTotalProgress setUsesThreadedAnimation:YES];
         [pbTotalProgress startAnimation:self];
