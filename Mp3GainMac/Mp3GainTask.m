@@ -213,6 +213,7 @@
         NSRange albumGain = [line rangeOfString:@"Recommended \"Album\" dB change for all files: "];
         NSRange notMp3 = [line rangeOfString:@"Can't find any valid MP3 frames"];
         NSRange alsoNotMp3 = [line rangeOfString:@"MPEG Layer I file, not a layer III file"];
+        NSRange notMp4 = [line rangeOfString:@"is not a valid mp4/m4a file"];
         if(trackChange.location != NSNotFound){
             NSNumber* dbChange = [numberParse numberFromString:[line substringFromIndex:trackChange.location+trackChange.length]];
             if(dbChange){
@@ -262,6 +263,12 @@
             for (m3gInputItem* file in self.Files) {
                 file.state = 3; //Not MP3 Error
             }
+        }
+        else if(notMp4.location != NSNotFound){
+            for (m3gInputItem* file in self.Files) {
+                file.state = 2; //Unsupported
+            }
+            self.FatalError = YES;
         }
     }
 }
