@@ -1,0 +1,357 @@
+/* Class = "NSMenuItem"; title = "Bring All to Front"; ObjectID = "5"; */
+"5.title" = "Přenést vše do popředí";
+
+/* Class = "NSMenuItem"; title = "Window"; ObjectID = "19"; */
+"19.title" = "Okno";
+
+/* Class = "NSMenuItem"; title = "Minimize"; ObjectID = "23"; */
+"23.title" = "Minimalizovat";
+
+/* Class = "NSMenu"; title = "Window"; ObjectID = "24"; */
+"24.title" = "Okno";
+
+/* Class = "NSMenu"; title = "AMainMenu"; ObjectID = "29"; */
+"29.title" = "Hlavní menu";
+
+/* Class = "NSMenuItem"; title = "MP3Gain"; ObjectID = "56"; */
+"56.title" = "MP3Gain";
+
+/* Class = "NSMenu"; title = "MP3Gain"; ObjectID = "57"; */
+"57.title" = "MP3Gain";
+
+/* Class = "NSMenuItem"; title = "About MP3Gain Express"; ObjectID = "58"; */
+"58.title" = "O aplikaci MP3Gain Express";
+
+/* Class = "NSMenuItem"; title = "Open…"; ObjectID = "72"; */
+"72.title" = "Otevřít...";
+
+/* Class = "NSMenuItem"; title = "Close"; ObjectID = "73"; */
+"73.title" = "Zavřít";
+
+/* Class = "NSMenuItem"; title = "Save"; ObjectID = "75"; */
+"75.title" = "Uložit";
+
+/* Class = "NSMenuItem"; title = "Page Setup..."; ObjectID = "77"; */
+"77.title" = "Nastavení stránky...";
+
+/* Class = "NSMenuItem"; title = "Print…"; ObjectID = "78"; */
+"78.title" = "Vytisknout...";
+
+/* Class = "NSMenuItem"; title = "Save As…"; ObjectID = "80"; */
+"80.title" = "Uložit jako...";
+
+/* Class = "NSMenu"; title = "File"; ObjectID = "81"; */
+"81.title" = "Soubor";
+
+/* Class = "NSMenuItem"; title = "New"; ObjectID = "82"; */
+"82.title" = "Nový";
+
+/* Class = "NSMenuItem"; title = "File"; ObjectID = "83"; */
+"83.title" = "Soubor";
+
+/* Class = "NSMenuItem"; title = "Revert to Saved"; ObjectID = "112"; */
+"112.title" = "Vrátit do uložených";
+
+/* Class = "NSMenuItem"; title = "Open Recent"; ObjectID = "124"; */
+"124.title" = "Otevřít poslední";
+
+/* Class = "NSMenu"; title = "Open Recent"; ObjectID = "125"; */
+"125.title" = "Otevřít poslední";
+
+/* Class = "NSMenuItem"; title = "Clear Menu"; ObjectID = "126"; */
+"126.title" = "Vymazat menu";
+
+/* Class = "NSMenuItem"; title = "Preferences…"; ObjectID = "129"; */
+"129.title" = "Možnosti...";
+
+/* Class = "NSMenu"; title = "Services"; ObjectID = "130"; */
+"130.title" = "Služby";
+
+/* Class = "NSMenuItem"; title = "Services"; ObjectID = "131"; */
+"131.title" = "Služby";
+
+/* Class = "NSMenuItem"; title = "Hide MP3Gain"; ObjectID = "134"; */
+"134.title" = "Skrýt MP3Gain";
+
+/* Class = "NSMenuItem"; title = "Quit MP3Gain"; ObjectID = "136"; */
+"136.title" = "Ukončit MP3Gain";
+
+/* Class = "NSMenuItem"; title = "Hide Others"; ObjectID = "145"; */
+"145.title" = "Skrýt ostatní";
+
+/* Class = "NSMenuItem"; title = "Show All"; ObjectID = "150"; */
+"150.title" = "Zobrazit vše";
+
+/* Class = "NSMenuItem"; title = "Stop Speaking"; ObjectID = "195"; */
+"195.title" = "Zastavit mluvení";
+
+/* Class = "NSMenuItem"; title = "Start Speaking"; ObjectID = "196"; */
+"196.title" = "Spustit mluvení";
+
+/* Class = "NSMenuItem"; title = "Copy"; ObjectID = "197"; */
+"197.title" = "Kopírovat";
+
+/* Class = "NSMenuItem"; title = "Select All"; ObjectID = "198"; */
+"198.title" = "Označit vše";
+
+/* Class = "NSMenuItem"; title = "Cut"; ObjectID = "199"; */
+"199.title" = "Vystřihnout";
+
+/* Class = "NSMenu"; title = "Spelling and Grammar"; ObjectID = "200"; */
+"200.title" = "Pravopis a gramatika";
+
+/* Class = "NSMenuItem"; title = "Check Document Now"; ObjectID = "201"; */
+"201.title" = "Zkontrolovat dokument nyní";
+
+/* Class = "NSMenuItem"; title = "Delete"; ObjectID = "202"; */
+"202.title" = "Smazat";
+
+/* Class = "NSMenuItem"; title = "Paste"; ObjectID = "203"; */
+"203.title" = "Vložit";
+
+/* Class = "NSMenuItem"; title = "Show Spelling and Grammar"; ObjectID = "204"; */
+"204.title" = "Zobrazit pravopis a gramatiku";
+
+/* Class = "NSMenu"; title = "Edit"; ObjectID = "205"; */
+"205.title" = "Úpravy";
+
+/* Class = "NSMenuItem"; title = "Undo"; ObjectID = "207"; */
+"207.title" = "Vrátit zpět";
+
+/* Class = "NSMenuItem"; title = "Find Next"; ObjectID = "208"; */
+"208.title" = "Najít další";
+
+/* Class = "NSMenuItem"; title = "Find…"; ObjectID = "209"; */
+"209.title" = "Najít...";
+
+/* Class = "NSMenuItem"; title = "Jump to Selection"; ObjectID = "210"; */
+"210.title" = "Přejít na výběr";
+
+/* Class = "NSMenuItem"; title = "Speech"; ObjectID = "211"; */
+"211.title" = "Řeč";
+
+/* Class = "NSMenu"; title = "Speech"; ObjectID = "212"; */
+"212.title" = "Řeč";
+
+/* Class = "NSMenuItem"; title = "Find Previous"; ObjectID = "213"; */
+"213.title" = "Najít předchozí";
+
+/* Class = "NSMenuItem"; title = "Redo"; ObjectID = "215"; */
+"215.title" = "Provést znovu";
+
+/* Class = "NSMenuItem"; title = "Spelling and Grammar"; ObjectID = "216"; */
+"216.title" = "Pravopis a gramatika";
+
+/* Class = "NSMenuItem"; title = "Edit"; ObjectID = "217"; */
+"217.title" = "Upravit";
+
+/* Class = "NSMenuItem"; title = "Find"; ObjectID = "218"; */
+"218.title" = "Najít";
+
+/* Class = "NSMenuItem"; title = "Check Spelling While Typing"; ObjectID = "219"; */
+"219.title" = "Kontrolovat pravopis při psaní";
+
+/* Class = "NSMenu"; title = "Find"; ObjectID = "220"; */
+"220.title" = "Najít";
+
+/* Class = "NSMenuItem"; title = "Use Selection for Find"; ObjectID = "221"; */
+"221.title" = "Použít výběr pro hledání";
+
+/* Class = "NSMenuItem"; title = "Zoom"; ObjectID = "239"; */
+"239.title" = "Zoom";
+
+/* Class = "NSMenuItem"; title = "View"; ObjectID = "295"; */
+"295.title" = "Zobrazení";
+
+/* Class = "NSMenu"; title = "View"; ObjectID = "296"; */
+"296.title" = "Zobrazit";
+
+/* Class = "NSMenuItem"; title = "Show Toolbar"; ObjectID = "297"; */
+"297.title" = "Zobrazit panel nástrojů";
+
+/* Class = "NSMenuItem"; title = "Customize Toolbar…"; ObjectID = "298"; */
+"298.title" = "Upravit panel nástrojů...";
+
+/* Class = "NSMenuItem"; title = "Check Grammar With Spelling"; ObjectID = "346"; */
+"346.title" = "Kontrolovat gramatiku s pravopisem";
+
+/* Class = "NSMenuItem"; title = "Substitutions"; ObjectID = "348"; */
+"348.title" = "Střídání";
+
+/* Class = "NSMenu"; title = "Substitutions"; ObjectID = "349"; */
+"349.title" = "Střídání";
+
+/* Class = "NSMenuItem"; title = "Smart Copy/Paste"; ObjectID = "350"; */
+"350.title" = "Chytré kopírování/vložení";
+
+/* Class = "NSMenuItem"; title = "Smart Quotes"; ObjectID = "351"; */
+"351.title" = "Chytré uvozovky";
+
+/* Class = "NSMenuItem"; title = "Smart Links"; ObjectID = "354"; */
+"354.title" = "Chytré odkazy";
+
+/* Class = "NSWindow"; title = "MP3Gain Express"; ObjectID = "371"; */
+"371.title" = "MP3Gain Express";
+
+/* Class = "NSMenuItem"; title = "Transformations"; ObjectID = "450"; */
+"450.title" = "Změny";
+
+/* Class = "NSMenu"; title = "Transformations"; ObjectID = "451"; */
+"451.title" = "Změny";
+
+/* Class = "NSMenuItem"; title = "Make Upper Case"; ObjectID = "452"; */
+"452.title" = "Všechna písmena na velká";
+
+/* Class = "NSMenuItem"; title = "Correct Spelling Automatically"; ObjectID = "454"; */
+"454.title" = "Automaticky opravovat pravopis";
+
+/* Class = "NSMenuItem"; title = "Show Substitutions"; ObjectID = "457"; */
+"457.title" = "Zobrazit střídání";
+
+/* Class = "NSMenuItem"; title = "Smart Dashes"; ObjectID = "460"; */
+"460.title" = "Chytré pomlčky";
+
+/* Class = "NSMenuItem"; title = "Text Replacement"; ObjectID = "462"; */
+"462.title" = "Nahrazení textu";
+
+/* Class = "NSMenuItem"; title = "Make Lower Case"; ObjectID = "465"; */
+"465.title" = "Všechna písmena na malá";
+
+/* Class = "NSMenuItem"; title = "Capitalize"; ObjectID = "466"; */
+"466.title" = "Každé slovo s velkým písmenem";
+
+/* Class = "NSMenuItem"; title = "Paste and Match Style"; ObjectID = "485"; */
+"485.title" = "Styl vložení a porovnání";
+
+/* Class = "NSMenuItem"; title = "Help"; ObjectID = "490"; */
+"490.title" = "Nápověda";
+
+/* Class = "NSMenu"; title = "Help"; ObjectID = "491"; */
+"491.title" = "Nápověda";
+
+/* Class = "NSMenuItem"; title = "Mp3GainMac Help"; ObjectID = "492"; */
+"492.title" = "Nápověda Mp3Gain pro Mac";
+
+/* Class = "NSToolbarItem"; label = "Add Folder"; ObjectID = "541"; */
+"541.label" = "Přidat složku";
+
+/* Class = "NSToolbarItem"; paletteLabel = "Add Folder"; ObjectID = "541"; */
+"541.paletteLabel" = "Přidat složku";
+
+/* Class = "NSToolbarItem"; label = "Add File(s)"; ObjectID = "542"; */
+"542.label" = "Přidat soubor(y)";
+
+/* Class = "NSToolbarItem"; paletteLabel = "Add File(s)"; ObjectID = "542"; */
+"542.paletteLabel" = "Přidat soubor(y)";
+
+/* Class = "NSToolbarItem"; label = "Clear File"; ObjectID = "543"; */
+"543.label" = "Vymazat soubor";
+
+/* Class = "NSToolbarItem"; paletteLabel = "Clear File"; ObjectID = "543"; */
+"543.paletteLabel" = "Vymazat soubor";
+
+/* Class = "NSToolbarItem"; label = "Clear All"; ObjectID = "544"; */
+"544.label" = "Vymazat vše";
+
+/* Class = "NSToolbarItem"; paletteLabel = "Clear All"; ObjectID = "544"; */
+"544.paletteLabel" = "Vymazat vše";
+
+/* Class = "NSBox"; title = "Box"; ObjectID = "545"; */
+"545.title" = "Box";
+
+/* Class = "NSTextFieldCell"; title = "Target \"Normal\" Volume:"; ObjectID = "547"; */
+"547.title" = "Cílová hlasitost pro \"Normální\":";
+
+/* Class = "NSTextFieldCell"; title = "89.0"; ObjectID = "549"; */
+"549.title" = "89.0";
+
+/* Class = "NSTextFieldCell"; title = "dB (Default 89.0)"; ObjectID = "551"; */
+"551.title" = "dB (výchozí 89.0)";
+
+/* Class = "NSTableColumn"; headerCell.title = "File"; ObjectID = "557"; */
+"557.headerCell.title" = "Soubor";
+
+/* Class = "NSTableColumn"; headerCell.title = "Volume"; ObjectID = "558"; */
+"558.headerCell.title" = "Hlasitost";
+
+/* Class = "NSTextFieldCell"; title = "Text Cell"; ObjectID = "559"; */
+"559.title" = "Textová buňka";
+
+/* Class = "NSTextFieldCell"; title = "Text Cell"; ObjectID = "560"; */
+"560.title" = "Textová buňka";
+
+/* Class = "NSTableColumn"; headerCell.title = "Clipping"; ObjectID = "561"; */
+"561.headerCell.title" = "Ořez";
+
+/* Class = "NSTextFieldCell"; title = "Text Cell"; ObjectID = "562"; */
+"562.title" = "Textová buňka";
+
+/* Class = "NSTableColumn"; headerCell.title = "Track Gain"; ObjectID = "563"; */
+"563.headerCell.title" = "Zesílení stopy";
+
+/* Class = "NSTextFieldCell"; title = "Text Cell"; ObjectID = "564"; */
+"564.title" = "Textová buňka";
+
+/* Class = "NSButtonCell"; title = "Apply Gain"; ObjectID = "566"; */
+"566.title" = "Použít zesílení";
+
+/* Class = "NSButtonCell"; title = "Analyze Only"; ObjectID = "570"; */
+"570.title" = "Jen analyzovat";
+
+/* Class = "NSWindow"; title = "Processing"; ObjectID = "581"; */
+"581.title" = "Zpracovávání";
+
+/* Class = "NSButtonCell"; title = "Cancel"; ObjectID = "591"; */
+"591.title" = "Zrušit";
+
+/* Class = "NSMenuItem"; title = "Check for Updates..."; ObjectID = "602"; */
+"602.title" = "Zkontrolovat aktualizace...";
+
+/* Class = "NSMenu"; title = "OtherViews"; ObjectID = "608"; */
+"608.title" = "OtherViews";
+
+/* Class = "NSMenuItem"; title = "None"; ObjectID = "609"; */
+"609.title" = "Žádné";
+
+/* Class = "NSMenuItem"; title = "Ignore this"; ObjectID = "610"; */
+"610.title" = "Ignorovat toto";
+
+/* Class = "NSTextFieldCell"; title = "Include subfolders:"; ObjectID = "613"; */
+"613.title" = "Včetně podsložek:";
+
+/* Class = "NSMenuItem"; title = "Undo Gain"; ObjectID = "619"; */
+"619.title" = "Vrátit zesílení";
+
+/* Class = "NSButtonCell"; title = "Prevent clipping"; ObjectID = "623"; */
+"623.title" = "Zabránit ořezu";
+
+/* Class = "NSWindow"; title = "Preferences"; ObjectID = "Aev-Ki-F4W"; */
+"Aev-Ki-F4W.title" = "Možnosti";
+
+/* Class = "NSTextFieldCell"; title = "Number of files to process concurrently:"; ObjectID = "crR-ku-ywK"; */
+"crR-ku-ywK.title" = "Počet najednou zpracovávaných souborů:";
+
+/* Class = "NSWindow"; title = "Warning"; ObjectID = "G5f-zl-mMe"; */
+"G5f-zl-mMe.title" = "Varování";
+
+/* Class = "NSTextFieldCell"; title = "Working..."; ObjectID = "g6k-a3-omT"; */
+"g6k-a3-omT.title" = "Pracuje se...";
+
+/* Class = "NSTextFieldCell"; title = "In some situations the modifications made by MP3Gain could damage your files. If you have never used this application before or are concerned about the results, please backup your original files before making changes to them."; ObjectID = "HI7-yn-PLY"; */
+"HI7-yn-PLY.title" = "V některých situacích mohou úpravy provedené aplikací MP3Gain poškodit Vaše soubory. Pokud jste tuto aplikaci nikdy předtím nepoužívali nebo se bojíte výsledků, pak si před provedením změn zálohujte původní soubory.";
+
+/* Class = "NSButtonCell"; title = "Remember Volume settings"; ObjectID = "irH-wR-qXa"; */
+"irH-wR-qXa.title" = "Zapamatovat nastavení hlasitosti";
+
+/* Class = "NSTextFieldCell"; title = "2"; ObjectID = "KYc-Sl-pe2"; */
+"KYc-Sl-pe2.title" = "2";
+
+/* Class = "NSButtonCell"; title = "Do not show this warning again"; ObjectID = "n96-eJ-xcx"; */
+"n96-eJ-xcx.title" = "Příště toto varování nezobrazovat";
+
+/* Class = "NSButtonCell"; title = "Check for Updates"; ObjectID = "OoD-7m-r77"; */
+"OoD-7m-r77.title" = "Zkontrolovat aktualizace";
+
+/* Class = "NSButtonCell"; title = "Album Mode"; ObjectID = "T3j-wI-fiL"; */
+"T3j-wI-fiL.title" = "Režim Album";
+

@@ -1,0 +1,61 @@
+/* 1_Below */
+"1_Below" = "1 podsložka níže";
+
+/* 2_Below */
+"2_Below" = "2 podsložky níže";
+
+/* 3_Below */
+"3_Below" = "3 podsložky níže";
+
+/* 4_Below */
+"4_Below" = "4 podsložky níže";
+
+/* 5_Below */
+"5_Below" = "5 podsložek níže";
+
+/* ui_text.strings
+  MP3GainExpress */
+"Canceling_soon" = "** Brzy bude zrušeno... **";
+
+/* Do not show this warning again */
+"DontWarnAgain" = "Příště toto varování nezobrazovat";
+
+/* Invalid target volume! */
+"InvalidVolume" = "Neplatná cílová hlasitost!";
+
+/* (No Comment) */
+"MP3Gain_Error" = "Chyba MP3Gain";
+
+/* No */
+"No" = "Ne";
+
+/* (No Comment) */
+"No_MP3_Frames" = "V aktuálním souboru nelze najít žádné platné snímky MP3!";
+
+/* None */
+"None" = "Žádné";
+
+/* Alert messages from Mp3Gain */
+"Not_MP3_file" = "Toto není soubor MP3";
+
+/* Can't Undo */
+"NoUndo" = "Nelze vrátit";
+
+/* OK */
+"OK" = "OK";
+
+/* Process as Album... */
+"reprocessAlbum" = "Zpracovat jako Album...";
+
+/* Unsupported File */
+"UnsupportedFile" = "Není kompatibilní!";
+
+/* The target volume should be a number between 50 and 100 dB. */
+"VolumeInfo" = "Cílová hlasitost by mělo být číslo mezi 50 a 100 dB.";
+
+/* Working... */
+"Working" = "Pracuje se...";
+
+/* Yes */
+"Yes" = "Ano";
+

@@ -400,9 +400,9 @@
         </menu>
         <window title="MP3Gain Express" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" animationBehavior="default" toolbarStyle="expanded" id="371" userLabel="MainWindow" customClass="M3GWindow">
             <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES" texturedBackground="YES"/>
-            <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
             <rect key="contentRect" x="335" y="390" width="535" height="360"/>
             <rect key="screenRect" x="0.0" y="0.0" width="1920" height="1055"/>
+            <value key="minSize" type="size" width="535" height="360"/>
             <view key="contentView" id="372">
                 <rect key="frame" x="0.0" y="0.0" width="535" height="360"/>
                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -481,7 +481,7 @@
                                     <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                     <color key="gridColor" name="gridColor" catalog="System" colorSpace="catalog"/>
                                     <tableColumns>
-                                        <tableColumn identifier="File" editable="NO" width="256" minWidth="40" maxWidth="1000" id="557">
+                                        <tableColumn identifier="File" editable="NO" width="227" minWidth="40" maxWidth="1000" id="557">
                                             <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left" title="Archivo">
                                                 <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
                                                 <color key="backgroundColor" white="0.33333298560000002" alpha="1" colorSpace="calibratedWhite"/>
@@ -614,30 +614,22 @@
             </view>
             <toolbar key="toolbar" implicitIdentifier="76DE11AB-7933-429A-AC56-D54FEC11EA9F" displayMode="iconAndLabel" sizeMode="regular" id="533">
                 <allowedToolbarItems>
-                    <toolbarItem implicitItemIdentifier="2FF9C9A2-1597-44AC-93F2-B97E0185C60D" label="Añadir Archivo(s)" paletteLabel="Añadir Archivo(s)" tag="-1" image="AddSong" selectable="YES" id="542" userLabel="Toolbar Item - Add File(s)">
-                        <size key="minSize" width="16" height="16"/>
-                        <size key="maxSize" width="16" height="16"/>
+                    <toolbarItem implicitItemIdentifier="2FF9C9A2-1597-44AC-93F2-B97E0185C60D" label="Añadir Archivo(s)" paletteLabel="Añadir Archivo(s)" tag="-1" image="AddSong" sizingBehavior="auto" selectable="YES" id="542" userLabel="Toolbar Item - Add File(s)">
                         <connections>
                             <action selector="btnAddFiles:" target="494" id="573"/>
                         </connections>
                     </toolbarItem>
-                    <toolbarItem implicitItemIdentifier="32D90B8B-4BE4-4963-A414-F9ADEFCC028C" label="Añadir Carpeta" paletteLabel="Añadir Carpeta" tag="-1" image="AddFolder" selectable="YES" id="541">
-                        <size key="minSize" width="22" height="22"/>
-                        <size key="maxSize" width="22" height="22"/>
+                    <toolbarItem implicitItemIdentifier="32D90B8B-4BE4-4963-A414-F9ADEFCC028C" label="Añadir Carpeta" paletteLabel="Añadir Carpeta" tag="-1" image="AddFolder" sizingBehavior="auto" selectable="YES" id="541">
                         <connections>
                             <action selector="btnAddFolder:" target="494" id="574"/>
                         </connections>
                     </toolbarItem>
-                    <toolbarItem implicitItemIdentifier="D34C886F-E5FA-4108-9333-1DC32D42CBE5" label="Quitar Archivo" paletteLabel="Quitar Archivo" tag="-1" image="ClearSong" selectable="YES" id="543" userLabel="Toolbar Item - Clear File">
-                        <size key="minSize" width="22" height="22"/>
-                        <size key="maxSize" width="22" height="22"/>
+                    <toolbarItem implicitItemIdentifier="D34C886F-E5FA-4108-9333-1DC32D42CBE5" label="Quitar Archivo" paletteLabel="Quitar Archivo" tag="-1" image="ClearSong" sizingBehavior="auto" selectable="YES" id="543" userLabel="Toolbar Item - Clear File">
                         <connections>
                             <action selector="btnClearFile:" target="494" id="575"/>
                         </connections>
                     </toolbarItem>
-                    <toolbarItem implicitItemIdentifier="0AF7732F-ED77-4442-BE0F-44C241E9382D" label="Quitar Todos" paletteLabel="Quitar Todos" tag="-1" image="ClearAll" selectable="YES" id="544">
-                        <size key="minSize" width="22" height="22"/>
-                        <size key="maxSize" width="22" height="22"/>
+                    <toolbarItem implicitItemIdentifier="0AF7732F-ED77-4442-BE0F-44C241E9382D" label="Quitar Todos" paletteLabel="Quitar Todos" tag="-1" image="ClearAll" sizingBehavior="auto" selectable="YES" id="544">
                         <connections>
                             <action selector="btnClearAll:" target="494" id="576"/>
                         </connections>

@@ -18,7 +18,7 @@
                 <menuItem title="MP3Gain" id="56">
                     <menu key="submenu" title="MP3Gain" systemMenu="apple" id="57">
                         <items>
-                            <menuItem title="About MP3Gain Express" id="58">
+                            <menuItem title="O aplikaci MP3Gain Express" id="58">
                                 <modifierMask key="keyEquivalentModifierMask"/>
                                 <connections>
                                     <action selector="orderFrontStandardAboutPanel:" target="-2" id="142"/>
@@ -27,14 +27,14 @@
                             <menuItem isSeparatorItem="YES" id="236">
                                 <modifierMask key="keyEquivalentModifierMask" command="YES"/>
                             </menuItem>
-                            <menuItem title="Check for Updates..." id="602">
+                            <menuItem title="Zkontrolovat aktualizace..." id="602">
                                 <modifierMask key="keyEquivalentModifierMask"/>
                                 <connections>
                                     <action selector="checkForUpdates:" target="601" id="604"/>
                                 </connections>
                             </menuItem>
                             <menuItem isSeparatorItem="YES" id="603"/>
-                            <menuItem title="Preferences…" keyEquivalent="," id="129">
+                            <menuItem title="Možnosti..." keyEquivalent="," id="129">
                                 <connections>
                                     <action selector="showPreferences:" target="494" id="p6C-j4-1pg"/>
                                 </connections>
@@ -42,24 +42,24 @@
                             <menuItem isSeparatorItem="YES" id="143">
                                 <modifierMask key="keyEquivalentModifierMask" command="YES"/>
                             </menuItem>
-                            <menuItem title="Services" id="131">
-                                <menu key="submenu" title="Services" systemMenu="services" id="130"/>
+                            <menuItem title="Služby" id="131">
+                                <menu key="submenu" title="Služby" systemMenu="services" id="130"/>
                             </menuItem>
                             <menuItem isSeparatorItem="YES" id="144">
                                 <modifierMask key="keyEquivalentModifierMask" command="YES"/>
                             </menuItem>
-                            <menuItem title="Hide MP3Gain" keyEquivalent="h" id="134">
+                            <menuItem title="Skrýt MP3Gain" keyEquivalent="h" id="134">
                                 <connections>
                                     <action selector="hide:" target="-1" id="367"/>
                                 </connections>
                             </menuItem>
-                            <menuItem title="Hide Others" keyEquivalent="h" id="145">
+                            <menuItem title="Skrýt ostatní" keyEquivalent="h" id="145">
                                 <modifierMask key="keyEquivalentModifierMask" option="YES" command="YES"/>
                                 <connections>
                                     <action selector="hideOtherApplications:" target="-1" id="368"/>
                                 </connections>
                             </menuItem>
-                            <menuItem title="Show All" id="150">
+                            <menuItem title="Zobrazit vše" id="150">
                                 <connections>
                                     <action selector="unhideAllApplications:" target="-1" id="370"/>
                                 </connections>
@@ -67,7 +67,7 @@
                             <menuItem isSeparatorItem="YES" id="149">
                                 <modifierMask key="keyEquivalentModifierMask" command="YES"/>
                             </menuItem>
-                            <menuItem title="Quit MP3Gain" keyEquivalent="q" id="136">
+                            <menuItem title="Ukončit MP3Gain" keyEquivalent="q" id="136">
                                 <connections>
                                     <action selector="terminate:" target="-3" id="449"/>
                                 </connections>
@@ -75,23 +75,23 @@
                         </items>
                     </menu>
                 </menuItem>
-                <menuItem title="File" id="83">
-                    <menu key="submenu" title="File" id="81">
+                <menuItem title="Soubor" id="83">
+                    <menu key="submenu" title="Soubor" id="81">
                         <items>
-                            <menuItem title="New" keyEquivalent="n" id="82">
+                            <menuItem title="Nový" keyEquivalent="n" id="82">
                                 <connections>
                                     <action selector="newDocument:" target="-1" id="373"/>
                                 </connections>
                             </menuItem>
-                            <menuItem title="Open…" keyEquivalent="o" id="72">
+                            <menuItem title="Otevřít..." keyEquivalent="o" id="72">
                                 <connections>
                                     <action selector="openDocument:" target="-1" id="374"/>
                                 </connections>
                             </menuItem>
-                            <menuItem title="Open Recent" id="124">
-                                <menu key="submenu" title="Open Recent" systemMenu="recentDocuments" id="125">
+                            <menuItem title="Otevřít poslední" id="124">
+                                <menu key="submenu" title="Otevřít poslední" systemMenu="recentDocuments" id="125">
                                     <items>
-                                        <menuItem title="Clear Menu" id="126">
+                                        <menuItem title="Vymazat menu" id="126">
                                             <connections>
                                                 <action selector="clearRecentDocuments:" target="-1" id="127"/>
                                             </connections>
@@ -102,23 +102,23 @@
                             <menuItem isSeparatorItem="YES" id="79">
                                 <modifierMask key="keyEquivalentModifierMask" command="YES"/>
                             </menuItem>
-                            <menuItem title="Close" keyEquivalent="w" id="73">
+                            <menuItem title="Zavřít" keyEquivalent="w" id="73">
                                 <connections>
                                     <action selector="performClose:" target="-1" id="193"/>
                                 </connections>
                             </menuItem>
-                            <menuItem title="Save" keyEquivalent="s" id="75">
+                            <menuItem title="Uložit" keyEquivalent="s" id="75">
                                 <connections>
                                     <action selector="saveDocument:" target="-1" id="362"/>
                                 </connections>
                             </menuItem>
-                            <menuItem title="Save As…" keyEquivalent="S" id="80">
+                            <menuItem title="Uložit jako..." keyEquivalent="S" id="80">
                                 <modifierMask key="keyEquivalentModifierMask" shift="YES" command="YES"/>
                                 <connections>
                                     <action selector="saveDocumentAs:" target="-1" id="363"/>
                                 </connections>
                             </menuItem>
-                            <menuItem title="Revert to Saved" id="112">
+                            <menuItem title="Vrátit do uložených" id="112">
                                 <modifierMask key="keyEquivalentModifierMask"/>
                                 <connections>
                                     <action selector="revertDocumentToSaved:" target="-1" id="364"/>
@@ -127,13 +127,13 @@
                             <menuItem isSeparatorItem="YES" id="74">
                                 <modifierMask key="keyEquivalentModifierMask" command="YES"/>
                             </menuItem>
-                            <menuItem title="Page Setup..." keyEquivalent="P" id="77">
+                            <menuItem title="Nastavení stránky..." keyEquivalent="P" id="77">
                                 <modifierMask key="keyEquivalentModifierMask" shift="YES" command="YES"/>
                                 <connections>
                                     <action selector="runPageLayout:" target="-1" id="87"/>
                                 </connections>
                             </menuItem>
-                            <menuItem title="Print…" keyEquivalent="p" id="78">
+                            <menuItem title="Vytisknout..." keyEquivalent="p" id="78">
                                 <connections>
                                     <action selector="print:" target="-1" id="86"/>
                                 </connections>
@@ -141,15 +141,15 @@
                         </items>
                     </menu>
                 </menuItem>
-                <menuItem title="Edit" id="217">
-                    <menu key="submenu" title="Edit" id="205">
+                <menuItem title="Úpravy" id="217">
+                    <menu key="submenu" title="Úpravy" id="205">
                         <items>
-                            <menuItem title="Undo" keyEquivalent="z" id="207">
+                            <menuItem title="Vrátit zpět" keyEquivalent="z" id="207">
                                 <connections>
                                     <action selector="undo:" target="-1" id="223"/>
                                 </connections>
                             </menuItem>
-                            <menuItem title="Redo" keyEquivalent="Z" id="215">
+                            <menuItem title="Provést znovu" keyEquivalent="Z" id="215">
                                 <modifierMask key="keyEquivalentModifierMask" shift="YES" command="YES"/>
                                 <connections>
                                     <action selector="redo:" target="-1" id="231"/>
@@ -158,33 +158,33 @@
                             <menuItem isSeparatorItem="YES" id="206">
                                 <modifierMask key="keyEquivalentModifierMask" command="YES"/>
                             </menuItem>
-                            <menuItem title="Cut" keyEquivalent="x" id="199">
+                            <menuItem title="Vystřihnout" keyEquivalent="x" id="199">
                                 <connections>
                                     <action selector="cut:" target="-1" id="228"/>
                                 </connections>
                             </menuItem>
-                            <menuItem title="Copy" keyEquivalent="c" id="197">
+                            <menuItem title="Kopírovat" keyEquivalent="c" id="197">
                                 <connections>
                                     <action selector="copy:" target="-1" id="224"/>
                                 </connections>
                             </menuItem>
-                            <menuItem title="Paste" keyEquivalent="v" id="203">
+                            <menuItem title="Vložit" keyEquivalent="v" id="203">
                                 <connections>
                                     <action selector="paste:" target="-1" id="226"/>
                                 </connections>
                             </menuItem>
-                            <menuItem title="Paste and Match Style" keyEquivalent="V" id="485">
+                            <menuItem title="Styl vložení a porovnání" keyEquivalent="V" id="485">
                                 <modifierMask key="keyEquivalentModifierMask" option="YES" command="YES"/>
                                 <connections>
                                     <action selector="pasteAsPlainText:" target="-1" id="486"/>
                                 </connections>
                             </menuItem>
-                            <menuItem title="Delete" id="202">
+                            <menuItem title="Smazat" id="202">
                                 <connections>
                                     <action selector="delete:" target="-1" id="235"/>
                                 </connections>
                             </menuItem>
-                            <menuItem title="Select All" keyEquivalent="a" id="198">
+                            <menuItem title="Označit vše" keyEquivalent="a" id="198">
                                 <connections>
                                     <action selector="selectAll:" target="-1" id="232"/>
                                 </connections>
@@ -192,31 +192,31 @@
                             <menuItem isSeparatorItem="YES" id="214">
                                 <modifierMask key="keyEquivalentModifierMask" command="YES"/>
                             </menuItem>
-                            <menuItem title="Find" id="218">
-                                <menu key="submenu" title="Find" id="220">
+                            <menuItem title="Najít" id="218">
+                                <menu key="submenu" title="Najít" id="220">
                                     <items>
-                                        <menuItem title="Find…" tag="1" keyEquivalent="f" id="209">
+                                        <menuItem title="Najít..." tag="1" keyEquivalent="f" id="209">
                                             <connections>
                                                 <action selector="performFindPanelAction:" target="-1" id="241"/>
                                             </connections>
                                         </menuItem>
-                                        <menuItem title="Find Next" tag="2" keyEquivalent="g" id="208">
+                                        <menuItem title="Najít další" tag="2" keyEquivalent="g" id="208">
                                             <connections>
                                                 <action selector="performFindPanelAction:" target="-1" id="487"/>
                                             </connections>
                                         </menuItem>
-                                        <menuItem title="Find Previous" tag="3" keyEquivalent="G" id="213">
+                                        <menuItem title="Najít předchozí" tag="3" keyEquivalent="G" id="213">
                                             <modifierMask key="keyEquivalentModifierMask" shift="YES" command="YES"/>
                                             <connections>
                                                 <action selector="performFindPanelAction:" target="-1" id="488"/>
                                             </connections>
                                         </menuItem>
-                                        <menuItem title="Use Selection for Find" tag="7" keyEquivalent="e" id="221">
+                                        <menuItem title="Použít výběr pro hledání" tag="7" keyEquivalent="e" id="221">
                                             <connections>
                                                 <action selector="performFindPanelAction:" target="-1" id="489"/>
                                             </connections>
                                         </menuItem>
-                                        <menuItem title="Jump to Selection" keyEquivalent="j" id="210">
+                                        <menuItem title="Přejít na výběr" keyEquivalent="j" id="210">
                                             <connections>
                                                 <action selector="centerSelectionInVisibleArea:" target="-1" id="245"/>
                                             </connections>
@@ -224,31 +224,31 @@
                                     </items>
                                 </menu>
                             </menuItem>
-                            <menuItem title="Spelling and Grammar" id="216">
-                                <menu key="submenu" title="Spelling and Grammar" id="200">
+                            <menuItem title="Pravopis a gramatika" id="216">
+                                <menu key="submenu" title="Pravopis a gramatika" id="200">
                                     <items>
-                                        <menuItem title="Show Spelling and Grammar" keyEquivalent=":" id="204">
+                                        <menuItem title="Zobrazit pravopis a gramatiku" keyEquivalent=":" id="204">
                                             <connections>
                                                 <action selector="showGuessPanel:" target="-1" id="230"/>
                                             </connections>
                                         </menuItem>
-                                        <menuItem title="Check Document Now" keyEquivalent=";" id="201">
+                                        <menuItem title="Zkontrolovat dokument nyní" keyEquivalent=";" id="201">
                                             <connections>
                                                 <action selector="checkSpelling:" target="-1" id="225"/>
                                             </connections>
                                         </menuItem>
                                         <menuItem isSeparatorItem="YES" id="453"/>
-                                        <menuItem title="Check Spelling While Typing" id="219">
+                                        <menuItem title="Kontrolovat pravopis při psaní" id="219">
                                             <connections>
                                                 <action selector="toggleContinuousSpellChecking:" target="-1" id="222"/>
                                             </connections>
                                         </menuItem>
-                                        <menuItem title="Check Grammar With Spelling" id="346">
+                                        <menuItem title="Kontrolovat gramatiku s pravopisem" id="346">
                                             <connections>
                                                 <action selector="toggleGrammarChecking:" target="-1" id="347"/>
                                             </connections>
                                         </menuItem>
-                                        <menuItem title="Correct Spelling Automatically" id="454">
+                                        <menuItem title="Automaticky opravovat pravopis" id="454">
                                             <modifierMask key="keyEquivalentModifierMask"/>
                                             <connections>
                                                 <action selector="toggleAutomaticSpellingCorrection:" target="-1" id="456"/>
@@ -257,39 +257,39 @@
                                     </items>
                                 </menu>
                             </menuItem>
-                            <menuItem title="Substitutions" id="348">
-                                <menu key="submenu" title="Substitutions" id="349">
+                            <menuItem title="Střídání" id="348">
+                                <menu key="submenu" title="Střídání" id="349">
                                     <items>
-                                        <menuItem title="Show Substitutions" id="457">
+                                        <menuItem title="Zobrazit střídání" id="457">
                                             <modifierMask key="keyEquivalentModifierMask"/>
                                             <connections>
                                                 <action selector="orderFrontSubstitutionsPanel:" target="-1" id="458"/>
                                             </connections>
                                         </menuItem>
                                         <menuItem isSeparatorItem="YES" id="459"/>
-                                        <menuItem title="Smart Copy/Paste" tag="1" keyEquivalent="f" id="350">
+                                        <menuItem title="Chytré kopírování/vložení" tag="1" keyEquivalent="f" id="350">
                                             <connections>
                                                 <action selector="toggleSmartInsertDelete:" target="-1" id="355"/>
                                             </connections>
                                         </menuItem>
-                                        <menuItem title="Smart Quotes" tag="2" keyEquivalent="g" id="351">
+                                        <menuItem title="Chytré uvozovky" tag="2" keyEquivalent="g" id="351">
                                             <connections>
                                                 <action selector="toggleAutomaticQuoteSubstitution:" target="-1" id="356"/>
                                             </connections>
                                         </menuItem>
-                                        <menuItem title="Smart Dashes" id="460">
+                                        <menuItem title="Chytré pomlčky" id="460">
                                             <modifierMask key="keyEquivalentModifierMask"/>
                                             <connections>
                                                 <action selector="toggleAutomaticDashSubstitution:" target="-1" id="461"/>
                                             </connections>
                                         </menuItem>
-                                        <menuItem title="Smart Links" tag="3" keyEquivalent="G" id="354">
+                                        <menuItem title="Chytré odkazy" tag="3" keyEquivalent="G" id="354">
                                             <modifierMask key="keyEquivalentModifierMask" shift="YES" command="YES"/>
                                             <connections>
                                                 <action selector="toggleAutomaticLinkDetection:" target="-1" id="357"/>
                                             </connections>
                                         </menuItem>
-                                        <menuItem title="Text Replacement" id="462">
+                                        <menuItem title="Nahrazení textu" id="462">
                                             <modifierMask key="keyEquivalentModifierMask"/>
                                             <connections>
                                                 <action selector="toggleAutomaticTextReplacement:" target="-1" id="463"/>
@@ -298,23 +298,23 @@
                                     </items>
                                 </menu>
                             </menuItem>
-                            <menuItem title="Transformations" id="450">
+                            <menuItem title="Změny" id="450">
                                 <modifierMask key="keyEquivalentModifierMask"/>
-                                <menu key="submenu" title="Transformations" id="451">
+                                <menu key="submenu" title="Změny" id="451">
                                     <items>
-                                        <menuItem title="Make Upper Case" id="452">
+                                        <menuItem title="Všechna písmena na velká" id="452">
                                             <modifierMask key="keyEquivalentModifierMask"/>
                                             <connections>
                                                 <action selector="uppercaseWord:" target="-1" id="464"/>
                                             </connections>
                                         </menuItem>
-                                        <menuItem title="Make Lower Case" id="465">
+                                        <menuItem title="Všechna písmena na malá" id="465">
                                             <modifierMask key="keyEquivalentModifierMask"/>
                                             <connections>
                                                 <action selector="lowercaseWord:" target="-1" id="468"/>
                                             </connections>
                                         </menuItem>
-                                        <menuItem title="Capitalize" id="466">
+                                        <menuItem title="Každé slovo s velkým písmenem" id="466">
                                             <modifierMask key="keyEquivalentModifierMask"/>
                                             <connections>
                                                 <action selector="capitalizeWord:" target="-1" id="467"/>
@@ -323,15 +323,15 @@
                                     </items>
                                 </menu>
                             </menuItem>
-                            <menuItem title="Speech" id="211">
-                                <menu key="submenu" title="Speech" id="212">
+                            <menuItem title="Řeč" id="211">
+                                <menu key="submenu" title="Řeč" id="212">
                                     <items>
-                                        <menuItem title="Start Speaking" id="196">
+                                        <menuItem title="Spustit mluvení" id="196">
                                             <connections>
                                                 <action selector="startSpeaking:" target="-1" id="233"/>
                                             </connections>
                                         </menuItem>
-                                        <menuItem title="Stop Speaking" id="195">
+                                        <menuItem title="Zastavit mluvení" id="195">
                                             <connections>
                                                 <action selector="stopSpeaking:" target="-1" id="227"/>
                                             </connections>
@@ -342,16 +342,16 @@
                         </items>
                     </menu>
                 </menuItem>
-                <menuItem title="View" id="295">
-                    <menu key="submenu" title="View" id="296">
+                <menuItem title="Zobrazit" id="295">
+                    <menu key="submenu" title="Zobrazit" id="296">
                         <items>
-                            <menuItem title="Show Toolbar" keyEquivalent="t" id="297">
+                            <menuItem title="Zobrazit panel nástrojů" keyEquivalent="t" id="297">
                                 <modifierMask key="keyEquivalentModifierMask" option="YES" command="YES"/>
                                 <connections>
                                     <action selector="toggleToolbarShown:" target="-1" id="366"/>
                                 </connections>
                             </menuItem>
-                            <menuItem title="Customize Toolbar…" id="298">
+                            <menuItem title="Upravit panel nástrojů..." id="298">
                                 <connections>
                                     <action selector="runToolbarCustomizationPalette:" target="-1" id="365"/>
                                 </connections>
@@ -359,10 +359,10 @@
                         </items>
                     </menu>
                 </menuItem>
-                <menuItem title="Window" id="19">
-                    <menu key="submenu" title="Window" systemMenu="window" id="24">
+                <menuItem title="Okno" id="19">
+                    <menu key="submenu" title="Okno" systemMenu="window" id="24">
                         <items>
-                            <menuItem title="Minimize" keyEquivalent="m" id="23">
+                            <menuItem title="Minimalizovat" keyEquivalent="m" id="23">
                                 <connections>
                                     <action selector="performMiniaturize:" target="-1" id="37"/>
                                 </connections>
@@ -375,7 +375,7 @@
                             <menuItem isSeparatorItem="YES" id="92">
                                 <modifierMask key="keyEquivalentModifierMask" command="YES"/>
                             </menuItem>
-                            <menuItem title="Bring All to Front" id="5">
+                            <menuItem title="Přenést vše do popředí" id="5">
                                 <connections>
                                     <action selector="arrangeInFront:" target="-1" id="39"/>
                                 </connections>
@@ -383,11 +383,11 @@
                         </items>
                     </menu>
                 </menuItem>
-                <menuItem title="Help" id="490">
+                <menuItem title="Nápověda" id="490">
                     <modifierMask key="keyEquivalentModifierMask"/>
-                    <menu key="submenu" title="Help" systemMenu="help" id="491">
+                    <menu key="submenu" title="Nápověda" systemMenu="help" id="491">
                         <items>
-                            <menuItem title="Mp3GainMac Help" keyEquivalent="?" id="492">
+                            <menuItem title="Nápověda Mp3Gain pro Mac" keyEquivalent="?" id="492">
                                 <connections>
                                     <action selector="showHelp:" target="-1" id="493"/>
                                 </connections>
@@ -396,35 +396,46 @@
                     </menu>
                 </menuItem>
             </items>
-            <point key="canvasLocation" x="-185" y="-152"/>
+            <point key="canvasLocation" x="-184" y="-209"/>
         </menu>
         <window title="MP3Gain Express" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" animationBehavior="default" toolbarStyle="expanded" id="371" userLabel="MainWindow" customClass="M3GWindow">
             <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES" texturedBackground="YES"/>
-            <rect key="contentRect" x="335" y="390" width="515" height="360"/>
+            <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
+            <rect key="contentRect" x="335" y="390" width="544" height="360"/>
             <rect key="screenRect" x="0.0" y="0.0" width="1920" height="1055"/>
-            <value key="minSize" type="size" width="515" height="360"/>
+            <value key="minSize" type="size" width="544" height="360"/>
             <view key="contentView" id="372">
-                <rect key="frame" x="0.0" y="0.0" width="515" height="360"/>
+                <rect key="frame" x="0.0" y="0.0" width="544" height="360"/>
                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                 <subviews>
                     <box autoresizesSubviews="NO" borderType="line" title="Box" titlePosition="noTitle" translatesAutoresizingMaskIntoConstraints="NO" id="545">
-                        <rect key="frame" x="17" y="316" width="481" height="36"/>
+                        <rect key="frame" x="17" y="316" width="510" height="36"/>
                         <view key="contentView" id="JAo-9K-Gfq">
-                            <rect key="frame" x="3" y="3" width="475" height="30"/>
+                            <rect key="frame" x="3" y="3" width="504" height="30"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             <subviews>
                                 <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="546">
-                                    <rect key="frame" x="15" y="8" width="168" height="16"/>
-                                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Target &quot;Normal&quot; Volume:" id="547">
+                                    <rect key="frame" x="15" y="8" width="202" height="16"/>
+                                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Cílová hlasitost pro &quot;Normální&quot;:" id="547">
                                         <font key="font" metaFont="system"/>
                                         <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                     </textFieldCell>
                                 </textField>
-                                <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="548">
-                                    <rect key="frame" x="179" y="5" width="50" height="21"/>
+                                <button translatesAutoresizingMaskIntoConstraints="NO" id="622">
+                                    <rect key="frame" x="383" y="8" width="113" height="16"/>
                                     <constraints>
-                                        <constraint firstAttribute="width" constant="50" id="69U-pN-2ZI"/>
+                                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="112" id="02r-Fv-zzh"/>
+                                    </constraints>
+                                    <buttonCell key="cell" type="check" title="Zabránit ořezu" bezelStyle="regularSquare" imagePosition="left" controlSize="small" inset="2" id="623">
+                                        <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                        <font key="font" metaFont="message" size="11"/>
+                                    </buttonCell>
+                                </button>
+                                <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="548">
+                                    <rect key="frame" x="213" y="5" width="50" height="21"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="50" id="69U-pN-2ZI"/>
                                     </constraints>
                                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" title="89.0" drawsBackground="YES" id="549">
                                         <font key="font" metaFont="system"/>
@@ -433,26 +444,16 @@
                                     </textFieldCell>
                                 </textField>
                                 <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="550">
-                                    <rect key="frame" x="234" y="8" width="111" height="16"/>
+                                    <rect key="frame" x="268" y="8" width="111" height="16"/>
                                     <constraints>
-                                        <constraint firstAttribute="width" constant="107" id="xVq-Vt-xhY"/>
+                                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="107" id="xVq-Vt-xhY"/>
                                     </constraints>
-                                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="dB (Default 89.0)" id="551">
+                                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="dB (výchozí 89.0)" id="551">
                                         <font key="font" metaFont="system"/>
                                         <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                     </textFieldCell>
                                 </textField>
-                                <button translatesAutoresizingMaskIntoConstraints="NO" id="622">
-                                    <rect key="frame" x="354" y="8" width="113" height="16"/>
-                                    <constraints>
-                                        <constraint firstAttribute="width" constant="112" id="02r-Fv-zzh"/>
-                                    </constraints>
-                                    <buttonCell key="cell" type="check" title="Prevent clipping" bezelStyle="regularSquare" imagePosition="left" controlSize="small" inset="2" id="623">
-                                        <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
-                                        <font key="font" metaFont="message" size="11"/>
-                                    </buttonCell>
-                                </button>
                             </subviews>
                             <constraints>
                                 <constraint firstItem="548" firstAttribute="centerY" secondItem="JAo-9K-Gfq" secondAttribute="centerY" id="6ge-qy-GUx"/>
@@ -463,30 +464,31 @@
                                 <constraint firstAttribute="trailing" secondItem="622" secondAttribute="trailing" constant="8" id="L7Y-Vv-Kff"/>
                                 <constraint firstItem="548" firstAttribute="baseline" secondItem="550" secondAttribute="baseline" id="MYE-Rc-0PG"/>
                                 <constraint firstItem="550" firstAttribute="leading" secondItem="546" secondAttribute="trailing" constant="55" id="ZW2-Z0-2Ob"/>
-                                <constraint firstItem="548" firstAttribute="leading" secondItem="JAo-9K-Gfq" secondAttribute="leading" constant="179" id="aZf-ap-eGj"/>
+                                <constraint firstItem="548" firstAttribute="leading" secondItem="JAo-9K-Gfq" secondAttribute="leading" constant="213" id="aZf-ap-eGj"/>
+                                <constraint firstItem="622" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="550" secondAttribute="trailing" constant="7" id="lkL-fv-P4y"/>
                                 <constraint firstItem="550" firstAttribute="leading" secondItem="548" secondAttribute="trailing" constant="7" id="mhp-nA-ALd"/>
                             </constraints>
                         </view>
                     </box>
-                    <scrollView autohidesScrollers="YES" horizontalLineScroll="19" horizontalPageScroll="10" verticalLineScroll="19" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="552">
-                        <rect key="frame" x="20" y="48" width="475" height="264"/>
+                    <scrollView misplaced="YES" autohidesScrollers="YES" horizontalLineScroll="19" horizontalPageScroll="10" verticalLineScroll="19" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="552">
+                        <rect key="frame" x="21" y="48" width="504" height="264"/>
                         <clipView key="contentView" id="2Xe-Og-NCU">
-                            <rect key="frame" x="1" y="1" width="473" height="262"/>
+                            <rect key="frame" x="1" y="1" width="502" height="262"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             <subviews>
                                 <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="firstColumnOnly" columnSelection="YES" autosaveColumns="NO" headerView="554" id="556">
-                                    <rect key="frame" x="0.0" y="0.0" width="473" height="239"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="502" height="239"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <size key="intercellSpacing" width="3" height="2"/>
                                     <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                     <color key="gridColor" name="gridColor" catalog="System" colorSpace="catalog"/>
                                     <tableColumns>
-                                        <tableColumn identifier="File" editable="NO" width="175" minWidth="40" maxWidth="1000" id="557">
-                                            <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left" title="File">
+                                        <tableColumn identifier="File" editable="NO" width="214" minWidth="40" maxWidth="1000" id="557">
+                                            <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left" title="Soubor">
                                                 <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
                                                 <color key="backgroundColor" white="0.33333298560000002" alpha="1" colorSpace="calibratedWhite"/>
                                             </tableHeaderCell>
-                                            <textFieldCell key="dataCell" lineBreakMode="truncatingTail" selectable="YES" editable="YES" alignment="left" title="Text Cell" id="560">
+                                            <textFieldCell key="dataCell" lineBreakMode="truncatingTail" selectable="YES" editable="YES" alignment="left" title="Textová buňka" id="560">
                                                 <font key="font" metaFont="system"/>
                                                 <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                 <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -494,11 +496,11 @@
                                             <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                         </tableColumn>
                                         <tableColumn identifier="Volume" editable="NO" width="107" minWidth="40" maxWidth="1000" id="558">
-                                            <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left" title="Volume">
+                                            <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left" title="Hlasitost">
                                                 <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
                                                 <color key="backgroundColor" white="0.33333298560000002" alpha="1" colorSpace="calibratedWhite"/>
                                             </tableHeaderCell>
-                                            <textFieldCell key="dataCell" lineBreakMode="truncatingTail" selectable="YES" editable="YES" alignment="left" title="Text Cell" id="559">
+                                            <textFieldCell key="dataCell" lineBreakMode="truncatingTail" selectable="YES" editable="YES" alignment="left" title="Textová buňka" id="559">
                                                 <font key="font" metaFont="system"/>
                                                 <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                 <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -506,23 +508,23 @@
                                             <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                         </tableColumn>
                                         <tableColumn identifier="Clipping" editable="NO" width="75" minWidth="10" maxWidth="3.4028234663852886e+38" id="561">
-                                            <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left" title="Clipping">
+                                            <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left" title="Ořez">
                                                 <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
                                                 <color key="backgroundColor" name="headerColor" catalog="System" colorSpace="catalog"/>
                                             </tableHeaderCell>
-                                            <textFieldCell key="dataCell" lineBreakMode="truncatingTail" selectable="YES" editable="YES" alignment="left" title="Text Cell" id="562">
+                                            <textFieldCell key="dataCell" lineBreakMode="truncatingTail" selectable="YES" editable="YES" alignment="left" title="Textová buňka" id="562">
                                                 <font key="font" metaFont="system"/>
                                                 <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                 <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                             </textFieldCell>
                                             <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                         </tableColumn>
-                                        <tableColumn identifier="TrackGain" editable="NO" width="66" minWidth="10" maxWidth="3.4028234663852886e+38" id="563">
-                                            <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left" title="Track Gain">
+                                        <tableColumn identifier="TrackGain" editable="NO" width="79" minWidth="10" maxWidth="3.4028234663852886e+38" id="563">
+                                            <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left" title="Zesílení stopy">
                                                 <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
                                                 <color key="backgroundColor" name="headerColor" catalog="System" colorSpace="catalog"/>
                                             </tableHeaderCell>
-                                            <textFieldCell key="dataCell" lineBreakMode="truncatingTail" selectable="YES" editable="YES" alignment="left" title="Text Cell" id="564">
+                                            <textFieldCell key="dataCell" lineBreakMode="truncatingTail" selectable="YES" editable="YES" alignment="left" title="Textová buňka" id="564">
                                                 <font key="font" metaFont="system"/>
                                                 <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                 <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -542,16 +544,16 @@
                             <autoresizingMask key="autoresizingMask"/>
                         </scroller>
                         <tableHeaderView key="headerView" wantsLayer="YES" id="554">
-                            <rect key="frame" x="0.0" y="0.0" width="473" height="23"/>
+                            <rect key="frame" x="0.0" y="0.0" width="502" height="23"/>
                             <autoresizingMask key="autoresizingMask"/>
                         </tableHeaderView>
                     </scrollView>
                     <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="565">
-                        <rect key="frame" x="356" y="10" width="118" height="32"/>
+                        <rect key="frame" x="382" y="10" width="121" height="32"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="104" id="HkF-AH-hLD"/>
+                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="104" id="HkF-AH-hLD"/>
                         </constraints>
-                        <buttonCell key="cell" type="push" title="Apply Gain" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="566">
+                        <buttonCell key="cell" type="push" title="Použít zesílení" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="566">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                             <font key="font" metaFont="system"/>
                         </buttonCell>
@@ -560,11 +562,11 @@
                         </connections>
                     </button>
                     <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="569">
-                        <rect key="frame" x="233" y="10" width="125" height="32"/>
+                        <rect key="frame" x="259" y="10" width="125" height="32"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="111" id="Nn6-E5-cvm"/>
+                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="111" id="Nn6-E5-cvm"/>
                         </constraints>
-                        <buttonCell key="cell" type="push" title="Analyze Only" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="570">
+                        <buttonCell key="cell" type="push" title="Jen analyzovat" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="570">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                             <font key="font" metaFont="system"/>
                         </buttonCell>
@@ -573,7 +575,7 @@
                         </connections>
                     </button>
                     <button horizontalHuggingPriority="750" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="616">
-                        <rect key="frame" x="471" y="14" width="28" height="26"/>
+                        <rect key="frame" x="500" y="14" width="28" height="26"/>
                         <buttonCell key="cell" type="disclosure" bezelStyle="roundedDisclosure" imagePosition="only" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="617">
                             <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
                             <font key="font" metaFont="system"/>
@@ -585,9 +587,9 @@
                     <button translatesAutoresizingMaskIntoConstraints="NO" id="4sL-Ot-xGx">
                         <rect key="frame" x="18" y="19" width="106" height="18"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="104" id="eky-FX-lwK"/>
+                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="104" id="eky-FX-lwK"/>
                         </constraints>
-                        <buttonCell key="cell" type="check" title="Album Mode" bezelStyle="regularSquare" imagePosition="left" inset="2" id="T3j-wI-fiL">
+                        <buttonCell key="cell" type="check" title="Režim Album" bezelStyle="regularSquare" imagePosition="left" inset="2" id="T3j-wI-fiL">
                             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                             <font key="font" metaFont="system"/>
                         </buttonCell>
@@ -607,6 +609,7 @@
                     <constraint firstItem="569" firstAttribute="top" secondItem="552" secondAttribute="bottom" constant="11" id="Vjt-M0-PvZ"/>
                     <constraint firstItem="4sL-Ot-xGx" firstAttribute="baseline" secondItem="569" secondAttribute="baseline" id="YRE-MX-sra"/>
                     <constraint firstAttribute="trailing" secondItem="545" secondAttribute="trailing" constant="20" symbolic="YES" id="nIf-Me-vYo"/>
+                    <constraint firstItem="569" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="4sL-Ot-xGx" secondAttribute="trailing" constant="8" symbolic="YES" id="qay-Qr-zYw"/>
                     <constraint firstItem="545" firstAttribute="leading" secondItem="372" secondAttribute="leading" constant="20" symbolic="YES" id="rmZ-9a-MsJ"/>
                     <constraint firstItem="552" firstAttribute="leading" secondItem="4sL-Ot-xGx" secondAttribute="leading" id="xeR-3h-HKr"/>
                     <constraint firstItem="552" firstAttribute="centerY" secondItem="372" secondAttribute="centerY" id="yv0-oH-Itx"/>
@@ -614,22 +617,22 @@
             </view>
             <toolbar key="toolbar" implicitIdentifier="76DE11AB-7933-429A-AC56-D54FEC11EA9F" displayMode="iconAndLabel" sizeMode="regular" id="533">
                 <allowedToolbarItems>
-                    <toolbarItem implicitItemIdentifier="2FF9C9A2-1597-44AC-93F2-B97E0185C60D" label="Add File(s)" paletteLabel="Add File(s)" tag="-1" image="AddSong" sizingBehavior="auto" selectable="YES" id="542" userLabel="Toolbar Item - Add File(s)">
+                    <toolbarItem implicitItemIdentifier="2FF9C9A2-1597-44AC-93F2-B97E0185C60D" label="Přidat soubor(y)" paletteLabel="Přidat soubor(y)" tag="-1" image="AddSong" sizingBehavior="auto" selectable="YES" id="542" userLabel="Toolbar Item - Add File(s)">
                         <connections>
                             <action selector="btnAddFiles:" target="494" id="573"/>
                         </connections>
                     </toolbarItem>
-                    <toolbarItem implicitItemIdentifier="32D90B8B-4BE4-4963-A414-F9ADEFCC028C" label="Add Folder" paletteLabel="Add Folder" tag="-1" image="AddFolder" sizingBehavior="auto" selectable="YES" id="541">
+                    <toolbarItem implicitItemIdentifier="32D90B8B-4BE4-4963-A414-F9ADEFCC028C" label="Přidat složku" paletteLabel="Přidat složku" tag="-1" image="AddFolder" sizingBehavior="auto" selectable="YES" id="541">
                         <connections>
                             <action selector="btnAddFolder:" target="494" id="574"/>
                         </connections>
                     </toolbarItem>
-                    <toolbarItem implicitItemIdentifier="D34C886F-E5FA-4108-9333-1DC32D42CBE5" label="Clear File" paletteLabel="Clear File" tag="-1" image="ClearSong" sizingBehavior="auto" selectable="YES" id="543" userLabel="Toolbar Item - Clear File">
+                    <toolbarItem implicitItemIdentifier="D34C886F-E5FA-4108-9333-1DC32D42CBE5" label="Vymazat soubor" paletteLabel="Vymazat soubor" tag="-1" image="ClearSong" sizingBehavior="auto" selectable="YES" id="543" userLabel="Toolbar Item - Clear File">
                         <connections>
                             <action selector="btnClearFile:" target="494" id="575"/>
                         </connections>
                     </toolbarItem>
-                    <toolbarItem implicitItemIdentifier="0AF7732F-ED77-4442-BE0F-44C241E9382D" label="Clear All" paletteLabel="Clear All" tag="-1" image="ClearAll" sizingBehavior="auto" selectable="YES" id="544">
+                    <toolbarItem implicitItemIdentifier="0AF7732F-ED77-4442-BE0F-44C241E9382D" label="Vymazat vše" paletteLabel="Vymazat vše" tag="-1" image="ClearAll" sizingBehavior="auto" selectable="YES" id="544">
                         <connections>
                             <action selector="btnClearAll:" target="494" id="576"/>
                         </connections>
@@ -644,7 +647,7 @@
                     <toolbarItem reference="544"/>
                 </defaultToolbarItems>
             </toolbar>
-            <point key="canvasLocation" x="-350" y="397"/>
+            <point key="canvasLocation" x="-336" y="397"/>
         </window>
         <customObject id="494" customClass="Mp3GainMacAppDelegate">
             <connections>
@@ -673,7 +676,7 @@
             </connections>
         </customObject>
         <customObject id="420" customClass="NSFontManager"/>
-        <window title="Processing" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" hidesOnDeactivate="YES" visibleAtLaunch="NO" animationBehavior="default" id="581" customClass="NSPanel">
+        <window title="Zpracovávání" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" hidesOnDeactivate="YES" visibleAtLaunch="NO" animationBehavior="default" id="581" customClass="NSPanel">
             <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES" utility="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
             <rect key="contentRect" x="196" y="132" width="430" height="240"/>
@@ -685,7 +688,7 @@
                     <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="590">
                         <rect key="frame" x="341" y="5" width="82" height="32"/>
                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
-                        <buttonCell key="cell" type="push" title="Cancel" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="591">
+                        <buttonCell key="cell" type="push" title="Zrušit" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="591">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                             <font key="font" metaFont="system"/>
                             <string key="keyEquivalent" base64-UTF8="YES">
@@ -730,7 +733,7 @@ Gw
                         <constraints>
                             <constraint firstAttribute="width" constant="134" id="4si-CU-LGf"/>
                         </constraints>
-                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Working..." id="g6k-a3-omT">
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Pracuje se..." id="g6k-a3-omT">
                             <font key="font" metaFont="system"/>
                             <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
@@ -742,7 +745,7 @@ Gw
                     <constraint firstItem="h0N-US-ct8" firstAttribute="leading" secondItem="582" secondAttribute="leading" constant="13" id="aBe-ak-K96"/>
                 </constraints>
             </view>
-            <point key="canvasLocation" x="-325" y="59"/>
+            <point key="canvasLocation" x="-400" y="-11"/>
         </window>
         <customObject id="Pcg-zA-uve" userLabel="Preferences" customClass="m3gPreferences"/>
         <customObject id="601" customClass="SUUpdater"/>
@@ -753,13 +756,13 @@ Gw
                 <popUpButton verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="606">
                     <rect key="frame" x="154" y="4" width="185" height="26"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                    <popUpButtonCell key="cell" type="push" title="None" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="609" id="607">
+                    <popUpButtonCell key="cell" type="push" title="Žádné" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="609" id="607">
                         <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
                         <font key="font" metaFont="menu"/>
                         <menu key="menu" title="OtherViews" id="608">
                             <items>
-                                <menuItem title="None" state="on" id="609"/>
-                                <menuItem title="Ignore this" id="610"/>
+                                <menuItem title="Žádné" state="on" id="609"/>
+                                <menuItem title="Ignorovat toto" id="610"/>
                             </items>
                         </menu>
                     </popUpButtonCell>
@@ -767,7 +770,7 @@ Gw
                 <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="612">
                     <rect key="frame" x="17" y="10" width="135" height="17"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Include subfolders:" id="613">
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Včetně podsložek:" id="613">
                         <font key="font" metaFont="system"/>
                         <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
@@ -778,16 +781,17 @@ Gw
         </customView>
         <menu id="618">
             <items>
-                <menuItem title="Undo Gain" id="619">
+                <menuItem title="Vrátit zesílení" id="619">
                     <modifierMask key="keyEquivalentModifierMask"/>
                     <connections>
                         <action selector="doGainRemoval:" target="494" id="632"/>
                     </connections>
                 </menuItem>
             </items>
+            <point key="canvasLocation" x="58" y="343"/>
         </menu>
         <collectionViewItem id="QGr-V9-XS9"/>
-        <window title="Preferences" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" frameAutosaveName="" animationBehavior="default" id="Aev-Ki-F4W" customClass="M3GWindow">
+        <window title="Možnosti" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" frameAutosaveName="" animationBehavior="default" id="Aev-Ki-F4W" customClass="M3GWindow">
             <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" texturedBackground="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
             <rect key="contentRect" x="303" y="715" width="381" height="101"/>
@@ -817,18 +821,18 @@ Gw
                     </textField>
                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="6Xc-Sb-5b0">
                         <rect key="frame" x="18" y="80" width="262" height="16"/>
-                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="right" title="Number of files to process concurrently:" id="crR-ku-ywK">
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="right" title="Počet najednou zpracovávaných souborů:" id="crR-ku-ywK">
                             <font key="font" metaFont="system"/>
                             <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
                     </textField>
-                    <button translatesAutoresizingMaskIntoConstraints="NO" id="VJB-bz-rw8">
-                        <rect key="frame" x="18" y="41" width="202" height="18"/>
+                    <button misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="VJB-bz-rw8">
+                        <rect key="frame" x="18" y="41" width="236" height="18"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="200" id="S3l-FP-FLc"/>
                         </constraints>
-                        <buttonCell key="cell" type="check" title="Remember Volume settings" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="irH-wR-qXa">
+                        <buttonCell key="cell" type="check" title="Zapamatovat nastavení hlasitosti" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="irH-wR-qXa">
                             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                             <font key="font" metaFont="system"/>
                         </buttonCell>
@@ -841,7 +845,7 @@ Gw
                         <constraints>
                             <constraint firstAttribute="width" constant="138" id="HwO-Bg-qwo"/>
                         </constraints>
-                        <buttonCell key="cell" type="check" title="Check for Updates" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="OoD-7m-r77">
+                        <buttonCell key="cell" type="check" title="Zkontrolovat aktualizace" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="OoD-7m-r77">
                             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                             <font key="font" metaFont="system"/>
                         </buttonCell>
@@ -876,7 +880,7 @@ Gw
             <point key="canvasLocation" x="139.5" y="-10.5"/>
         </window>
         <userDefaultsController representsSharedInstance="YES" id="elj-bg-ril"/>
-        <window title="Warning" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" frameAutosaveName="" animationBehavior="default" id="G5f-zl-mMe" userLabel="Warning" customClass="NSPanel">
+        <window title="Varování" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" frameAutosaveName="" animationBehavior="default" id="G5f-zl-mMe" userLabel="Warning" customClass="NSPanel">
             <windowStyleMask key="styleMask" titled="YES" closable="YES" utility="YES" HUD="YES"/>
             <rect key="contentRect" x="136" y="163" width="392" height="135"/>
             <rect key="screenRect" x="0.0" y="0.0" width="1920" height="1055"/>
@@ -887,7 +891,7 @@ Gw
                     <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="VRi-vX-dgm">
                         <rect key="frame" x="18" y="18" width="254" height="18"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <buttonCell key="cell" type="check" title="Do not show this warning again" bezelStyle="regularSquare" imagePosition="left" inset="2" id="n96-eJ-xcx">
+                        <buttonCell key="cell" type="check" title="Příště toto varování nezobrazovat" bezelStyle="regularSquare" imagePosition="left" inset="2" id="n96-eJ-xcx">
                             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                             <font key="font" metaFont="system"/>
                         </buttonCell>
@@ -900,7 +904,7 @@ Gw
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <textFieldCell key="cell" controlSize="mini" sendsActionOnEndEditing="YES" id="HI7-yn-PLY">
                             <font key="font" metaFont="system"/>
-                            <string key="title">In some situations the modifications made by MP3Gain could damage your files. If you have never used this application before or are concerned about the results, please backup your original files before making changes to them.</string>
+                            <string key="title">V některých situacích mohou úpravy provedené aplikací MP3Gain poškodit Vaše soubory. Pokud jste tuto aplikaci nikdy předtím nepoužívali nebo se bojíte výsledků, pak si před provedením změn zálohujte původní soubory.</string>
                             <color key="textColor" name="selectedMenuItemTextColor" catalog="System" colorSpace="catalog"/>
                             <color key="backgroundColor" name="selectedTextBackgroundColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
