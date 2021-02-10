@@ -400,7 +400,6 @@
         </menu>
         <window title="MP3Gain Express" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" animationBehavior="default" toolbarStyle="expanded" id="371" userLabel="MainWindow" customClass="M3GWindow">
             <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES" texturedBackground="YES"/>
-            <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
             <rect key="contentRect" x="335" y="390" width="544" height="360"/>
             <rect key="screenRect" x="0.0" y="0.0" width="1920" height="1055"/>
             <value key="minSize" type="size" width="544" height="360"/>
@@ -483,7 +482,7 @@
                                     <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                     <color key="gridColor" name="gridColor" catalog="System" colorSpace="catalog"/>
                                     <tableColumns>
-                                        <tableColumn identifier="File" editable="NO" width="214" minWidth="40" maxWidth="1000" id="557">
+                                        <tableColumn identifier="File" editable="NO" width="185" minWidth="40" maxWidth="1000" id="557">
                                             <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left" title="Soubor">
                                                 <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
                                                 <color key="backgroundColor" white="0.33333298560000002" alpha="1" colorSpace="calibratedWhite"/>
@@ -800,8 +799,9 @@ Gw
                 <rect key="frame" x="0.0" y="0.0" width="381" height="101"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Pkk-iv-JZU">
+                    <textField verticalHuggingPriority="750" id="Pkk-iv-JZU">
                         <rect key="frame" x="286" y="77" width="60" height="21"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="60" id="2PP-a2-720"/>
                         </constraints>
@@ -819,19 +819,18 @@ Gw
                             <binding destination="Pcg-zA-uve" name="value" keyPath="NumProcesses" previousBinding="cY7-5E-4Jc" id="GMl-nr-557"/>
                         </connections>
                     </textField>
-                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="6Xc-Sb-5b0">
-                        <rect key="frame" x="18" y="80" width="262" height="16"/>
+                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="6Xc-Sb-5b0">
+                        <rect key="frame" x="6" y="80" width="274" height="16"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="right" title="Počet najednou zpracovávaných souborů:" id="crR-ku-ywK">
                             <font key="font" metaFont="system"/>
                             <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
                     </textField>
-                    <button misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="VJB-bz-rw8">
+                    <button id="VJB-bz-rw8">
                         <rect key="frame" x="18" y="41" width="236" height="18"/>
-                        <constraints>
-                            <constraint firstAttribute="width" constant="200" id="S3l-FP-FLc"/>
-                        </constraints>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <buttonCell key="cell" type="check" title="Zapamatovat nastavení hlasitosti" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="irH-wR-qXa">
                             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                             <font key="font" metaFont="system"/>
@@ -840,11 +839,9 @@ Gw
                             <binding destination="Pcg-zA-uve" name="value" keyPath="RememberOptions" id="imz-Vm-5uR"/>
                         </connections>
                     </button>
-                    <button translatesAutoresizingMaskIntoConstraints="NO" id="OWC-Zb-8h1">
-                        <rect key="frame" x="18" y="19" width="140" height="18"/>
-                        <constraints>
-                            <constraint firstAttribute="width" constant="138" id="HwO-Bg-qwo"/>
-                        </constraints>
+                    <button id="OWC-Zb-8h1">
+                        <rect key="frame" x="18" y="19" width="236" height="18"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <buttonCell key="cell" type="check" title="Zkontrolovat aktualizace" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="OoD-7m-r77">
                             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                             <font key="font" metaFont="system"/>
@@ -853,8 +850,9 @@ Gw
                             <binding destination="601" name="value" keyPath="automaticallyChecksForUpdates" id="mGm-gA-OJt"/>
                         </connections>
                     </button>
-                    <stepper horizontalHuggingPriority="750" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="ZDO-RX-a3X">
+                    <stepper horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ZDO-RX-a3X">
                         <rect key="frame" x="347" y="74" width="19" height="28"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <stepperCell key="cell" continuous="YES" alignment="left" minValue="1" maxValue="4" doubleValue="1" id="Dze-8J-Fiy"/>
                         <connections>
                             <binding destination="Pcg-zA-uve" name="maxValue" keyPath="MaxCores" id="zp4-2O-mPy"/>
@@ -862,19 +860,6 @@ Gw
                         </connections>
                     </stepper>
                 </subviews>
-                <constraints>
-                    <constraint firstItem="6Xc-Sb-5b0" firstAttribute="leading" secondItem="VJB-bz-rw8" secondAttribute="leading" id="9xT-KS-drg"/>
-                    <constraint firstItem="Pkk-iv-JZU" firstAttribute="leading" secondItem="6Xc-Sb-5b0" secondAttribute="trailing" constant="8" symbolic="YES" id="B10-mR-C2V"/>
-                    <constraint firstItem="VJB-bz-rw8" firstAttribute="leading" secondItem="OWC-Zb-8h1" secondAttribute="leading" id="Cku-AJ-bWl"/>
-                    <constraint firstItem="VJB-bz-rw8" firstAttribute="top" secondItem="6Xc-Sb-5b0" secondAttribute="bottom" constant="22" id="GQb-A4-MTj"/>
-                    <constraint firstItem="6Xc-Sb-5b0" firstAttribute="leading" secondItem="Nl2-49-Unk" secondAttribute="leading" constant="20" symbolic="YES" id="cEu-4d-p7u"/>
-                    <constraint firstItem="6Xc-Sb-5b0" firstAttribute="baseline" secondItem="Pkk-iv-JZU" secondAttribute="baseline" id="cZM-N3-izc"/>
-                    <constraint firstItem="OWC-Zb-8h1" firstAttribute="top" secondItem="VJB-bz-rw8" secondAttribute="bottom" constant="6" symbolic="YES" id="gmI-BZ-hS4"/>
-                    <constraint firstItem="ZDO-RX-a3X" firstAttribute="leading" secondItem="Pkk-iv-JZU" secondAttribute="trailing" constant="4" id="gpV-gJ-ET6"/>
-                    <constraint firstAttribute="bottom" secondItem="OWC-Zb-8h1" secondAttribute="bottom" constant="20" symbolic="YES" id="gzW-Dq-a8K"/>
-                    <constraint firstItem="Pkk-iv-JZU" firstAttribute="top" secondItem="ZDO-RX-a3X" secondAttribute="top" id="lXi-wR-VwA"/>
-                    <constraint firstAttribute="trailing" secondItem="ZDO-RX-a3X" secondAttribute="trailing" constant="18" id="zbl-Bj-yql"/>
-                </constraints>
             </view>
             <contentBorderThickness minY="0.0" maxY="0.0"/>
             <point key="canvasLocation" x="139.5" y="-10.5"/>
