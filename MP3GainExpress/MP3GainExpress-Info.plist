@@ -2,6 +2,8 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>SUPublicEDKey</key>
+	<string>+7ywXeKrCtS7IS8YVAYWkVYGVIkWmp8NMBcW3C2ZdiI=</string>
 	<key>AppIcon</key>
 	<string>AppIcon</string>
 	<key>CFBundleDevelopmentRegion</key>
@@ -21,7 +23,7 @@
 	<key>CFBundleSignature</key>
 	<string>????</string>
 	<key>CFBundleVersion</key>
-	<string>248</string>
+	<string>3.0</string>
 	<key>LSApplicationCategoryType</key>
 	<string>public.app-category.music</string>
 	<key>LSMinimumSystemVersion</key>
@@ -38,8 +40,6 @@
 	<key>NSPrincipalClass</key>
 	<string>NSApplication</string>
 	<key>SUFeedURL</key>
-	<string>http://projects.sappharad.com/mp3gain/updates.xml</string>
-	<key>SUPublicDSAKeyFile</key>
-	<string>dsa_pub.pem</string>
+	<string>http://projects.sappharad.com/mp3gain/updates_TEST.xml</string>
 </dict>
 </plist>

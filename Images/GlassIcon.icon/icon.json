@@ -1,0 +1,93 @@
+{
+  "fill" : {
+    "linear-gradient" : [
+      "display-p3:0.20392,0.20392,0.20392,1.00000",
+      "srgb:0.04706,0.04706,0.04706,1.00000"
+    ]
+  },
+  "groups" : [
+    {
+      "blend-mode" : "normal",
+      "blur-material" : null,
+      "layers" : [
+        {
+          "blend-mode" : "normal",
+          "glass" : true,
+          "image-name" : "gauge.png",
+          "name" : "gauge",
+          "position" : {
+            "scale" : 1.15,
+            "translation-in-points" : [
+              0,
+              0
+            ]
+          }
+        },
+        {
+          "image-name" : "notches.png",
+          "name" : "notches",
+          "position" : {
+            "scale" : 1.15,
+            "translation-in-points" : [
+              0,
+              0
+            ]
+          }
+        }
+      ],
+      "lighting-specializations" : [
+        {
+          "value" : "combined"
+        },
+        {
+          "appearance" : "tinted",
+          "value" : "individual"
+        }
+      ],
+      "opacity-specializations" : [
+        {
+          "appearance" : "tinted",
+          "value" : 1
+        }
+      ],
+      "position" : {
+        "scale" : 1,
+        "translation-in-points" : [
+          0,
+          20
+        ]
+      },
+      "shadow" : {
+        "kind" : "neutral",
+        "opacity" : 0.5
+      },
+      "specular-specializations" : [
+        {
+          "value" : true
+        },
+        {
+          "appearance" : "tinted",
+          "value" : false
+        }
+      ],
+      "translucency-specializations" : [
+        {
+          "value" : {
+            "enabled" : true,
+            "value" : 0.5
+          }
+        },
+        {
+          "appearance" : "tinted",
+          "value" : {
+            "enabled" : true,
+            "value" : 0
+          }
+        }
+      ]
+    }
+  ],
+  "supported-platforms" : {
+    "squares" : "shared"
+  }
+}

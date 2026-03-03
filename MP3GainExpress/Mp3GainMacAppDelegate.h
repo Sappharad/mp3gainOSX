@@ -9,7 +9,7 @@
 #import "Mp3GainTask.h"
 #import <Sparkle/Sparkle.h>
 
-@interface Mp3GainMacAppDelegate : NSObject <NSApplicationDelegate, SUUpdaterDelegate> {
+@interface Mp3GainMacAppDelegate : NSObject <NSApplicationDelegate, SPUUpdaterDelegate> {
     m3gInputList *_inputList;
     NSMutableArray<Mp3GainTask*> *_tasks;
     NSWindow *_window;
@@ -40,7 +40,7 @@
 
 @property (strong) IBOutlet NSWindow *window;
 @property (strong) IBOutlet NSProgressIndicator *pbTotalProgress;
-@property (strong) SUUpdater *updater;
+@property (strong) SPUStandardUpdaterController *updaterController;
 - (IBAction)showPreferences:(id)sender;
 - (IBAction)btnAddFiles:(id)sender;
 - (IBAction)btnAddFolder:(id)sender;

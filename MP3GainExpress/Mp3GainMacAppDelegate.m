@@ -12,13 +12,12 @@
 
 @synthesize window = _window;
 @synthesize pbTotalProgress;
-@synthesize updater;
+@synthesize updaterController;
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
-    // Initialize Sparkle updater
-    updater = [SUUpdater sharedUpdater];
-    [updater setDelegate:self];
+    // Initialize Sparkle updater (Sparkle 2)
+    self.updaterController = [[SPUStandardUpdaterController alloc] initWithStartingUpdater:YES updaterDelegate:self userDriverDelegate:nil];
     
     _inputList = [[m3gInputList alloc] init];
     [tblFileList setDataSource:_inputList];
@@ -354,7 +353,7 @@
 }
 
 - (IBAction)checkForUpdates:(id)sender {
-    [updater checkForUpdates:sender];
+    [self.updaterController checkForUpdates:sender];
 }
 
 @end
