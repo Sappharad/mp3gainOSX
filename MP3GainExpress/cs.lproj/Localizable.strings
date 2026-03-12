@@ -1,94 +1,94 @@
-/* MP3GainExpress - English */
+/* MP3GainExpress - Czech */
 
 /* Menu items */
-"About MP3Gain Express" = "About MP3Gain Express";
-"Check for Updates..." = "Check for Updates...";
-"Preferences…" = "Preferences…";
-"Services" = "Services";
-"Hide MP3Gain" = "Hide MP3Gain";
-"Hide Others" = "Hide Others";
-"Show All" = "Show All";
-"Quit MP3Gain" = "Quit MP3Gain";
-"Window" = "Window";
-"Minimize" = "Minimize";
-"Zoom" = "Zoom";
-"Bring All to Front" = "Bring All to Front";
-"Help" = "Help";
-"MP3Gain Express Help" = "MP3Gain Express Help";
+"About MP3Gain Express" = "O aplikaci MP3Gain Express";
+"Check for Updates..." = "Zkontrolovat aktualizace...";
+"Preferences…" = "Předvolby…";
+"Services" = "Služby";
+"Hide MP3Gain" = "Skrýt MP3Gain";
+"Hide Others" = "Skrýt ostatní";
+"Show All" = "Zobrazit vše";
+"Quit MP3Gain" = "Ukončit MP3Gain";
+"Window" = "Okno";
+"Minimize" = "Minimalizovat";
+"Zoom" = "Přiblížit";
+"Bring All to Front" = "Přenést vše do popředí";
+"Help" = "Nápověda";
+"MP3Gain Express Help" = "Nápověda MP3Gain Express";
 
 /* Main Window */
 "MP3Gain Express" = "MP3Gain Express";
-"Target \"Normal\" Volume:" = "Target \"Normal\" Volume:";
-"dB (Default 89.0)" = "dB (Default 89.0)";
-"Prevent clipping" = "Prevent clipping";
-"Album Mode" = "Album Mode";
-"Apply Gain" = "Apply Gain";
-"Analyze Only" = "Analyze Only";
+"Target \"Normal\" Volume:" = "Cílová \"normální\" hlasitost:";
+"dB (Default 89.0)" = "dB (Výchozí 89.0)";
+"Prevent clipping" = "Zabránit ořezávání";
+"Album Mode" = "Režim alba";
+"Apply Gain" = "Použít zesílení";
+"Analyze Only" = "Pouze analyzovat";
 
 /* Table Headers */
-"File" = "File";
-"Volume" = "Volume";
-"Clipping" = "Clipping";
-"Track Gain" = "Track Gain";
+"File" = "Soubor";
+"Volume" = "Hlasitost";
+"Clipping" = "Ořezávání";
+"Track Gain" = "Zesílení stopy";
 
 /* Toolbar */
-"Add File(s)" = "Add File(s)";
-"Add Folder" = "Add Folder";
-"Clear File" = "Clear File";
-"Clear All" = "Clear All";
+"Add File(s)" = "Přidat soubor(y)";
+"Add Folder" = "Přidat složku";
+"Clear File" = "Odebrat soubor";
+"Clear All" = "Odebrat vše";
 
 /* Processing Dialog */
-"Processing" = "Processing";
-"Working" = "Working...";
-"Canceling" = "Canceling...";
-"Cancel" = "Cancel";
+"Processing" = "Zpracování";
+"Working" = "Pracuji...";
+"Canceling" = "Ruším...";
+"Cancel" = "Zrušit";
 
 /* Preferences Window */
-"Preferences" = "Preferences";
-"Number of files to process concurrently:" = "Number of files to process concurrently:";
-"Remember Volume settings" = "Remember Volume settings";
+"Preferences" = "Předvolby";
+"Number of files to process concurrently:" = "Počet souborů ke zpracování současně:";
+"Remember Volume settings" = "Zapamatovat nastavení hlasitosti";
 
 /* Warning Dialog */
-"WarningTitle" = "Warning";
-"WarningText" = "In some situations the modifications made by MP3Gain could damage your files. If you have never used this application before or are concerned about the results, please backup your original files before making changes to them.";
-"DontWarnAgain" = "Do not show this warning again";
-"Do not show this warning again" = "Do not show this warning again";
+"WarningTitle" = "Varování";
+"WarningText" = "V některých situacích mohou úpravy provedené programem MP3Gain poškodit vaše soubory. Pokud jste tuto aplikaci nikdy nepoužívali nebo máte obavy o výsledky, zálohujte originální soubory před provedením změn.";
+"DontWarnAgain" = "Toto varování příště nezobrazovat";
+"Do not show this warning again" = "Toto varování příště nezobrazovat";
 
 /* Folder Picker */
-"Include subfolders:" = "Include subfolders:";
-"None" = "None";
-"1_below" = "1 subfolder below";
-"2_below" = "2 subfolders below";
-"3_below" = "3 subfolders below";
-"4_below" = "4 subfolders below";
-"5_below" = "5 subfolders below";
+"Include subfolders:" = "Zahrnout podsložky:";
+"None" = "Žádná";
+"1_below" = "1 podsložka níže";
+"2_below" = "2 podsložky níže";
+"3_below" = "3 podsložky níže";
+"4_below" = "4 podsložky níže";
+"5_below" = "5 podsložek níže";
 
 /* Advanced Menu */
-"Undo Gain" = "Undo Gain";
+"Undo Gain" = "Vrátit zesílení";
 
 /* Status Messages */
-"Yes" = "Yes";
-"No" = "No";
+"Yes" = "Ano";
+"No" = "Ne";
 "OK" = "OK";
 
 /* Alert messages from Mp3Gain */
-"Not_MP3_file" = "Not MP3 file";
-"UnsupportedFile" = "Not compatible!";
-"No_MP3_Frames" = "Can't find any valid MP3 frames in the current file!";
-"MP3Gain_Error" = "MP3Gain Error";
-"NoUndo" = "Can't Undo";
-"InvalidVolume" = "Invalid target volume!";
-"VolumeInfo" = "The volume should be a number between 50 and 100 dB.";
-"reprocessAlbum" = "Process as Album...";
+"Not_MP3_file" = "Není soubor MP3";
+"UnsupportedFile" = "Nepodporováno!";
+"No_MP3_Frames" = "V aktuálním souboru nelze najít platné snímky MP3!";
+"MP3Gain_Error" = "Chyba MP3Gain";
+"NoUndo" = "Nelze vrátit";
+"InvalidVolume" = "Neplatná cílová hlasitost!";
+"VolumeInfo" = "Hlasitost musí být číslo mezi 50 a 100 dB.";
+"reprocessAlbum" = "Zpracovat jako album...";
 
 /* Sparkle updater */
-"Check for Updates..." = "Check for Updates...";
+"Check for Updates..." = "Zkontrolovat aktualizace...";
 
 /* Language Selector */
-"Language menu" = "Language";
-"Select Language menu item" = "Select Language...";
-"Language selector title" = "Select Language";
-"Accept" = "Accept";
-"Language changed alert title" = "Language Changed";
-"Language changed message" = "Please restart the application\nto apply the new language.";
+"Language menu" = "Jazyk";
+"Select Language menu item" = "Vybrat jazyk...";
+"Language selector title" = "Vybrat jazyk";
+"Accept" = "Přijmout";
+"Language changed alert title" = "Jazyk změněn";
+"Language changed message" = "Pro použití nového jazyka\nrestartujte aplikaci.";
 
