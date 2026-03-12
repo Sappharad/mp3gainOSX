@@ -1,0 +1,65 @@
+/* English localization for MainMenu.xib */
+
+/* Menu Items */
+"56.title" = "MP3Gain";
+"58.title" = "About MP3Gain Express";
+"640.title" = "Check for Updates...";
+"129.title" = "Preferences…";
+"131.title" = "Services";
+"134.title" = "Hide MP3Gain";
+"145.title" = "Hide Others";
+"150.title" = "Show All";
+"136.title" = "Quit MP3Gain";
+"19.title" = "Window";
+"23.title" = "Minimize";
+"239.title" = "Zoom";
+"5.title" = "Bring All to Front";
+"490.title" = "Help";
+"492.title" = "MP3Gain Express Help";
+
+/* Main Window */
+"371.title" = "MP3Gain Express";
+"547.title" = "Target \"Normalized\":";
+"551.title" = "dB (Default 89.0)";
+"623.title" = "Prevent clipping";
+"T3j-wI-fiL.title" = "Album mode";
+"566.title" = "Apply Gain";
+"570.title" = "Analyze Only";
+
+/* Table Headers */
+"557.headerCell.title" = "File";
+"558.headerCell.title" = "Volume";
+"561.headerCell.title" = "Clipping";
+"563.headerCell.title" = "Track gain";
+
+/* Toolbar Items */
+"542.label" = "Add file(s)";
+"542.paletteLabel" = "Add file(s)";
+"541.label" = "Add folder";
+"541.paletteLabel" = "Add folder";
+"543.label" = "Remove file";
+"543.paletteLabel" = "Remove file";
+"544.label" = "Remove all";
+"544.paletteLabel" = "Remove all";
+
+/* Processing Dialog */
+"581.title" = "Processing";
+"g6k-a3-omT.title" = "Working...";
+"590.title" = "Cancel";
+
+/* Preferences Window */
+"Aev-Ki-F4W.title" = "Preferences";
+"crR-ku-ywK.title" = "Number of files to process simultaneously:";
+"irH-wR-qXa.title" = "Remember volume settings";
+
+/* Warning Panel */
+"G5f-zl-mMe.title" = "Warning";
+"n96-eJ-xcx.title" = "Do not show this warning again";
+
+/* Subfolder Picker */
+"613.title" = "Include subfolders:";
+"609.title" = "None";
+
+/* Advanced Menu */
+"619.title" = "Undo gain";
+

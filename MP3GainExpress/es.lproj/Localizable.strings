@@ -1,25 +1,94 @@
-/* MP3GainExpress */
-"DontWarnAgain" = "No volver a mostrar esta advertencia";
-"WarningTitle" = "Warning";
-"WarningText" = "In some situations the modifications made by MP3Gain could damage your files. If you have never used this application before or are concerned about the results, please backup your original files before making changes to them.";
-"Working" = "Procesando...";
-"Canceling_soon" = "** Cancelando al terminar la canción... **";
+/* MP3GainExpress - Spanish */
+
+/* Menu items */
+"About MP3Gain Express" = "Acerca de MP3Gain Express";
+"Check for Updates..." = "Buscar actualizaciones...";
+"Preferences…" = "Preferencias…";
+"Services" = "Servicios";
+"Hide MP3Gain" = "Ocultar MP3Gain";
+"Hide Others" = "Ocultar otros";
+"Show All" = "Mostrar todo";
+"Quit MP3Gain" = "Salir de MP3Gain";
+"Window" = "Ventana";
+"Minimize" = "Minimizar";
+"Zoom" = "Ampliar";
+"Bring All to Front" = "Traer todo al frente";
+"Help" = "Ayuda";
+"MP3Gain Express Help" = "Ayuda de MP3Gain Express";
+
+/* Main Window */
+"MP3Gain Express" = "MP3Gain Express";
+"Target \"Normal\" Volume:" = "Volumen \"Normalizado\":";
+"dB (Default 89.0)" = "dB (Predefinido 89.0)";
+"Prevent clipping" = "Evitar recortes";
+"Album Mode" = "Modo álbum";
+"Apply Gain" = "Aplicar ganancia";
+"Analyze Only" = "Solo analizar";
+
+/* Table Headers */
+"File" = "Archivo";
+"Volume" = "Volumen";
+"Clipping" = "Recorte";
+"Track Gain" = "Ganancia de pista";
+
+/* Toolbar */
+"Add File(s)" = "Añadir archivo(s)";
+"Add Folder" = "Añadir carpeta";
+"Clear File" = "Eliminar archivo";
+"Clear All" = "Eliminar todo";
+
+/* Processing Dialog */
+"Processing" = "Procesando";
+"Working" = "Trabajando...";
+"Canceling" = "Cancelando...";
+"Cancel" = "Cancelar";
+
+/* Preferences Window */
+"Preferences" = "Preferencias";
+"Number of files to process concurrently:" = "Número de archivos a procesar simultáneamente:";
+"Remember Volume settings" = "Recordar configuración de volumen";
+
+/* Warning Dialog */
+"WarningTitle" = "Advertencia";
+"WarningText" = "En algunas situaciones, las modificaciones realizadas por MP3Gain podrían dañar sus archivos. Si nunca ha usado esta aplicación antes o le preocupan los resultados, haga una copia de seguridad de sus archivos originales antes de realizar cambios.";
+"DontWarnAgain" = "No mostrar esta advertencia de nuevo";
+"Do not show this warning again" = "No mostrar esta advertencia de nuevo";
+
+/* Folder Picker */
+"Include subfolders:" = "Incluir subcarpetas:";
+"None" = "Ninguna";
+"1_below" = "1 subcarpeta por debajo";
+"2_below" = "2 subcarpetas por debajo";
+"3_below" = "3 subcarpetas por debajo";
+"4_below" = "4 subcarpetas por debajo";
+"5_below" = "5 subcarpetas por debajo";
+
+/* Advanced Menu */
+"Undo Gain" = "Deshacer ganancia";
+
+/* Status Messages */
 "Yes" = "Sí";
 "No" = "No";
-"None" = "Nada";
-"1_below" = "1 subcarpeta debajo";
-"2_below" = "2 subcarpetas debajo";
-"3_below" = "3 subcarpetas debajo";
-"4_below" = "4 subcarpetas debajo";
-"5_below" = "5 subcarpetas debajo";
+"OK" = "Aceptar";
 
 /* Alert messages from Mp3Gain */
-"Not_MP3_file" = "Ningún archivo MP3";
-"UnsupportedFile" = "¡Archivo no soportado!";
-"OK" = "Aceptar";
-"No_MP3_Frames" = "¡No se puede encontrar ningún Frame MP3 válido en el archivo actual!";
+"Not_MP3_file" = "No es un archivo MP3";
+"UnsupportedFile" = "¡No compatible!";
+"No_MP3_Frames" = "¡No se encontraron tramas MP3 válidas en el archivo actual!";
 "MP3Gain_Error" = "Error de MP3Gain";
-"NoUndo" = "No Deshacer";
-"InvalidVolume" = "¡Volumen de destino no válido!";
-"VolumeInfo" = "El volumen elegido debe ser un número entre 50 y 100 dB.";
+"NoUndo" = "No se puede deshacer";
+"InvalidVolume" = "¡Volumen objetivo no válido!";
+"VolumeInfo" = "El volumen debe ser un número entre 50 y 100 dB.";
 "reprocessAlbum" = "Procesar como álbum...";
+
+/* Sparkle updater */
+"Check for Updates..." = "Comprobar Actualizaciones...";
+
+/* Language Selector */
+"Language menu" = "Idioma";
+"Select Language menu item" = "Seleccionar Idioma...";
+"Language selector title" = "Seleccionar Idioma";
+"Accept" = "Aceptar";
+"Language changed alert title" = "Idioma cambiado";
+"Language changed message" = "Reinicia la aplicación\npara aplicar el nuevo idioma.";
+

@@ -1,25 +1,94 @@
-/* MP3GainExpress */
-"DontWarnAgain" = "Diese Warnung nicht wieder anzeigen";
-"WarningTitle" = "Warning";
-"WarningText" = "In some situations the modifications made by MP3Gain could damage your files. If you have never used this application before or are concerned about the results, please backup your original files before making changes to them.";
-"Working" = "Ich arbeite ...";
-"Canceling_soon" = "** Abbruch wird vorbereitet... **";
-"Yes" = "Ja";
-"No" = "Nein";
-"None" = "Kein";
+/* MP3GainExpress - Deutsch */
+
+/* Menu items */
+"About MP3Gain Express" = "Über MP3Gain Express";
+"Check for Updates..." = "Nach Updates suchen...";
+"Preferences…" = "Einstellungen…";
+"Services" = "Dienste";
+"Hide MP3Gain" = "MP3Gain ausblenden";
+"Hide Others" = "Andere ausblenden";
+"Show All" = "Alle einblenden";
+"Quit MP3Gain" = "MP3Gain beenden";
+"Window" = "Fenster";
+"Minimize" = "Im Dock ablegen";
+"Zoom" = "Zoomen";
+"Bring All to Front" = "Alle nach vorne bringen";
+"Help" = "Hilfe";
+"MP3Gain Express Help" = "MP3Gain Express Hilfe";
+
+/* Main Window */
+"MP3Gain Express" = "MP3Gain Express";
+"Target \"Normal\" Volume:" = "Ziel-\"Normal\"-Lautstärke:";
+"dB (Default 89.0)" = "dB (Standard 89.0)";
+"Prevent clipping" = "Clipping verhindern";
+"Album Mode" = "Albummodus";
+"Apply Gain" = "Verstärkung anwenden";
+"Analyze Only" = "Nur analysieren";
+
+/* Table Headers */
+"File" = "Datei";
+"Volume" = "Lautstärke";
+"Clipping" = "Clipping";
+"Track Gain" = "Titelverstärkung";
+
+/* Toolbar */
+"Add File(s)" = "Datei(en) hinzufügen";
+"Add Folder" = "Ordner hinzufügen";
+"Clear File" = "Datei entfernen";
+"Clear All" = "Alle entfernen";
+
+/* Processing Dialog */
+"Processing" = "Verarbeitung";
+"Working" = "Arbeite...";
+"Canceling" = "Abbrechen...";
+"Cancel" = "Abbrechen";
+
+/* Preferences Window */
+"Preferences" = "Einstellungen";
+"Number of files to process concurrently:" = "Anzahl gleichzeitig zu verarbeitender Dateien:";
+"Remember Volume settings" = "Lautstärkeeinstellungen merken";
+
+/* Warning Dialog */
+"WarningTitle" = "Warnung";
+"WarningText" = "In manchen Situationen könnten die von MP3Gain vorgenommenen Änderungen Ihre Dateien beschädigen. Wenn Sie diese Anwendung noch nie zuvor verwendet haben oder sich über die Ergebnisse Sorgen machen, erstellen Sie bitte eine Sicherungskopie Ihrer Originaldateien, bevor Sie Änderungen vornehmen.";
+"DontWarnAgain" = "Diese Warnung nicht mehr anzeigen";
+"Do not show this warning again" = "Diese Warnung nicht mehr anzeigen";
+
+/* Folder Picker */
+"Include subfolders:" = "Unterordner einschließen:";
+"None" = "Keine";
 "1_below" = "1 Unterordner darunter";
 "2_below" = "2 Unterordner darunter";
 "3_below" = "3 Unterordner darunter";
 "4_below" = "4 Unterordner darunter";
 "5_below" = "5 Unterordner darunter";
 
-/* Alert messages from Mp3Gain */
-"Not_MP3_file" = "Keine MP3 Datei";
-"UnsupportedFile" = "Ungültige Datei!";
+/* Advanced Menu */
+"Undo Gain" = "Verstärkung rückgängig machen";
+
+/* Status Messages */
+"Yes" = "Ja";
+"No" = "Nein";
 "OK" = "OK";
-"No_MP3_Frames" = "Kann keine gültigen MP3 Frames in der aktuelle Datei finden!";
-"MP3Gain_Error" = "MP3Gain Fehler";
-"NoUndo" = "Kein Undo möglich";
+
+/* Alert messages from Mp3Gain */
+"Not_MP3_file" = "Keine MP3-Datei";
+"UnsupportedFile" = "Nicht kompatibel!";
+"No_MP3_Frames" = "Keine gültigen MP3-Frames in der aktuellen Datei gefunden!";
+"MP3Gain_Error" = "MP3Gain-Fehler";
+"NoUndo" = "Rückgängig machen nicht möglich";
 "InvalidVolume" = "Ungültige Ziellautstärke!";
-"VolumeInfo" = "Die gewählte Lautstärke muss zwischen 50 und 100 dB liegen.";
-"reprocessAlbum" = "Verarbeiten als Album ...";
+"VolumeInfo" = "Die Lautstärke muss eine Zahl zwischen 50 und 100 dB sein.";
+"reprocessAlbum" = "Als Album verarbeiten...";
+
+/* Sparkle updater */
+"Check for Updates..." = "Nach Updates suchen...";
+
+/* Language Selector */
+"Language menu" = "Sprache";
+"Select Language menu item" = "Sprache Auswählen...";
+"Language selector title" = "Sprache Auswählen";
+"Accept" = "Akzeptieren";
+"Language changed alert title" = "Sprache geändert";
+"Language changed message" = "Bitte starten Sie die Anwendung neu,\num die neue Sprache anzuwenden.";
+

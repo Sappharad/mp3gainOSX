@@ -1,0 +1,65 @@
+/* French localization for MainMenu.xib */
+
+/* Menu Items */
+"56.title" = "MP3Gain";
+"58.title" = "À propos de MP3Gain Express";
+"640.title" = "Rechercher des Mises à jour...";
+"129.title" = "Préférences…";
+"131.title" = "Services";
+"134.title" = "Masquer MP3Gain";
+"145.title" = "Masquer les autres";
+"150.title" = "Tout afficher";
+"136.title" = "Quitter MP3Gain";
+"19.title" = "Fenêtre";
+"23.title" = "Réduire";
+"239.title" = "Zoom";
+"5.title" = "Tout ramener au premier plan";
+"490.title" = "Aide";
+"492.title" = "Aide de MP3Gain Express";
+
+/* Main Window */
+"371.title" = "MP3Gain Express";
+"547.title" = "Volume cible \"Normal\":";
+"551.title" = "dB (Par défaut 89.0)";
+"623.title" = "Éviter l'écrêtage";
+"T3j-wI-fiL.title" = "Mode album";
+"566.title" = "Appliquer le gain";
+"570.title" = "Analyser seulement";
+
+/* Table Headers */
+"557.headerCell.title" = "Fichier";
+"558.headerCell.title" = "Volume";
+"561.headerCell.title" = "Écrêtage";
+"563.headerCell.title" = "Gain de piste";
+
+/* Toolbar Items */
+"542.label" = "Ajouter fichier(s)";
+"542.paletteLabel" = "Ajouter fichier(s)";
+"541.label" = "Ajouter un dossier";
+"541.paletteLabel" = "Ajouter un dossier";
+"543.label" = "Supprimer le fichier";
+"543.paletteLabel" = "Supprimer le fichier";
+"544.label" = "Tout supprimer";
+"544.paletteLabel" = "Tout supprimer";
+
+/* Processing Dialog */
+"581.title" = "Traitement";
+"g6k-a3-omT.title" = "Traitement en cours...";
+"590.title" = "Annuler";
+
+/* Preferences Window */
+"Aev-Ki-F4W.title" = "Préférences";
+"crR-ku-ywK.title" = "Nombre de fichiers à traiter simultanément :";
+"irH-wR-qXa.title" = "Mémoriser les réglages de volume";
+
+/* Warning Panel */
+"G5f-zl-mMe.title" = "Avertissement";
+"n96-eJ-xcx.title" = "Ne plus afficher cet avertissement";
+
+/* Subfolder Picker */
+"613.title" = "Inclure les sous-dossiers :";
+"609.title" = "Aucun";
+
+/* Advanced Menu */
+"619.title" = "Annuler le gain";
+

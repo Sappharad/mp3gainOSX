@@ -40,7 +40,7 @@
 /* Processing Dialog */
 "Processing" = "Processing";
 "Working" = "Working...";
-"Canceling" = "Canceling...";
+"Canceling" = "Stopping...";
 "Cancel" = "Cancel";
 
 /* Preferences Window */

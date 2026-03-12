@@ -1,0 +1,94 @@
+/* MP3GainExpress - Français */
+
+/* Menu items */
+"About MP3Gain Express" = "À propos de MP3Gain Express";
+"Check for Updates..." = "Rechercher des mises à jour...";
+"Preferences…" = "Préférences…";
+"Services" = "Services";
+"Hide MP3Gain" = "Masquer MP3Gain";
+"Hide Others" = "Masquer les autres";
+"Show All" = "Tout afficher";
+"Quit MP3Gain" = "Quitter MP3Gain";
+"Window" = "Fenêtre";
+"Minimize" = "Réduire";
+"Zoom" = "Zoom";
+"Bring All to Front" = "Tout ramener au premier plan";
+"Help" = "Aide";
+"MP3Gain Express Help" = "Aide de MP3Gain Express";
+
+/* Main Window */
+"MP3Gain Express" = "MP3Gain Express";
+"Target \"Normal\" Volume:" = "Volume \"Normal\" cible :";
+"dB (Default 89.0)" = "dB (Par défaut 89.0)";
+"Prevent clipping" = "Éviter l'écrêtage";
+"Album Mode" = "Mode album";
+"Apply Gain" = "Appliquer le gain";
+"Analyze Only" = "Analyser seulement";
+
+/* Table Headers */
+"File" = "Fichier";
+"Volume" = "Volume";
+"Clipping" = "Écrêtage";
+"Track Gain" = "Gain de piste";
+
+/* Toolbar */
+"Add File(s)" = "Ajouter fichier(s)";
+"Add Folder" = "Ajouter un dossier";
+"Clear File" = "Supprimer le fichier";
+"Clear All" = "Tout supprimer";
+
+/* Processing Dialog */
+"Processing" = "Traitement";
+"Working" = "Traitement en cours...";
+"Canceling" = "Annulation...";
+"Cancel" = "Annuler";
+
+/* Preferences Window */
+"Preferences" = "Préférences";
+"Number of files to process concurrently:" = "Nombre de fichiers à traiter simultanément :";
+"Remember Volume settings" = "Mémoriser les réglages de volume";
+
+/* Warning Dialog */
+"WarningTitle" = "Avertissement";
+"WarningText" = "Dans certaines situations, les modifications effectuées par MP3Gain pourraient endommager vos fichiers. Si vous n'avez jamais utilisé cette application auparavant ou si vous êtes préoccupé par les résultats, veuillez sauvegarder vos fichiers originaux avant d'effectuer des modifications.";
+"DontWarnAgain" = "Ne plus afficher cet avertissement";
+"Do not show this warning again" = "Ne plus afficher cet avertissement";
+
+/* Folder Picker */
+"Include subfolders:" = "Inclure les sous-dossiers :";
+"None" = "Aucun";
+"1_below" = "1 sous-dossier en dessous";
+"2_below" = "2 sous-dossiers en dessous";
+"3_below" = "3 sous-dossiers en dessous";
+"4_below" = "4 sous-dossiers en dessous";
+"5_below" = "5 sous-dossiers en dessous";
+
+/* Advanced Menu */
+"Undo Gain" = "Annuler le gain";
+
+/* Status Messages */
+"Yes" = "Oui";
+"No" = "Non";
+"OK" = "OK";
+
+/* Alert messages from Mp3Gain */
+"Not_MP3_file" = "Pas un fichier MP3";
+"UnsupportedFile" = "Non compatible !";
+"No_MP3_Frames" = "Impossible de trouver des trames MP3 valides dans le fichier actuel !";
+"MP3Gain_Error" = "Erreur MP3Gain";
+"NoUndo" = "Impossible d'annuler";
+"InvalidVolume" = "Volume cible invalide !";
+"VolumeInfo" = "Le volume doit être un nombre entre 50 et 100 dB.";
+"reprocessAlbum" = "Traiter comme un album...";
+
+/* Sparkle updater */
+"Check for Updates..." = "Rechercher des Mises à jour...";
+
+/* Language Selector */
+"Language menu" = "Langue";
+"Select Language menu item" = "Sélectionner la Langue...";
+"Language selector title" = "Sélectionner la Langue";
+"Accept" = "Accepter";
+"Language changed alert title" = "Langue modifiée";
+"Language changed message" = "Veuillez redémarrer l'application\npour appliquer la nouvelle langue.";
+

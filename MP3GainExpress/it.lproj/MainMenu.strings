@@ -1,0 +1,65 @@
+/* Italian localization for MainMenu.xib */
+
+/* Menu Items */
+"56.title" = "MP3Gain";
+"58.title" = "Informazioni su MP3Gain Express";
+"640.title" = "Ricerca Aggiornamenti...";
+"129.title" = "Preferenze…";
+"131.title" = "Servizi";
+"134.title" = "Nascondi MP3Gain";
+"145.title" = "Nascondi gli altri";
+"150.title" = "Mostra tutti";
+"136.title" = "Esci da MP3Gain";
+"19.title" = "Finestra";
+"23.title" = "Riduci nel Dock";
+"239.title" = "Zoom";
+"5.title" = "Porta tutto in primo piano";
+"490.title" = "Aiuto";
+"492.title" = "Aiuto di MP3Gain Express";
+
+/* Main Window */
+"371.title" = "MP3Gain Express";
+"547.title" = "Volume \"Normale\" obiettivo:";
+"551.title" = "dB (Predefinito 89.0)";
+"623.title" = "Evita il clipping";
+"T3j-wI-fiL.title" = "Modalità album";
+"566.title" = "Applica guadagno";
+"570.title" = "Solo analisi";
+
+/* Table Headers */
+"557.headerCell.title" = "File";
+"558.headerCell.title" = "Volume";
+"561.headerCell.title" = "Clipping";
+"563.headerCell.title" = "Guadagno traccia";
+
+/* Toolbar Items */
+"542.label" = "Aggiungi file";
+"542.paletteLabel" = "Aggiungi file";
+"541.label" = "Aggiungi cartella";
+"541.paletteLabel" = "Aggiungi cartella";
+"543.label" = "Rimuovi file";
+"543.paletteLabel" = "Rimuovi file";
+"544.label" = "Rimuovi tutto";
+"544.paletteLabel" = "Rimuovi tutto";
+
+/* Processing Dialog */
+"581.title" = "Elaborazione";
+"g6k-a3-omT.title" = "Elaborazione in corso...";
+"590.title" = "Annulla";
+
+/* Preferences Window */
+"Aev-Ki-F4W.title" = "Preferenze";
+"crR-ku-ywK.title" = "Numero di file da elaborare contemporaneamente:";
+"irH-wR-qXa.title" = "Ricorda le impostazioni del volume";
+
+/* Warning Panel */
+"G5f-zl-mMe.title" = "Avviso";
+"n96-eJ-xcx.title" = "Non mostrare più questo avviso";
+
+/* Subfolder Picker */
+"613.title" = "Includi sottocartelle:";
+"609.title" = "Nessuna";
+
+/* Advanced Menu */
+"619.title" = "Annulla guadagno";
+

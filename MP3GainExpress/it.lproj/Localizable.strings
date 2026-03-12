@@ -1,0 +1,94 @@
+/* MP3GainExpress - Italiano */
+
+/* Menu items */
+"About MP3Gain Express" = "Informazioni su MP3Gain Express";
+"Check for Updates..." = "Ricerca aggiornamenti...";
+"Preferences…" = "Preferenze…";
+"Services" = "Servizi";
+"Hide MP3Gain" = "Nascondi MP3Gain";
+"Hide Others" = "Nascondi gli altri";
+"Show All" = "Mostra tutti";
+"Quit MP3Gain" = "Esci da MP3Gain";
+"Window" = "Finestra";
+"Minimize" = "Riduci nel Dock";
+"Zoom" = "Zoom";
+"Bring All to Front" = "Porta tutto in primo piano";
+"Help" = "Aiuto";
+"MP3Gain Express Help" = "Aiuto di MP3Gain Express";
+
+/* Main Window */
+"MP3Gain Express" = "MP3Gain Express";
+"Target \"Normal\" Volume:" = "Volume \"Normale\" obiettivo:";
+"dB (Default 89.0)" = "dB (Predefinito 89.0)";
+"Prevent clipping" = "Evita il clipping";
+"Album Mode" = "Modalità album";
+"Apply Gain" = "Applica guadagno";
+"Analyze Only" = "Solo analisi";
+
+/* Table Headers */
+"File" = "File";
+"Volume" = "Volume";
+"Clipping" = "Clipping";
+"Track Gain" = "Guadagno traccia";
+
+/* Toolbar */
+"Add File(s)" = "Aggiungi file";
+"Add Folder" = "Aggiungi cartella";
+"Clear File" = "Rimuovi file";
+"Clear All" = "Rimuovi tutto";
+
+/* Processing Dialog */
+"Processing" = "Elaborazione";
+"Working" = "Elaborazione in corso...";
+"Canceling" = "Annullamento...";
+"Cancel" = "Annulla";
+
+/* Preferences Window */
+"Preferences" = "Preferenze";
+"Number of files to process concurrently:" = "Numero di file da elaborare contemporaneamente:";
+"Remember Volume settings" = "Ricorda le impostazioni del volume";
+
+/* Warning Dialog */
+"WarningTitle" = "Avviso";
+"WarningText" = "In alcune situazioni le modifiche apportate da MP3Gain potrebbero danneggiare i file. Se non hai mai utilizzato questa applicazione prima o sei preoccupato per i risultati, esegui un backup dei file originali prima di apportare modifiche.";
+"DontWarnAgain" = "Non mostrare più questo avviso";
+"Do not show this warning again" = "Non mostrare più questo avviso";
+
+/* Folder Picker */
+"Include subfolders:" = "Includi sottocartelle:";
+"None" = "Nessuna";
+"1_below" = "1 sottocartella sotto";
+"2_below" = "2 sottocartelle sotto";
+"3_below" = "3 sottocartelle sotto";
+"4_below" = "4 sottocartelle sotto";
+"5_below" = "5 sottocartelle sotto";
+
+/* Advanced Menu */
+"Undo Gain" = "Annulla guadagno";
+
+/* Status Messages */
+"Yes" = "Sì";
+"No" = "No";
+"OK" = "OK";
+
+/* Alert messages from Mp3Gain */
+"Not_MP3_file" = "Non è un file MP3";
+"UnsupportedFile" = "Non compatibile!";
+"No_MP3_Frames" = "Impossibile trovare frame MP3 validi nel file corrente!";
+"MP3Gain_Error" = "Errore MP3Gain";
+"NoUndo" = "Impossibile annullare";
+"InvalidVolume" = "Volume obiettivo non valido!";
+"VolumeInfo" = "Il volume deve essere un numero compreso tra 50 e 100 dB.";
+"reprocessAlbum" = "Elabora come album...";
+
+/* Sparkle updater */
+"Check for Updates..." = "Ricerca Aggiornamenti...";
+
+/* Language Selector */
+"Language menu" = "Lingua";
+"Select Language menu item" = "Seleziona Lingua...";
+"Language selector title" = "Seleziona Lingua";
+"Accept" = "Accetta";
+"Language changed alert title" = "Lingua modificata";
+"Language changed message" = "Riavvia l'applicazione\nper applicare la nuova lingua.";
+

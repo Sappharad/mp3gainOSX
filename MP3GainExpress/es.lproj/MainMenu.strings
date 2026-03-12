@@ -1,179 +1,65 @@
-/* Class = "NSMenuItem"; title = "Bring All to Front"; ObjectID = "5"; */
-"5.title" = "Traer Todo al Frente";
+/* Spanish localization for MainMenu.xib */
 
-/* Class = "NSMenuItem"; title = "Window"; ObjectID = "19"; */
-"19.title" = "Ventana";
-
-/* Class = "NSMenuItem"; title = "Minimize"; ObjectID = "23"; */
-"23.title" = "Minimizar";
-
-/* Class = "NSMenu"; title = "Window"; ObjectID = "24"; */
-"24.title" = "Ventana";
-
-/* Class = "NSMenu"; title = "AMainMenu"; ObjectID = "29"; */
-"29.title" = "AMainMenu";
-
-/* Class = "NSMenuItem"; title = "MP3Gain"; ObjectID = "56"; */
+/* Menu Items */
 "56.title" = "MP3Gain";
-
-/* Class = "NSMenu"; title = "MP3Gain"; ObjectID = "57"; */
-"57.title" = "MP3Gain";
-
-/* Class = "NSMenuItem"; title = "About MP3Gain Express"; ObjectID = "58"; */
 "58.title" = "Acerca de MP3Gain Express";
-
-/* Class = "NSMenuItem"; title = "Preferences…"; ObjectID = "129"; */
+"640.title" = "Buscar Actualizaciones...";
 "129.title" = "Preferencias…";
-
-/* Class = "NSMenu"; title = "Services"; ObjectID = "130"; */
-"130.title" = "Servicios";
-
-/* Class = "NSMenuItem"; title = "Services"; ObjectID = "131"; */
 "131.title" = "Servicios";
-
-/* Class = "NSMenuItem"; title = "Hide MP3Gain"; ObjectID = "134"; */
 "134.title" = "Ocultar MP3Gain";
-
-/* Class = "NSMenuItem"; title = "Quit MP3Gain"; ObjectID = "136"; */
+"145.title" = "Ocultar otros";
+"150.title" = "Mostrar todo";
 "136.title" = "Salir de MP3Gain";
-
-/* Class = "NSMenuItem"; title = "Hide Others"; ObjectID = "145"; */
-"145.title" = "Ocultar Otros";
-
-/* Class = "NSMenuItem"; title = "Show All"; ObjectID = "150"; */
-"150.title" = "Mostrar Todos";
-
-/* Class = "NSMenuItem"; title = "Zoom"; ObjectID = "239"; */
-"239.title" = "Zoom";
-
-/* Class = "NSWindow"; title = "MP3Gain Express"; ObjectID = "371"; */
-"371.title" = "MP3Gain Express";
-
-/* Class = "NSMenuItem"; title = "Help"; ObjectID = "490"; */
+"19.title" = "Ventana";
+"23.title" = "Minimizar";
+"239.title" = "Ampliar";
+"5.title" = "Traer todo al frente";
 "490.title" = "Ayuda";
+"492.title" = "Ayuda de MP3Gain Express";
 
-/* Class = "NSMenu"; title = "Help"; ObjectID = "491"; */
-"491.title" = "Ayuda";
-
-/* Class = "NSMenuItem"; title = "MP3Gain Express Help"; ObjectID = "492"; */
-"492.title" = "Ayuda de Mp3GainMac";
-
-/* Class = "NSToolbarItem"; label = "Add Folder"; ObjectID = "541"; */
-"541.label" = "Añadir Carpeta";
-
-/* Class = "NSToolbarItem"; paletteLabel = "Add Folder"; ObjectID = "541"; */
-"541.paletteLabel" = "Añadir Carpeta";
-
-/* Class = "NSToolbarItem"; label = "Add File(s)"; ObjectID = "542"; */
-"542.label" = "Añadir Archivo(s)";
-
-/* Class = "NSToolbarItem"; paletteLabel = "Add File(s)"; ObjectID = "542"; */
-"542.paletteLabel" = "Añadir Archivo(s)";
-
-/* Class = "NSToolbarItem"; label = "Clear File"; ObjectID = "543"; */
-"543.label" = "Quitar Archivo";
-
-/* Class = "NSToolbarItem"; paletteLabel = "Clear File"; ObjectID = "543"; */
-"543.paletteLabel" = "Quitar Archivo";
-
-/* Class = "NSToolbarItem"; label = "Clear All"; ObjectID = "544"; */
-"544.label" = "Quitar Todos";
-
-/* Class = "NSToolbarItem"; paletteLabel = "Clear All"; ObjectID = "544"; */
-"544.paletteLabel" = "Quitar Todos";
-
-/* Class = "NSBox"; title = "Box"; ObjectID = "545"; */
-"545.title" = "Box";
-
-/* Class = "NSTextFieldCell"; title = "Target \"Normal\" Volume:"; ObjectID = "547"; */
+/* Main Window */
+"371.title" = "MP3Gain Express";
 "547.title" = "Volumen \"Normalizado\":";
-
-/* Class = "NSTextFieldCell"; title = "89.0"; ObjectID = "549"; */
-"549.title" = "89.0";
-
-/* Class = "NSTextFieldCell"; title = "dB (Default 89.0)"; ObjectID = "551"; */
-"551.title" = "dB (Predefinido 89.0)";
-
-/* Class = "NSTableColumn"; headerCell.title = "File"; ObjectID = "557"; */
-"557.headerCell.title" = "Archivo";
-
-/* Class = "NSTableColumn"; headerCell.title = "Volume"; ObjectID = "558"; */
-"558.headerCell.title" = "Volumen";
-
-/* Class = "NSTextFieldCell"; title = "Text Cell"; ObjectID = "559"; */
-"559.title" = "Text Cell";
-
-/* Class = "NSTextFieldCell"; title = "Text Cell"; ObjectID = "560"; */
-"560.title" = "Text Cell";
-
-/* Class = "NSTableColumn"; headerCell.title = "Clipping"; ObjectID = "561"; */
-"561.headerCell.title" = "Recorte";
-
-/* Class = "NSTextFieldCell"; title = "Text Cell"; ObjectID = "562"; */
-"562.title" = "Text Cell";
-
-/* Class = "NSTableColumn"; headerCell.title = "Track Gain"; ObjectID = "563"; */
-"563.headerCell.title" = "Ganancia";
-
-/* Class = "NSTextFieldCell"; title = "Text Cell"; ObjectID = "564"; */
-"564.title" = "Text Cell";
-
-/* Class = "NSButtonCell"; title = "Apply Gain"; ObjectID = "566"; */
+"551.title" = "dB (Predefinido 89)";
+"623.title" = "Evitar recortes";
+"T3j-wI-fiL.title" = "Modo álbum";
 "566.title" = "Aplicar Ganancia";
+"570.title" = "Sólo analizar";
 
-/* Class = "NSButtonCell"; title = "Analyze Only"; ObjectID = "570"; */
-"570.title" = "Sólo Analizar";
+/* Table Headers */
+"557.headerCell.title" = "Archivo";
+"558.headerCell.title" = "Volumen";
+"561.headerCell.title" = "Recorte";
+"563.headerCell.title" = "Ganancia de Pista";
 
-/* Class = "NSWindow"; title = "Processing"; ObjectID = "581"; */
-"581.title" = "Trabajando";
+/* Toolbar Items */
+"542.label" = "Añadir archivo(s)";
+"542.paletteLabel" = "Añadir archivo(s)";
+"541.label" = "Añadir carpeta";
+"541.paletteLabel" = "Añadir carpeta";
+"543.label" = "Eliminar archivo";
+"543.paletteLabel" = "Eliminar archivo";
+"544.label" = "Eliminar todo";
+"544.paletteLabel" = "Eliminar todo";
 
-/* Class = "NSButtonCell"; title = "Cancel"; ObjectID = "591"; */
-"591.title" = "Cancelar";
+/* Processing Dialog */
+"581.title" = "Procesando";
+"g6k-a3-omT.title" = "Trabajando...";
+"590.title" = "Cancelar";
 
-/* Class = "NSMenu"; title = "OtherViews"; ObjectID = "608"; */
-"608.title" = "OtherViews";
+/* Preferences Window */
+"Aev-Ki-F4W.title" = "Preferencias";
+"crR-ku-ywK.title" = "Número de archivos procesados simultáneamente:";
+"irH-wR-qXa.title" = "Recordar ajuste de volumen";
 
-/* Class = "NSMenuItem"; title = "None"; ObjectID = "609"; */
-"609.title" = "Ninguno";
+/* Warning Panel */
+"G5f-zl-mMe.title" = "Advertencia";
+"n96-eJ-xcx.title" = "No mostrar esta advertencia de nuevo";
 
-/* Class = "NSMenuItem"; title = "Ignore this"; ObjectID = "610"; */
-"610.title" = "Ignorar esto";
-
-/* Class = "NSTextFieldCell"; title = "Include subfolders:"; ObjectID = "613"; */
+/* Subfolder Picker */
 "613.title" = "Incluir subcarpetas:";
+"609.title" = "Ninguna";
 
-/* Class = "NSMenuItem"; title = "Undo Gain"; ObjectID = "619"; */
+/* Advanced Menu */
 "619.title" = "Deshacer ganancia";
 
-/* Class = "NSButtonCell"; title = "Prevent clipping"; ObjectID = "623"; */
-"623.title" = "Evitar el recorte";
-
-/* Class = "NSMenuItem"; title = "Check for Updates..."; ObjectID = "640"; */
-"640.title" = "Buscar actualizaciones...";
-
-/* Class = "NSWindow"; title = "Preferences"; ObjectID = "Aev-Ki-F4W"; */
-"Aev-Ki-F4W.title" = "Preferencias";
-
-/* Class = "NSWindow"; title = "Warning"; ObjectID = "G5f-zl-mMe"; */
-"G5f-zl-mMe.title" = "Advertencia";
-
-/* Class = "NSTextFieldCell"; title = "In some situations the modifications made by MP3Gain could damage your files. If you have never used this application before or are concerned about the results, please backup your original files before making changes to them."; ObjectID = "HI7-yn-PLY"; */
-"HI7-yn-PLY.title" = "En algunas situaciones las modificaciones realizadas por MP3Gain podrían dañar sus archivos. Si nunca ha utilizado esta aplicación antes o está preocupado por los resultados, haga una copia de seguridad de los archivos originales antes de realizar cambios en ellos.";
-
-/* Class = "NSTextFieldCell"; title = "2"; ObjectID = "KYc-Sl-pe2"; */
-"KYc-Sl-pe2.title" = "2";
-
-/* Class = "NSButtonCell"; title = "Album Mode"; ObjectID = "T3j-wI-fiL"; */
-"T3j-wI-fiL.title" = "Modo álbum";
-
-/* Class = "NSTextFieldCell"; title = "Number of files to process concurrently:"; ObjectID = "crR-ku-ywK"; */
-"crR-ku-ywK.title" = "Número de archivos que procesar a la vez:";
-
-/* Class = "NSTextFieldCell"; title = "Working..."; ObjectID = "g6k-a3-omT"; */
-"g6k-a3-omT.title" = "Procesando...";
-
-/* Class = "NSButtonCell"; title = "Remember Volume settings"; ObjectID = "irH-wR-qXa"; */
-"irH-wR-qXa.title" = "Recordar los ajustes de volumen";
-
-/* Class = "NSButtonCell"; title = "Do not show this warning again"; ObjectID = "n96-eJ-xcx"; */
-"n96-eJ-xcx.title" = "No volver a mostrar esta advertencia";

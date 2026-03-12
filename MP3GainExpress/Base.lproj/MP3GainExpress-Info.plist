@@ -2,8 +2,6 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>SUPublicEDKey</key>
-	<string>+7ywXeKrCtS7IS8YVAYWkVYGVIkWmp8NMBcW3C2ZdiI=</string>
 	<key>AppIcon</key>
 	<string>AppIcon</string>
 	<key>CFBundleDevelopmentRegion</key>
@@ -19,11 +17,11 @@
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
-	<string>3.0</string>
+	<string>$(MARKETING_VERSION)</string>
 	<key>CFBundleSignature</key>
 	<string>????</string>
 	<key>CFBundleVersion</key>
-	<string>3.0</string>
+	<string>$(CURRENT_PROJECT_VERSION)</string>
 	<key>LSApplicationCategoryType</key>
 	<string>public.app-category.music</string>
 	<key>LSMinimumSystemVersion</key>
@@ -39,7 +37,13 @@
 	<string>MainMenu</string>
 	<key>NSPrincipalClass</key>
 	<string>NSApplication</string>
+    <key>SUEnableSystemProfiling</key>
+    <false/>
 	<key>SUFeedURL</key>
 	<string>http://projects.sappharad.com/mp3gain/updates_TEST.xml</string>
+	<key>SUPublicEDKey</key>
+	<string>+7ywXeKrCtS7IS8YVAYWkVYGVIkWmp8NMBcW3C2ZdiI=</string>
+    <key>SUScheduledCheckInterval</key>
+    <integer>604800</integer>
 </dict>
 </plist>
