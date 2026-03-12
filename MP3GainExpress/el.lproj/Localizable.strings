@@ -1,94 +1,94 @@
-/* MP3GainExpress - English */
+/* MP3GainExpress - Greek */
 
 /* Menu items */
-"About MP3Gain Express" = "About MP3Gain Express";
-"Check for Updates..." = "Check for Updates...";
-"Preferences…" = "Preferences…";
-"Services" = "Services";
-"Hide MP3Gain" = "Hide MP3Gain";
-"Hide Others" = "Hide Others";
-"Show All" = "Show All";
-"Quit MP3Gain" = "Quit MP3Gain";
-"Window" = "Window";
-"Minimize" = "Minimize";
-"Zoom" = "Zoom";
-"Bring All to Front" = "Bring All to Front";
-"Help" = "Help";
-"MP3Gain Express Help" = "MP3Gain Express Help";
+"About MP3Gain Express" = "Πληροφορίες για το MP3Gain Express";
+"Check for Updates..." = "Έλεγχος για ενημερώσεις...";
+"Preferences…" = "Προτιμήσεις…";
+"Services" = "Υπηρεσίες";
+"Hide MP3Gain" = "Απόκρυψη MP3Gain";
+"Hide Others" = "Απόκρυψη άλλων";
+"Show All" = "Εμφάνιση όλων";
+"Quit MP3Gain" = "Έξοδος από MP3Gain";
+"Window" = "Παράθυρο";
+"Minimize" = "Ελαχιστοποίηση";
+"Zoom" = "Ζουμ";
+"Bring All to Front" = "Μεταφορά όλων στο προσκήνιο";
+"Help" = "Βοήθεια";
+"MP3Gain Express Help" = "Βοήθεια MP3Gain Express";
 
 /* Main Window */
 "MP3Gain Express" = "MP3Gain Express";
-"Target \"Normal\" Volume:" = "Target \"Normal\" Volume:";
-"dB (Default 89.0)" = "dB (Default 89.0)";
-"Prevent clipping" = "Prevent clipping";
-"Album Mode" = "Album Mode";
-"Apply Gain" = "Apply Gain";
-"Analyze Only" = "Analyze Only";
+"Target \"Normal\" Volume:" = "\"Κανονική\" ένταση στόχος:";
+"dB (Default 89.0)" = "dB (Προεπιλογή 89.0)";
+"Prevent clipping" = "Αποφυγή αποκοπής";
+"Album Mode" = "Λειτουργία άλμπουμ";
+"Apply Gain" = "Εφαρμογή ενίσχυσης";
+"Analyze Only" = "Μόνο ανάλυση";
 
 /* Table Headers */
-"File" = "File";
-"Volume" = "Volume";
-"Clipping" = "Clipping";
-"Track Gain" = "Track Gain";
+"File" = "Αρχείο";
+"Volume" = "Ένταση";
+"Clipping" = "Αποκοπή";
+"Track Gain" = "Ενίσχυση κομματιού";
 
 /* Toolbar */
-"Add File(s)" = "Add File(s)";
-"Add Folder" = "Add Folder";
-"Clear File" = "Clear File";
-"Clear All" = "Clear All";
+"Add File(s)" = "Προσθήκη αρχείου(-ων)";
+"Add Folder" = "Προσθήκη φακέλου";
+"Clear File" = "Αφαίρεση αρχείου";
+"Clear All" = "Αφαίρεση όλων";
 
 /* Processing Dialog */
-"Processing" = "Processing";
-"Working" = "Working...";
-"Canceling" = "Canceling...";
-"Cancel" = "Cancel";
+"Processing" = "Επεξεργασία";
+"Working" = "Επεξεργασία σε εξέλιξη...";
+"Canceling" = "Ακύρωση...";
+"Cancel" = "Ακύρωση";
 
 /* Preferences Window */
-"Preferences" = "Preferences";
-"Number of files to process concurrently:" = "Number of files to process concurrently:";
-"Remember Volume settings" = "Remember Volume settings";
+"Preferences" = "Προτιμήσεις";
+"Number of files to process concurrently:" = "Αριθμός αρχείων για ταυτόχρονη επεξεργασία:";
+"Remember Volume settings" = "Αποθήκευση ρυθμίσεων έντασης";
 
 /* Warning Dialog */
-"WarningTitle" = "Warning";
-"WarningText" = "In some situations the modifications made by MP3Gain could damage your files. If you have never used this application before or are concerned about the results, please backup your original files before making changes to them.";
-"DontWarnAgain" = "Do not show this warning again";
-"Do not show this warning again" = "Do not show this warning again";
+"WarningTitle" = "Προειδοποίηση";
+"WarningText" = "Σε ορισμένες περιπτώσεις, οι τροποποιήσεις του MP3Gain ενδέχεται να καταστρέψουν τα αρχεία σας. Αν δεν έχετε χρησιμοποιήσει ποτέ αυτή την εφαρμογή ή ανησυχείτε για τα αποτελέσματα, δημιουργήστε αντίγραφο ασφαλείας των πρωτότυπων αρχείων πριν κάνετε αλλαγές.";
+"DontWarnAgain" = "Να μην εμφανιστεί ξανά αυτή η προειδοποίηση";
+"Do not show this warning again" = "Να μην εμφανιστεί ξανά αυτή η προειδοποίηση";
 
 /* Folder Picker */
-"Include subfolders:" = "Include subfolders:";
-"None" = "None";
-"1_below" = "1 subfolder below";
-"2_below" = "2 subfolders below";
-"3_below" = "3 subfolders below";
-"4_below" = "4 subfolders below";
-"5_below" = "5 subfolders below";
+"Include subfolders:" = "Συμπερίληψη υποφακέλων:";
+"None" = "Κανένας";
+"1_below" = "1 υποφάκελος κάτω";
+"2_below" = "2 υποφάκελοι κάτω";
+"3_below" = "3 υποφάκελοι κάτω";
+"4_below" = "4 υποφάκελοι κάτω";
+"5_below" = "5 υποφάκελοι κάτω";
 
 /* Advanced Menu */
-"Undo Gain" = "Undo Gain";
+"Undo Gain" = "Αναίρεση ενίσχυσης";
 
 /* Status Messages */
-"Yes" = "Yes";
-"No" = "No";
+"Yes" = "Ναι";
+"No" = "Όχι";
 "OK" = "OK";
 
 /* Alert messages from Mp3Gain */
-"Not_MP3_file" = "Not MP3 file";
-"UnsupportedFile" = "Not compatible!";
-"No_MP3_Frames" = "Can't find any valid MP3 frames in the current file!";
-"MP3Gain_Error" = "MP3Gain Error";
-"NoUndo" = "Can't Undo";
-"InvalidVolume" = "Invalid target volume!";
-"VolumeInfo" = "The volume should be a number between 50 and 100 dB.";
-"reprocessAlbum" = "Process as Album...";
+"Not_MP3_file" = "Δεν είναι αρχείο MP3";
+"UnsupportedFile" = "Μη συμβατό!";
+"No_MP3_Frames" = "Δεν βρέθηκαν έγκυρα πλαίσια MP3 στο τρέχον αρχείο!";
+"MP3Gain_Error" = "Σφάλμα MP3Gain";
+"NoUndo" = "Δεν είναι δυνατή η αναίρεση";
+"InvalidVolume" = "Μη έγκυρη ένταση στόχος!";
+"VolumeInfo" = "Η ένταση πρέπει να είναι αριθμός μεταξύ 50 και 100 dB.";
+"reprocessAlbum" = "Επεξεργασία ως άλμπουμ...";
 
 /* Sparkle updater */
-"Check for Updates..." = "Check for Updates...";
+"Check for Updates..." = "Έλεγχος για Ενημερώσεις...";
 
 /* Language Selector */
-"Language menu" = "Language";
-"Select Language menu item" = "Select Language...";
-"Language selector title" = "Select Language";
-"Accept" = "Accept";
-"Language changed alert title" = "Language Changed";
-"Language changed message" = "Please restart the application\nto apply the new language.";
+"Language menu" = "Γλώσσα";
+"Select Language menu item" = "Επιλογή γλώσσας...";
+"Language selector title" = "Επιλογή γλώσσας";
+"Accept" = "Αποδοχή";
+"Language changed alert title" = "Η γλώσσα άλλαξε";
+"Language changed message" = "Επανεκκινήστε την εφαρμογή\nγια εφαρμογή της νέας γλώσσας.";
 
