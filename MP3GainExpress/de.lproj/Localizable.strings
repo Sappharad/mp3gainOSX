@@ -83,12 +83,3 @@
 
 /* Sparkle updater */
 "Check for Updates..." = "Nach Updates suchen...";
-
-/* Language Selector */
-"Language menu" = "Sprache";
-"Select Language menu item" = "Sprache Auswählen...";
-"Language selector title" = "Sprache Auswählen";
-"Accept" = "Akzeptieren";
-"Language changed alert title" = "Sprache geändert";
-"Language changed message" = "Bitte starten Sie die Anwendung neu,\num die neue Sprache anzuwenden.";
-

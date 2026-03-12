@@ -83,12 +83,3 @@
 
 /* Sparkle updater */
 "Check for Updates..." = "Έλεγχος για Ενημερώσεις...";
-
-/* Language Selector */
-"Language menu" = "Γλώσσα";
-"Select Language menu item" = "Επιλογή γλώσσας...";
-"Language selector title" = "Επιλογή γλώσσας";
-"Accept" = "Αποδοχή";
-"Language changed alert title" = "Η γλώσσα άλλαξε";
-"Language changed message" = "Επανεκκινήστε την εφαρμογή\nγια εφαρμογή της νέας γλώσσας.";
-
