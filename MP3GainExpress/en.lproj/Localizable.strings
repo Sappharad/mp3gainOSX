@@ -3,7 +3,7 @@
 "WarningTitle" = "Warning";
 "WarningText" = "In some situations the modifications made by MP3Gain could damage your files. If you have never used this application before or are concerned about the results, please backup your original files before making changes to them.";
 "Working" = "Working...";
-"Canceling" = "Canceling...";
+"Canceling_soon" = "Stopping...";
 "Yes" = "Yes";
 "No" = "No";
 "None" = "None";

@@ -1,0 +1,25 @@
+/* MP3GainExpress */
+"DontWarnAgain" = "Να μην ξαναεμφανιστεί";
+"WarningTitle" = "Warning";
+"WarningText" = "In some situations the modifications made by MP3Gain could damage your files. If you have never used this application before or are concerned about the results, please backup your original files before making changes to them.";
+"Working" = "Σε Εξέλιξη...";
+"Canceling_soon" = "** Ακυρωση σε εξέλιξη... **";
+"Yes" = "Ναι";
+"No" = "Όχι";
+"None" = "Κανένα";
+"1_below" = "1 υποφάκελος κάτω";
+"2_below" = "2 υποφάκελοι κάτω";
+"3_below" = "3 υποφάκελοι κάτω";
+"4_below" = "4 υποφάκελοι κάτω";
+"5_below" = "5 υποφάκελοι κάτω";
+
+/* Alert messages from Mp3Gain */
+"Not_MP3_file" = "Μή έγκυρο αρχείο MP3";
+"UnsupportedFile" = "Μη υποστηριζόμενο αρχείο!";
+"OK" = "Εντάξει";
+"No_MP3_Frames" = "Δεν βρέθηκαν έγκυρα MP3 frames στο τρέχον αρχείο!";
+"MP3Gain_Error" = "Σφάλμα MP3Gain";
+"NoUndo" = "Αναίρεση Αδύνατη";
+"InvalidVolume" = "Μη αποδεκτή τιμή έντασης!";
+"VolumeInfo" = "Η τιμή έντασης του αρχείου προορισμού πρέπει να είναι μεταξύ 50 και 100 dB.";
+"reprocessAlbum" = "Επεξεργασία ως άλμπουμ...";

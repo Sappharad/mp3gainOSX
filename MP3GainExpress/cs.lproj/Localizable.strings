@@ -1,0 +1,26 @@
+/* MP3GainExpress */
+"DontWarnAgain" = "Příště toto varování nezobrazovat";
+"WarningTitle" = "Warning";
+"WarningText" = "In some situations the modifications made by MP3Gain could damage your files. If you have never used this application before or are concerned about the results, please backup your original files before making changes to them.";
+"Working" = "Pracuje se...";
+"Canceling_soon" = "** Brzy bude zrušeno... **";
+"Yes" = "Ano";
+"No" = "Ne";
+"None" = "Žádné";
+"1_below" = "1 podsložka níže";
+"2_below" = "2 podsložky níže";
+"3_below" = "3 podsložky níže";
+"4_below" = "4 podsložky níže";
+"5_below" = "5 podsložek níže";
+
+/* Alert messages from Mp3Gain */
+"Not_MP3_file" = "Toto není soubor MP3";
+"UnsupportedFile" = "Není kompatibilní!";
+"OK" = "OK";
+"No_MP3_Frames" = "V aktuálním souboru nelze najít žádné platné snímky MP3!";
+"MP3Gain_Error" = "Chyba MP3Gain";
+"NoUndo" = "Nelze vrátit";
+"InvalidVolume" = "Neplatná cílová hlasitost!";
+"VolumeInfo" = "Cílová hlasitost by mělo být číslo mezi 50 a 100 dB.";
+"reprocessAlbum" = "Zpracovat jako Album...";
+

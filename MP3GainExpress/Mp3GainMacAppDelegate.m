@@ -329,7 +329,7 @@
 - (IBAction)btnCancel:(id)sender {
     //Clicking cancel stops after the currently processing files are done. It removes any that haven't started yet.
     cancelCurrentOperation = true;
-    [lblStatus setStringValue:NSLocalizedString(@"Canceling", @"Canceling")];
+    [lblStatus setStringValue:NSLocalizedString(@"Canceling_soon", @"Stopping...")];
     [btnCancel setEnabled:FALSE];
     
     //Rebuild the pending file list without tasks that haven't started yet.

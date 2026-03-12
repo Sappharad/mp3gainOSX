@@ -1,0 +1,25 @@
+/* MP3GainExpress */
+"DontWarnAgain" = "Diese Warnung nicht wieder anzeigen";
+"WarningTitle" = "Warning";
+"WarningText" = "In some situations the modifications made by MP3Gain could damage your files. If you have never used this application before or are concerned about the results, please backup your original files before making changes to them.";
+"Working" = "Ich arbeite ...";
+"Canceling_soon" = "** Abbruch wird vorbereitet... **";
+"Yes" = "Ja";
+"No" = "Nein";
+"None" = "Kein";
+"1_below" = "1 Unterordner darunter";
+"2_below" = "2 Unterordner darunter";
+"3_below" = "3 Unterordner darunter";
+"4_below" = "4 Unterordner darunter";
+"5_below" = "5 Unterordner darunter";
+
+/* Alert messages from Mp3Gain */
+"Not_MP3_file" = "Keine MP3 Datei";
+"UnsupportedFile" = "Ungültige Datei!";
+"OK" = "OK";
+"No_MP3_Frames" = "Kann keine gültigen MP3 Frames in der aktuelle Datei finden!";
+"MP3Gain_Error" = "MP3Gain Fehler";
+"NoUndo" = "Kein Undo möglich";
+"InvalidVolume" = "Ungültige Ziellautstärke!";
+"VolumeInfo" = "Die gewählte Lautstärke muss zwischen 50 und 100 dB liegen.";
+"reprocessAlbum" = "Verarbeiten als Album ...";
