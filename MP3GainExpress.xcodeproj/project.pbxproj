@@ -67,7 +67,6 @@
 		9E5E0ABF1ED8D0E500B2D422 /* m3gPreferences.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = m3gPreferences.h; sourceTree = "<group>"; };
 		9E5E0AC01ED8D0E500B2D422 /* m3gPreferences.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = m3gPreferences.m; sourceTree = "<group>"; };
 		9E6E764E2F62487700830A00 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
-		9E6E764F2F62532400830A00 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/MainMenu.strings; sourceTree = "<group>"; };
 		9E6E76502F62537000830A00 /* cs */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = cs; path = cs.lproj/MainMenu.strings; sourceTree = "<group>"; };
 		9E6E76512F62538200830A00 /* el */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = el; path = el.lproj/MainMenu.strings; sourceTree = "<group>"; };
 		9E6E76522F62538C00830A00 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/MainMenu.strings; sourceTree = "<group>"; };
@@ -84,6 +83,7 @@
 		9E6E76612F6256EF00830A00 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = es; path = es.lproj/Credits.rtf; sourceTree = "<group>"; };
 		9E6E76622F6257EF00830A00 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Base; path = "Base.lproj/MP3GainExpress-Info.plist"; sourceTree = "<group>"; };
 		9E6E76642F62580200830A00 /* el */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = el; path = "el.lproj/MP3GainExpress-Info.plist"; sourceTree = "<group>"; };
+		9E8AB16C2F6642B000F2024D /* de */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = de; path = de.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		9EA9F17513C278550036B145 /* m3gInputItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = m3gInputItem.h; sourceTree = "<group>"; };
 		9EA9F17613C278550036B145 /* m3gInputItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = m3gInputItem.m; sourceTree = "<group>"; };
 		9EBDFE2C1EB53E4300C0F9F4 /* M3GWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = M3GWindow.h; sourceTree = "<group>"; };
@@ -333,10 +333,10 @@
 			isa = PBXVariantGroup;
 			children = (
 				9E6E764E2F62487700830A00 /* Base */,
-				9E6E764F2F62532400830A00 /* de */,
 				9E6E76502F62537000830A00 /* cs */,
 				9E6E76512F62538200830A00 /* el */,
 				9E6E76522F62538C00830A00 /* es */,
+				9E8AB16C2F6642B000F2024D /* de */,
 			);
 			name = MainMenu.xib;
 			sourceTree = "<group>";
