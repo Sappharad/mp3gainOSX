@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="24506" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="12121"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="24506"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <customObject id="-2" userLabel="File's Owner" customClass="FileProgressViewItem">
+        <customObject id="-2" userLabel="File's Owner" customClass="FileProgressViewItem" customModule="MP3Gain_Express" customModuleProvider="target">
             <connections>
                 <outlet property="lblFilename" destination="8JT-HI-GnD" id="73T-Pu-pYc"/>
                 <outlet property="pbStatus" destination="ALn-cP-RWd" id="Y1n-8O-Nss"/>
@@ -20,19 +20,19 @@
             <rect key="frame" x="0.0" y="0.0" width="280" height="52"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
             <subviews>
-                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8JT-HI-GnD">
-                    <rect key="frame" x="8" y="26" width="263" height="17"/>
+                <textField focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="8JT-HI-GnD">
+                    <rect key="frame" x="8" y="27" width="263" height="16"/>
                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="left" title="Unknown.mp3" id="Su8-RQ-uyT">
                         <font key="font" metaFont="system"/>
                         <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
                 </textField>
-                <progressIndicator autoresizesSubviews="NO" wantsLayer="YES" canDrawConcurrently="YES" maxValue="100" style="bar" translatesAutoresizingMaskIntoConstraints="NO" id="ALn-cP-RWd">
+                <progressIndicator autoresizesSubviews="NO" wantsLayer="YES" maxValue="100" style="bar" translatesAutoresizingMaskIntoConstraints="NO" id="ALn-cP-RWd">
                     <rect key="frame" x="10" y="4" width="259" height="20"/>
                 </progressIndicator>
                 <levelIndicator hidden="YES" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="rtM-cR-9gV">
-                    <rect key="frame" x="10" y="6" width="259" height="16"/>
+                    <rect key="frame" x="10" y="5" width="259" height="18"/>
                     <levelIndicatorCell key="cell" alignment="left" maxValue="100" warningValue="2" criticalValue="2" levelIndicatorStyle="continuousCapacity" id="fCa-dN-IhQ"/>
                 </levelIndicator>
             </subviews>

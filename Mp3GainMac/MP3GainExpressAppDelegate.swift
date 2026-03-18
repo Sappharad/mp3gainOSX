@@ -1,0 +1,315 @@
+import Cocoa
+
+@main
+final class MP3GainExpressAppDelegate: NSObject, NSApplicationDelegate {
+    private var inputList = InputList()
+    private var tasks: [MP3GainTask] = []
+    private var cancelCurrentOperation = false
+
+    @IBOutlet weak var window: NSWindow!
+    @IBOutlet weak var vwMainBody: NSView!
+    @IBOutlet weak var tblFileList: NSTableView!
+    @IBOutlet weak var txtTargetVolume: NSTextField!
+    @IBOutlet weak var pnlProgressView: NSPanel!
+    @IBOutlet weak var cvProcessFiles: NSCollectionView!
+    @IBOutlet weak var lblStatus: NSTextField!
+    @IBOutlet weak var pbTotalProgress: NSProgressIndicator!
+    @IBOutlet weak var btnCancel: NSButton!
+    @IBOutlet weak var vwSubfolderPicker: NSView!
+    @IBOutlet weak var ddlSubfolders: NSPopUpButton!
+    @IBOutlet weak var mnuAdvancedGain: NSMenu!
+    @IBOutlet weak var chkAvoidClipping: NSButton!
+    @IBOutlet weak var btnAdvancedMenu: NSButton!
+    @IBOutlet weak var chkAlbumGain: NSButton!
+    @IBOutlet weak var wndPreferences: NSWindow!
+    @IBOutlet weak var pnlWarning: NSPanel!
+    @IBOutlet weak var chkDoNotWarnAgain: NSButton!
+    @IBOutlet weak var tbiAddFile: NSToolbarItem!
+    @IBOutlet weak var tbiAddFolder: NSToolbarItem!
+    @IBOutlet weak var tbiClearFile: NSToolbarItem!
+    @IBOutlet weak var tbiClearAll: NSToolbarItem!
+
+    func applicationDidFinishLaunching(_ notification: Notification) {
+        inputList = InputList()
+        tblFileList.dataSource = inputList
+        tblFileList.registerForDraggedTypes([.URL])
+
+        // Note: Intentionally using the legacy API here for compatibility with older versions of macOS.
+        cvProcessFiles.itemPrototype = FileProgressViewItem()
+        cvProcessFiles.maxItemSize = NSSize(width: 0, height: 52.0)
+        cvProcessFiles.minItemSize = NSSize(width: 0, height: 52.0)
+
+        let prefs = Preferences.shared
+        if prefs.rememberOptions {
+            txtTargetVolume.floatValue = prefs.volume
+            chkAvoidClipping.state = prefs.noClipping ? .on : .off
+        }
+
+        if !prefs.hideWarning {
+            let attrTitle = NSMutableAttributedString(string: NSLocalizedString("DontWarnAgain", tableName: "ui_text", comment: "Do not show this warning again"))
+            attrTitle.addAttribute(.foregroundColor, value: NSColor.white, range: NSRange(location: 0, length: attrTitle.length))
+            chkDoNotWarnAgain.attributedTitle = attrTitle
+            pnlWarning.makeKeyAndOrderFront(self)
+        }
+
+        // Set toolbar images at template, so when we're in dark mode they get inverted automatically:
+        setToolbarTemplateImage(named: "AddSong.png", item: tbiAddFile)
+        setToolbarTemplateImage(named: "AddFolder.png", item: tbiAddFolder)
+        setToolbarTemplateImage(named: "ClearSong.png", item: tbiClearFile)
+        setToolbarTemplateImage(named: "ClearAll.png", item: tbiClearAll)
+    }
+
+    func applicationWillTerminate(_ notification: Notification) {
+        let prefs = Preferences.shared
+        if prefs.rememberOptions {
+            let targetVolume = txtTargetVolume.floatValue
+            if targetVolume >= 50, targetVolume <= 100 {
+                prefs.volume = targetVolume
+            }
+            prefs.noClipping = (chkAvoidClipping.state == .on)
+        }
+        prefs.hideWarning = (chkDoNotWarnAgain.state == .on)
+    }
+
+    @IBAction func showPreferences(_ sender: Any?) {
+        wndPreferences.makeKeyAndOrderFront(self)
+    }
+
+    @IBAction func btnAddFiles(_ sender: Any?) {
+        let panel = NSOpenPanel()
+        panel.allowedFileTypes = ["mp3", "mp4", "m4a"]
+        panel.allowsOtherFileTypes = true
+        panel.allowsMultipleSelection = true
+        panel.beginSheetModal(for: window) { [weak self] result in
+            guard let self, result == .OK else { return }
+            for file in panel.urls where file.isFileURL {
+                self.inputList.addFile(file.path)
+            }
+            self.tblFileList.reloadData()
+        }
+    }
+
+    @IBAction func btnAddFolder(_ sender: Any?) {
+        let panel = NSOpenPanel()
+        panel.allowsMultipleSelection = true
+        panel.canChooseDirectories = true
+        panel.canChooseFiles = false
+
+        ddlSubfolders.removeAllItems()
+        ddlSubfolders.addItems(withTitles: [
+            NSLocalizedString("None", tableName: "ui_text", comment: "None"),
+            NSLocalizedString("1_Below", tableName: "ui_text", comment: "1_Below"),
+            NSLocalizedString("2_Below", tableName: "ui_text", comment: "2_Below"),
+            NSLocalizedString("3_Below", tableName: "ui_text", comment: "3_Below"),
+            NSLocalizedString("4_Below", tableName: "ui_text", comment: "4_Below"),
+            NSLocalizedString("5_Below", tableName: "ui_text", comment: "5_Below")
+        ])
+        panel.accessoryView = vwSubfolderPicker
+        if panel.responds(to: #selector(getter: NSOpenPanel.isAccessoryViewDisclosed)) {
+            panel.isAccessoryViewDisclosed = true
+        }
+
+        panel.beginSheetModal(for: window) { [weak self] result in
+            guard let self, result == .OK else { return }
+            let depthAmount = Int(self.ddlSubfolders.indexOfSelectedItem)
+            for folder in panel.urls {
+                self.inputList.addDirectory(folder.path, subFoldersRemaining: depthAmount)
+            }
+            self.tblFileList.reloadData()
+        }
+    }
+
+    @IBAction func btnClearFile(_ sender: Any?) {
+        for currentIndex in tblFileList.selectedRowIndexes.reversed() {
+            inputList.remove(at: currentIndex)
+        }
+        tblFileList.reloadData()
+    }
+
+    @IBAction func btnClearAll(_ sender: Any?) {
+        inputList.clear()
+        tblFileList.reloadData()
+    }
+
+    @IBAction func btnAnalyze(_ sender: Any?) {
+        if checkValidOperation(), inputList.count > 0 {
+            beginProgressSheet()
+            doAnalysis(album: chkAlbumGain.state == .on)
+        }
+    }
+
+    @IBAction func btnApplyGain(_ sender: Any?) {
+        if checkValidOperation(), inputList.count > 0 {
+            beginProgressSheet()
+            doModify(noClip: chkAvoidClipping.state == .on, albumMode: chkAlbumGain.state == .on)
+        }
+    }
+
+    @IBAction func doGainRemoval(_ sender: Any?) {
+        if inputList.count > 0 {
+            beginProgressSheet()
+            undoModify()
+        }
+    }
+
+    @IBAction func btnCancel(_ sender: Any?) {
+        // Clicking cancel stops after the currently processing files are done. It removes any that haven't started yet.
+        cancelCurrentOperation = true
+        lblStatus.stringValue = NSLocalizedString("Canceling_soon", tableName: "ui_text", comment: "Canceling soon")
+        btnCancel.isEnabled = false
+
+        // Rebuild the pending file list without tasks that haven't started yet.
+        tasks = tasks.filter(\ .inProgress)
+        cvProcessFiles.content = tasks
+        pbTotalProgress.doubleValue = Double(inputList.count - tasks.count)
+    }
+
+    @IBAction func btnShowAdvanced(_ sender: Any?) {
+        mnuAdvancedGain.popUp(positioning: nil, at: btnAdvancedMenu.frame.origin, in: vwMainBody)
+    }
+
+    func applicationShouldTerminateAfterLastWindowClosed(_ sender: NSApplication) -> Bool {
+        true
+    }
+
+    private func checkValidOperation() -> Bool {
+        let gain = txtTargetVolume.floatValue
+        if gain < 50.0 || gain >= 100.0 {
+            let alert = NSAlert()
+            alert.messageText = NSLocalizedString("InvalidVolume", tableName: "ui_text", comment: "Invalid target volume!")
+            alert.informativeText = NSLocalizedString("VolumeInfo", tableName: "ui_text", comment: "The target volume should be a number between 50 and 100 dB.")
+            alert.addButton(withTitle: NSLocalizedString("OK", tableName: "ui_text", comment: "OK"))
+            alert.runModal()
+            return false
+        }
+        return true
+    }
+
+    private func getNumConcurrentTasks() -> Int {
+        Preferences.shared.numProcesses
+    }
+
+    private func doAnalysis(album: Bool) {
+        tasks = []
+        if !album || inputList.count == 1 {
+            for index in 0..<inputList.count {
+                let task = MP3GainTask.task(with: inputList.object(at: index), action: .analyze)
+                task.desiredDb = NSNumber(value: txtTargetVolume.floatValue)
+                task.onProcessingComplete = { [weak self, weak task] in
+                    guard let self, let task else { return }
+                    self.handleTaskCompletion(task)
+                }
+                tasks.append(task)
+            }
+        } else {
+            // This is an album - Do not process it twice because reprocessing doesn't use single file data.
+            let task = MP3GainTask.task(with: inputList.allObjects(), action: .analyze)
+            task.desiredDb = NSNumber(value: txtTargetVolume.floatValue)
+            task.onProcessingComplete = { [weak self, weak task] in
+                guard let self, let task else { return }
+                self.handleTaskCompletion(task)
+            }
+            tasks.append(task)
+        }
+
+        cvProcessFiles.content = tasks
+        for index in 0..<min(tasks.count, getNumConcurrentTasks()) {
+            tasks[index].process()
+        }
+    }
+
+    private func doModify(noClip: Bool, albumMode album: Bool) {
+        tasks = []
+        if !album || inputList.count == 1 {
+            for index in 0..<inputList.count {
+                let task = MP3GainTask.task(with: inputList.object(at: index), action: .apply)
+                task.noClipping = noClip
+                task.desiredDb = NSNumber(value: txtTargetVolume.floatValue)
+                task.onProcessingComplete = { [weak self, weak task] in
+                    guard let self, let task else { return }
+                    self.handleTaskCompletion(task)
+                }
+                tasks.append(task)
+            }
+        } else {
+            // Album mode - Don't process twice because it doesn't use analyze data
+            let task = MP3GainTask.task(with: inputList.allObjects(), action: .apply)
+            task.noClipping = noClip
+            task.desiredDb = NSNumber(value: txtTargetVolume.floatValue)
+            task.onProcessingComplete = { [weak self, weak task] in
+                guard let self, let task else { return }
+                self.handleTaskCompletion(task)
+            }
+            tasks.append(task)
+        }
+
+        cvProcessFiles.content = tasks
+        for index in 0..<min(tasks.count, getNumConcurrentTasks()) {
+            tasks[index].process()
+        }
+    }
+
+    private func undoModify() {
+        tasks = []
+        for index in 0..<inputList.count {
+            let task = MP3GainTask.task(with: inputList.object(at: index), action: .undo)
+            task.onProcessingComplete = { [weak self, weak task] in
+                guard let self, let task else { return }
+                self.handleTaskCompletion(task)
+            }
+            tasks.append(task)
+        }
+
+        cvProcessFiles.content = tasks
+        for index in 0..<min(tasks.count, getNumConcurrentTasks()) {
+            tasks[index].process()
+        }
+    }
+
+    private func handleTaskCompletion(_ task: MP3GainTask) {
+        DispatchQueue.main.async {
+            var replacement = self.tasks.filter { $0 !== task }
+            if task.failureCount == 1 {
+                // Re-add file to end of the list on the first failure.
+                replacement.append(task)
+            }
+
+            self.cvProcessFiles.content = replacement
+            self.tasks = replacement
+            self.pbTotalProgress.doubleValue = Double(self.inputList.count - replacement.count)
+
+            let filesLeft = replacement.count
+            if filesLeft == 0 {
+                self.window.endSheet(self.pnlProgressView) // Tell the sheet we're done.
+                self.pnlProgressView.orderOut(self) // Lets hide the sheet.
+                self.tblFileList.reloadData()
+                self.tasks.removeAll()
+            } else if !self.cancelCurrentOperation {
+                // Find next file to begin processing
+                for nextTask in replacement where !nextTask.inProgress && (filesLeft == 1 || nextTask.files.count == 1) {
+                    // Album task MUST be processed last, so check files left even though it should always be at the end of the list.
+                    nextTask.process()
+                    break
+                }
+            }
+        }
+    }
+
+    private func beginProgressSheet() {
+        window.beginSheet(pnlProgressView, completionHandler: nil)
+        lblStatus.stringValue = NSLocalizedString("Working", tableName: "ui_text", comment: "Working...")
+        pbTotalProgress.usesThreadedAnimation = true
+        pbTotalProgress.startAnimation(self)
+        pbTotalProgress.minValue = 0.0
+        pbTotalProgress.maxValue = Double(inputList.count)
+        pbTotalProgress.doubleValue = 0.0
+        btnCancel.isEnabled = true
+        cancelCurrentOperation = false
+    }
+
+    private func setToolbarTemplateImage(named name: String, item: NSToolbarItem) {
+        guard let image = NSImage(named: name) else { return }
+        image.isTemplate = true
+        item.image = image
+    }
+}
