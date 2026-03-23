@@ -22,6 +22,7 @@ final class MP3GainTask: NSObject {
     var twoPass = false
     var fatalError = false
     var failureCount = 0
+    var statusValue = 0.0
     var onProcessingComplete: (() -> Void)?
     var onStatusUpdate: ((Double) -> Void)?
 
@@ -283,6 +284,7 @@ final class MP3GainTask: NSObject {
             // Find the % and convert it to a double
             let number = String(actualText[..<percentIndex])
             if let progress = NumberFormatter().number(from: number)?.doubleValue {
+                statusValue = progress;
                 onStatusUpdate?(progress)
             }
             return
@@ -294,9 +296,11 @@ final class MP3GainTask: NSObject {
             let number = String(actualText[start..<albumRange.lowerBound])
             if let progress = NumberFormatter().number(from: number)?.intValue {
                 if progress == files.count {
+                    statusValue = 100.0
                     onStatusUpdate?(100.0)
                 } else {
                     let percent = Double(progress - 1) * 100.0 / Double(files.count)
+                    statusValue = percent
                     onStatusUpdate?(percent)
                 }
             }

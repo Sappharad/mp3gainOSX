@@ -1,10 +1,11 @@
 import Cocoa
 
 @main
-final class MP3GainExpressAppDelegate: NSObject, NSApplicationDelegate {
+final class MP3GainExpressAppDelegate: NSObject, NSApplicationDelegate, NSCollectionViewDataSource, NSCollectionViewDelegate {
     private var inputList = InputList()
     private var tasks: [MP3GainTask] = []
     private var cancelCurrentOperation = false
+    private var processItemHeight: CGFloat = 52
 
     @IBOutlet weak var window: NSWindow!
     @IBOutlet weak var vwMainBody: NSView!
@@ -34,10 +35,14 @@ final class MP3GainExpressAppDelegate: NSObject, NSApplicationDelegate {
         tblFileList.dataSource = inputList
         tblFileList.registerForDraggedTypes([.URL])
 
-        // Note: Intentionally using the legacy API here for compatibility with older versions of macOS.
-        cvProcessFiles.itemPrototype = FileProgressViewItem()
-        cvProcessFiles.maxItemSize = NSSize(width: 0, height: 52.0)
-        cvProcessFiles.minItemSize = NSSize(width: 0, height: 52.0)
+        cvProcessFiles.register(NSNib(nibNamed: "FileProgressViewItem", bundle: nil), forItemWithIdentifier: NSUserInterfaceItemIdentifier(rawValue: "FileProgressViewItem"))
+        cvProcessFiles.delegate = self
+        cvProcessFiles.dataSource = self
+        let processingLayout = NSCollectionViewGridLayout()
+        processingLayout.minimumItemSize = NSSize(width: cvProcessFiles.bounds.width, height: processItemHeight)
+        processingLayout.maximumItemSize = NSSize(width: cvProcessFiles.bounds.width, height: processItemHeight)
+        cvProcessFiles.collectionViewLayout = processingLayout
+        cvProcessFiles.isSelectable = false
 
         let prefs = Preferences.shared
         if prefs.rememberOptions {
@@ -158,9 +163,15 @@ final class MP3GainExpressAppDelegate: NSObject, NSApplicationDelegate {
         lblStatus.stringValue = NSLocalizedString("Canceling_soon", tableName: "ui_text", comment: "Canceling soon")
         btnCancel.isEnabled = false
 
-        // Rebuild the pending file list without tasks that haven't started yet.
-        tasks = tasks.filter(\ .inProgress)
-        cvProcessFiles.content = tasks
+        // Remove all of the tasks that haven't started from the collection without reloading the entire list.
+        let oldCount = tasks.count
+        tasks = tasks.filter(\.inProgress)
+        let removedCount = oldCount - tasks.count
+        if removedCount > 0 {
+            let removedIndexes = IndexSet(tasks.count..<oldCount)
+            let removedPaths = Set(removedIndexes.map { IndexPath(item: $0, section: 0) })
+            cvProcessFiles.deleteItems(at: removedPaths)
+        }
         pbTotalProgress.doubleValue = Double(inputList.count - tasks.count)
     }
 
@@ -212,7 +223,7 @@ final class MP3GainExpressAppDelegate: NSObject, NSApplicationDelegate {
             tasks.append(task)
         }
 
-        cvProcessFiles.content = tasks
+        cvProcessFiles.reloadData()
         for index in 0..<min(tasks.count, getNumConcurrentTasks()) {
             tasks[index].process()
         }
@@ -243,7 +254,7 @@ final class MP3GainExpressAppDelegate: NSObject, NSApplicationDelegate {
             tasks.append(task)
         }
 
-        cvProcessFiles.content = tasks
+        cvProcessFiles.reloadData()
         for index in 0..<min(tasks.count, getNumConcurrentTasks()) {
             tasks[index].process()
         }
@@ -260,7 +271,7 @@ final class MP3GainExpressAppDelegate: NSObject, NSApplicationDelegate {
             tasks.append(task)
         }
 
-        cvProcessFiles.content = tasks
+        cvProcessFiles.reloadData()
         for index in 0..<min(tasks.count, getNumConcurrentTasks()) {
             tasks[index].process()
         }
@@ -268,17 +279,23 @@ final class MP3GainExpressAppDelegate: NSObject, NSApplicationDelegate {
 
     private func handleTaskCompletion(_ task: MP3GainTask) {
         DispatchQueue.main.async {
-            var replacement = self.tasks.filter { $0 !== task }
-            if task.failureCount == 1 {
-                // Re-add file to end of the list on the first failure.
-                replacement.append(task)
+            guard let completedIndex = self.tasks.firstIndex(where: { $0 === task }) else {
+                return
             }
 
-            self.cvProcessFiles.content = replacement
-            self.tasks = replacement
-            self.pbTotalProgress.doubleValue = Double(self.inputList.count - replacement.count)
+            self.tasks.remove(at: completedIndex)
+            self.cvProcessFiles.deleteItems(at: [IndexPath(item: completedIndex, section: 0)])
 
-            let filesLeft = replacement.count
+            if task.failureCount == 1 {
+                // Re-add file to end of the list on the first failure.
+                let insertIndex = self.tasks.count
+                self.tasks.append(task)
+                self.cvProcessFiles.insertItems(at: [IndexPath(item: insertIndex, section: 0)])
+            }
+
+            self.pbTotalProgress.doubleValue = Double(self.inputList.count - self.tasks.count)
+
+            let filesLeft = self.tasks.count
             if filesLeft == 0 {
                 self.window.endSheet(self.pnlProgressView) // Tell the sheet we're done.
                 self.pnlProgressView.orderOut(self) // Lets hide the sheet.
@@ -286,7 +303,7 @@ final class MP3GainExpressAppDelegate: NSObject, NSApplicationDelegate {
                 self.tasks.removeAll()
             } else if !self.cancelCurrentOperation {
                 // Find next file to begin processing
-                for nextTask in replacement where !nextTask.inProgress && (filesLeft == 1 || nextTask.files.count == 1) {
+                for nextTask in self.tasks where !nextTask.inProgress && (filesLeft == 1 || nextTask.files.count == 1) {
                     // Album task MUST be processed last, so check files left even though it should always be at the end of the list.
                     nextTask.process()
                     break
@@ -312,4 +329,20 @@ final class MP3GainExpressAppDelegate: NSObject, NSApplicationDelegate {
         image.isTemplate = true
         item.image = image
     }
+
+    // MARK: - Virtual Collection view for progress dialog
+    func numberOfSectionsInCollectionView(collectionView: NSCollectionView) -> Int {
+        return 1
+    }
+    
+    func collectionView(_ collectionView: NSCollectionView, numberOfItemsInSection section: Int) -> Int {
+        tasks.count
+    }
+
+    func collectionView(_ collectionView: NSCollectionView, itemForRepresentedObjectAt indexPath: IndexPath) -> NSCollectionViewItem {
+        let item = self.cvProcessFiles.makeItem(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "FileProgressViewItem"), for: indexPath)
+        item.representedObject = tasks[indexPath.item]
+        return item
+    }
+    
 }
