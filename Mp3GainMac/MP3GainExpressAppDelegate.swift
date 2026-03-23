@@ -75,6 +75,21 @@ final class MP3GainExpressAppDelegate: NSObject, NSApplicationDelegate, NSCollec
         }
         prefs.hideWarning = (chkDoNotWarnAgain.state == .on)
     }
+    
+    func application(_ application: NSApplication, open urls: [URL]) {
+        var addedAny = false
+        for url in urls {
+            guard url.isFileURL else { continue }
+            let path = url.path.lowercased()
+            if path.hasSuffix(".mp3") || path.hasSuffix(".m4a") {
+                self.inputList.addFile(url.path)
+                addedAny = true
+            }
+        }
+        if addedAny {
+            self.tblFileList.reloadData()
+        }
+    }
 
     @IBAction func showPreferences(_ sender: Any?) {
         wndPreferences.makeKeyAndOrderFront(self)

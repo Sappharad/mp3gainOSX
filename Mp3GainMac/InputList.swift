@@ -113,7 +113,7 @@ final class InputList: NSObject, NSTableViewDataSource {
         }
 
         let normalizedFolder = folderPath.hasSuffix("/") ? folderPath : folderPath + "/"
-        for file in files {
+        for file in files.sorted() {
             let filePath = normalizedFolder + file
             var isDirectory = ObjCBool(false)
             if fileManager.fileExists(atPath: filePath, isDirectory: &isDirectory) {
