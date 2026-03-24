@@ -662,10 +662,6 @@
                 <outlet property="pbTotalProgress" destination="589" id="597"/>
                 <outlet property="pnlProgressView" destination="581" id="594"/>
                 <outlet property="pnlWarning" destination="G5f-zl-mMe" id="r5y-Dh-kLh"/>
-                <outlet property="tbiAddFile" destination="542" id="WSa-QD-OE8"/>
-                <outlet property="tbiAddFolder" destination="541" id="koc-Cw-sm5"/>
-                <outlet property="tbiClearAll" destination="544" id="0wu-pC-ceh"/>
-                <outlet property="tbiClearFile" destination="543" id="Qh1-Xb-CIz"/>
                 <outlet property="tblFileList" destination="556" id="577"/>
                 <outlet property="txtTargetVolume" destination="548" id="578"/>
                 <outlet property="vwMainBody" destination="372" id="630"/>

@@ -7,28 +7,28 @@ final class MP3GainExpressAppDelegate: NSObject, NSApplicationDelegate, NSCollec
     private var cancelCurrentOperation = false
     private var processItemHeight: CGFloat = 52
 
-    @IBOutlet weak var window: NSWindow!
+    // Top-level XIB objects (windows, panels, and the standalone accessory view) must be
+    // strong in ARC apps: macOS 10.12+ ignores releasedWhenClosed=NO for ARC-managed objects,
+    // so a weak outlet to a closed or not-yet-shown window becomes nil.
+    @IBOutlet var window: NSWindow!
     @IBOutlet weak var vwMainBody: NSView!
     @IBOutlet weak var tblFileList: NSTableView!
     @IBOutlet weak var txtTargetVolume: NSTextField!
-    @IBOutlet weak var pnlProgressView: NSPanel!
+    @IBOutlet var pnlProgressView: NSPanel!
     @IBOutlet weak var cvProcessFiles: NSCollectionView!
     @IBOutlet weak var lblStatus: NSTextField!
     @IBOutlet weak var pbTotalProgress: NSProgressIndicator!
     @IBOutlet weak var btnCancel: NSButton!
-    @IBOutlet weak var vwSubfolderPicker: NSView!
+    @IBOutlet var vwSubfolderPicker: NSView!
     @IBOutlet weak var ddlSubfolders: NSPopUpButton!
     @IBOutlet weak var mnuAdvancedGain: NSMenu!
     @IBOutlet weak var chkAvoidClipping: NSButton!
     @IBOutlet weak var btnAdvancedMenu: NSButton!
     @IBOutlet weak var chkAlbumGain: NSButton!
-    @IBOutlet weak var wndPreferences: NSWindow!
-    @IBOutlet weak var pnlWarning: NSPanel!
+    @IBOutlet var wndPreferences: NSWindow!
+    @IBOutlet var pnlWarning: NSPanel!
     @IBOutlet weak var chkDoNotWarnAgain: NSButton!
-    @IBOutlet weak var tbiAddFile: NSToolbarItem!
-    @IBOutlet weak var tbiAddFolder: NSToolbarItem!
-    @IBOutlet weak var tbiClearFile: NSToolbarItem!
-    @IBOutlet weak var tbiClearAll: NSToolbarItem!
+
 
     func applicationDidFinishLaunching(_ notification: Notification) {
         inputList = InputList()
@@ -57,11 +57,10 @@ final class MP3GainExpressAppDelegate: NSObject, NSApplicationDelegate, NSCollec
             pnlWarning.makeKeyAndOrderFront(self)
         }
 
-        // Set toolbar images at template, so when we're in dark mode they get inverted automatically:
-        setToolbarTemplateImage(named: "AddSong.png", item: tbiAddFile)
-        setToolbarTemplateImage(named: "AddFolder.png", item: tbiAddFolder)
-        setToolbarTemplateImage(named: "ClearSong.png", item: tbiClearFile)
-        setToolbarTemplateImage(named: "ClearAll.png", item: tbiClearAll)
+        // Set toolbar images as templates so they invert automatically in dark mode:
+        for item in window.toolbar?.items ?? [] {
+            item.image?.isTemplate = true
+        }
     }
 
     func applicationWillTerminate(_ notification: Notification) {
@@ -86,8 +85,11 @@ final class MP3GainExpressAppDelegate: NSObject, NSApplicationDelegate, NSCollec
                 addedAny = true
             }
         }
+        // Always surface the main window when the app is asked to open files,
+         // even if none of the URLs matched a supported extension.
+         window.makeKeyAndOrderFront(nil)
         if addedAny {
-            self.tblFileList.reloadData()
+            tblFileList.reloadData()
         }
     }
 
@@ -339,11 +341,6 @@ final class MP3GainExpressAppDelegate: NSObject, NSApplicationDelegate, NSCollec
         cancelCurrentOperation = false
     }
 
-    private func setToolbarTemplateImage(named name: String, item: NSToolbarItem) {
-        guard let image = NSImage(named: name) else { return }
-        image.isTemplate = true
-        item.image = image
-    }
 
     // MARK: - Virtual Collection view for progress dialog
     func numberOfSectionsInCollectionView(collectionView: NSCollectionView) -> Int {
