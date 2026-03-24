@@ -7,23 +7,26 @@ final class MP3GainExpressAppDelegate: NSObject, NSApplicationDelegate, NSCollec
     private var cancelCurrentOperation = false
     private var processItemHeight: CGFloat = 52
 
-    @IBOutlet weak var window: NSWindow!
+    // Top-level XIB objects (windows, panels, and the standalone accessory view) must be
+    // strong in ARC apps: macOS 10.12+ ignores releasedWhenClosed=NO for ARC-managed objects,
+    // so a weak outlet to a closed or not-yet-shown window becomes nil.
+    @IBOutlet var window: NSWindow!
     @IBOutlet weak var vwMainBody: NSView!
     @IBOutlet weak var tblFileList: NSTableView!
     @IBOutlet weak var txtTargetVolume: NSTextField!
-    @IBOutlet weak var pnlProgressView: NSPanel!
+    @IBOutlet var pnlProgressView: NSPanel!
     @IBOutlet weak var cvProcessFiles: NSCollectionView!
     @IBOutlet weak var lblStatus: NSTextField!
     @IBOutlet weak var pbTotalProgress: NSProgressIndicator!
     @IBOutlet weak var btnCancel: NSButton!
-    @IBOutlet weak var vwSubfolderPicker: NSView!
+    @IBOutlet var vwSubfolderPicker: NSView!
     @IBOutlet weak var ddlSubfolders: NSPopUpButton!
     @IBOutlet weak var mnuAdvancedGain: NSMenu!
     @IBOutlet weak var chkAvoidClipping: NSButton!
     @IBOutlet weak var btnAdvancedMenu: NSButton!
     @IBOutlet weak var chkAlbumGain: NSButton!
-    @IBOutlet weak var wndPreferences: NSWindow!
-    @IBOutlet weak var pnlWarning: NSPanel!
+    @IBOutlet var wndPreferences: NSWindow!
+    @IBOutlet var pnlWarning: NSPanel!
     @IBOutlet weak var chkDoNotWarnAgain: NSButton!
 
 
@@ -82,8 +85,11 @@ final class MP3GainExpressAppDelegate: NSObject, NSApplicationDelegate, NSCollec
                 addedAny = true
             }
         }
+        // Always surface the main window when the app is asked to open files,
+         // even if none of the URLs matched a supported extension.
+         window.makeKeyAndOrderFront(nil)
         if addedAny {
-            self.tblFileList.reloadData()
+            tblFileList.reloadData()
         }
     }
 
