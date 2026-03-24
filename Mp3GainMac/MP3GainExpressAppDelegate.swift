@@ -25,10 +25,7 @@ final class MP3GainExpressAppDelegate: NSObject, NSApplicationDelegate, NSCollec
     @IBOutlet weak var wndPreferences: NSWindow!
     @IBOutlet weak var pnlWarning: NSPanel!
     @IBOutlet weak var chkDoNotWarnAgain: NSButton!
-    @IBOutlet weak var tbiAddFile: NSToolbarItem!
-    @IBOutlet weak var tbiAddFolder: NSToolbarItem!
-    @IBOutlet weak var tbiClearFile: NSToolbarItem!
-    @IBOutlet weak var tbiClearAll: NSToolbarItem!
+
 
     func applicationDidFinishLaunching(_ notification: Notification) {
         inputList = InputList()
@@ -57,11 +54,10 @@ final class MP3GainExpressAppDelegate: NSObject, NSApplicationDelegate, NSCollec
             pnlWarning.makeKeyAndOrderFront(self)
         }
 
-        // Set toolbar images at template, so when we're in dark mode they get inverted automatically:
-        setToolbarTemplateImage(named: "AddSong.png", item: tbiAddFile)
-        setToolbarTemplateImage(named: "AddFolder.png", item: tbiAddFolder)
-        setToolbarTemplateImage(named: "ClearSong.png", item: tbiClearFile)
-        setToolbarTemplateImage(named: "ClearAll.png", item: tbiClearAll)
+        // Set toolbar images as templates so they invert automatically in dark mode:
+        for item in window.toolbar?.items ?? [] {
+            item.image?.isTemplate = true
+        }
     }
 
     func applicationWillTerminate(_ notification: Notification) {
@@ -339,11 +335,6 @@ final class MP3GainExpressAppDelegate: NSObject, NSApplicationDelegate, NSCollec
         cancelCurrentOperation = false
     }
 
-    private func setToolbarTemplateImage(named name: String, item: NSToolbarItem) {
-        guard let image = NSImage(named: name) else { return }
-        image.isTemplate = true
-        item.image = image
-    }
 
     // MARK: - Virtual Collection view for progress dialog
     func numberOfSectionsInCollectionView(collectionView: NSCollectionView) -> Int {
