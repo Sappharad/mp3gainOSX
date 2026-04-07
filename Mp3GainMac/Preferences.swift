@@ -1,5 +1,11 @@
 import Foundation
 
+@objc enum TagFormat: Int {
+    case ape = 0   // APE
+    case id3v2 = 1   // ID3v2
+    case none = 2  // None
+}
+
 final class Preferences: NSObject {
     static let shared = Preferences()
 
@@ -9,6 +15,7 @@ final class Preferences: NSObject {
         static let volume = "m3g_Volume"
         static let noClipping = "m3g_NoClipping"
         static let hideWarning = "m3g_HideWarning"
+        static let tagFormat = "m3g_TagFormat"
     }
 
     private override init() {}
@@ -90,6 +97,22 @@ final class Preferences: NSObject {
         }
         set {
             UserDefaults.standard.set(newValue, forKey: Keys.hideWarning)
+        }
+    }
+    
+    @objc var tagFormat: Int {
+        get {
+            let defaults = UserDefaults.standard
+            if defaults.object(forKey: Keys.tagFormat) != nil {
+                let tagFormat = defaults.integer(forKey: Keys.tagFormat)
+                if(tagFormat >= TagFormat.ape.rawValue && tagFormat <= TagFormat.none.rawValue) {
+                    return tagFormat
+                }
+            }
+            return 0
+        }
+        set {
+            UserDefaults.standard.set(newValue, forKey: Keys.tagFormat)
         }
     }
 }

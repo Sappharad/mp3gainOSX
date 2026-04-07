@@ -86,6 +86,15 @@ final class MP3GainTask: NSObject {
     private func analyzeFile() {
         let target = desiredDb?.doubleValue ?? 89.0
         var arguments = ["-d", String(format: "%f", target - 89.0)]
+        //APE tags are the default, so we don't need to append arguemnts for that.
+        if(Preferences.shared.tagFormat == TagFormat.id3v2.rawValue) {
+            arguments.append("-s");
+            arguments.append("i");
+        }
+        else if(Preferences.shared.tagFormat == TagFormat.none.rawValue) {
+            arguments.append("-s");
+            arguments.append("s");
+        }
         arguments.append(contentsOf: files.compactMap { $0.filePath?.path })
         doProcessing(arguments)
     }
@@ -97,6 +106,15 @@ final class MP3GainTask: NSObject {
             : ["-r", "-c", "-d", String(format: "%f", target - 89.0)]
         if files.count > 1 {
             arguments[0] = "-a"
+        }
+        //APE tags are the default, so we don't need to append arguemnts for that.
+        if(Preferences.shared.tagFormat == TagFormat.id3v2.rawValue) {
+            arguments.append("-s");
+            arguments.append("i");
+        }
+        else if(Preferences.shared.tagFormat == TagFormat.none.rawValue) {
+            arguments.append("-s");
+            arguments.append("s");
         }
         arguments.append(contentsOf: files.compactMap { $0.filePath?.path })
         doProcessing(arguments)

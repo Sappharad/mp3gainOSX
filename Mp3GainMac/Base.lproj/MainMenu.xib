@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="24506" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="24765" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="24506"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="24765"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -403,8 +403,8 @@
             <rect key="contentRect" x="335" y="390" width="515" height="360"/>
             <rect key="screenRect" x="0.0" y="0.0" width="2560" height="1410"/>
             <value key="minSize" type="size" width="515" height="360"/>
-            <view key="contentView" id="372">
-                <rect key="frame" x="0.0" y="0.0" width="515" height="353"/>
+            <view key="contentView" misplaced="YES" id="372">
+                <rect key="frame" x="0.0" y="0.0" width="515" height="360"/>
                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                 <subviews>
                     <box autoresizesSubviews="NO" borderType="line" title="Box" titlePosition="noTitle" translatesAutoresizingMaskIntoConstraints="NO" id="545">
@@ -812,17 +812,16 @@ Gw
             <point key="canvasLocation" x="-662" y="-30"/>
         </menu>
         <collectionViewItem id="QGr-V9-XS9"/>
-        <window title="Preferences" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" frameAutosaveName="" animationBehavior="default" id="Aev-Ki-F4W" customClass="M3GWindow" customModule="MP3Gain_Express" customModuleProvider="target">
+        <window title="Preferences" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" frameAutosaveName="" animationBehavior="default" titlebarAppearsTransparent="YES" id="Aev-Ki-F4W" customClass="M3GWindow" customModule="MP3Gain_Express" customModuleProvider="target">
             <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" texturedBackground="YES"/>
-            <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
-            <rect key="contentRect" x="303" y="715" width="381" height="101"/>
+            <rect key="contentRect" x="303" y="715" width="381" height="126"/>
             <rect key="screenRect" x="0.0" y="0.0" width="2560" height="1410"/>
             <view key="contentView" id="Nl2-49-Unk">
-                <rect key="frame" x="0.0" y="0.0" width="381" height="101"/>
+                <rect key="frame" x="0.0" y="0.0" width="381" height="126"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <textField focusRingType="none" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Pkk-iv-JZU">
-                        <rect key="frame" x="279" y="76" width="60" height="24"/>
+                        <rect key="frame" x="279" y="96" width="60" height="24"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="60" id="2PP-a2-720"/>
                         </constraints>
@@ -841,15 +840,31 @@ Gw
                         </connections>
                     </textField>
                     <textField focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="6Xc-Sb-5b0">
-                        <rect key="frame" x="18" y="80" width="255" height="16"/>
-                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="right" title="Number of files to process concurrently:" id="crR-ku-ywK">
+                        <rect key="frame" x="18" y="100" width="255" height="16"/>
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="left" title="Number of files to process concurrently:" id="crR-ku-ywK">
                             <font key="font" metaFont="system"/>
                             <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
                     </textField>
+                    <stepper horizontalHuggingPriority="750" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="ZDO-RX-a3X">
+                        <rect key="frame" x="343" y="94" width="20" height="26"/>
+                        <stepperCell key="cell" continuous="YES" alignment="left" minValue="1" maxValue="4" doubleValue="1" id="Dze-8J-Fiy"/>
+                        <connections>
+                            <binding destination="Pcg-zA-uve" name="maxValue" keyPath="maxCores" id="zp4-2O-mPy"/>
+                            <binding destination="Pcg-zA-uve" name="value" keyPath="numProcesses" previousBinding="zp4-2O-mPy" id="EKW-qf-noM"/>
+                        </connections>
+                    </stepper>
+                    <textField focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="9Pa-Cm-OR7">
+                        <rect key="frame" x="18" y="68" width="74" height="16"/>
+                        <textFieldCell key="cell" lineBreakMode="clipping" alignment="left" title="Tag format:" id="hxX-AR-krA">
+                            <font key="font" metaFont="system"/>
+                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                    </textField>
                     <button translatesAutoresizingMaskIntoConstraints="NO" id="VJB-bz-rw8">
-                        <rect key="frame" x="20" y="42" width="200" height="16"/>
+                        <rect key="frame" x="20" y="40" width="200" height="16"/>
                         <buttonCell key="cell" type="check" title="Remember Volume settings" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="irH-wR-qXa">
                             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                             <font key="font" metaFont="system"/>
@@ -862,7 +877,7 @@ Gw
                         </connections>
                     </button>
                     <button translatesAutoresizingMaskIntoConstraints="NO" id="OWC-Zb-8h1">
-                        <rect key="frame" x="20" y="20" width="138" height="16"/>
+                        <rect key="frame" x="20" y="18" width="138" height="16"/>
                         <buttonCell key="cell" type="check" title="Check for Updates" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="OoD-7m-r77">
                             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                             <font key="font" metaFont="system"/>
@@ -874,33 +889,51 @@ Gw
                             <binding destination="601" name="value" keyPath="automaticallyChecksForUpdates" id="mGm-gA-OJt"/>
                         </connections>
                     </button>
-                    <stepper horizontalHuggingPriority="750" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="ZDO-RX-a3X">
-                        <rect key="frame" x="343" y="74" width="20" height="26"/>
-                        <stepperCell key="cell" continuous="YES" alignment="left" minValue="1" maxValue="4" doubleValue="1" id="Dze-8J-Fiy"/>
+                    <popUpButton verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Lxv-D5-Ch6">
+                        <rect key="frame" x="98" y="64" width="265" height="24"/>
+                        <popUpButtonCell key="cell" type="push" title="APE (Default)" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="uHn-0e-3uy" id="g58-pD-hVJ">
+                            <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
+                            <font key="font" metaFont="message"/>
+                            <menu key="menu" id="PI2-69-oQz">
+                                <items>
+                                    <menuItem title="APE (Default)" state="on" id="uHn-0e-3uy"/>
+                                    <menuItem title="ID3v2" id="xmf-bp-xkM"/>
+                                    <menuItem title="Do not use tags" id="C6F-Hc-02i"/>
+                                </items>
+                            </menu>
+                        </popUpButtonCell>
                         <connections>
-                            <binding destination="Pcg-zA-uve" name="maxValue" keyPath="maxCores" id="zp4-2O-mPy"/>
-                            <binding destination="Pcg-zA-uve" name="value" keyPath="numProcesses" previousBinding="zp4-2O-mPy" id="EKW-qf-noM"/>
+                            <binding destination="Pcg-zA-uve" name="selectedIndex" keyPath="tagFormat" id="LRe-7M-pVI">
+                                <dictionary key="options">
+                                    <bool key="NSAllowsEditingMultipleValuesSelection" value="NO"/>
+                                </dictionary>
+                            </binding>
                         </connections>
-                    </stepper>
+                    </popUpButton>
                 </subviews>
                 <constraints>
                     <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="VJB-bz-rw8" secondAttribute="trailing" constant="20" symbolic="YES" id="01r-Bz-epj"/>
+                    <constraint firstItem="Lxv-D5-Ch6" firstAttribute="leading" secondItem="9Pa-Cm-OR7" secondAttribute="trailing" constant="8" symbolic="YES" id="1dH-Re-NnL"/>
                     <constraint firstItem="6Xc-Sb-5b0" firstAttribute="leading" secondItem="VJB-bz-rw8" secondAttribute="leading" id="9xT-KS-drg"/>
                     <constraint firstItem="Pkk-iv-JZU" firstAttribute="leading" secondItem="6Xc-Sb-5b0" secondAttribute="trailing" constant="8" symbolic="YES" id="B10-mR-C2V"/>
+                    <constraint firstItem="9Pa-Cm-OR7" firstAttribute="leading" secondItem="VJB-bz-rw8" secondAttribute="leading" id="CLU-hC-nam"/>
                     <constraint firstItem="VJB-bz-rw8" firstAttribute="leading" secondItem="OWC-Zb-8h1" secondAttribute="leading" id="Cku-AJ-bWl"/>
-                    <constraint firstItem="VJB-bz-rw8" firstAttribute="top" secondItem="6Xc-Sb-5b0" secondAttribute="bottom" constant="22" id="GQb-A4-MTj"/>
+                    <constraint firstItem="VJB-bz-rw8" firstAttribute="top" secondItem="6Xc-Sb-5b0" secondAttribute="bottom" constant="44" id="GQb-A4-MTj"/>
                     <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="OWC-Zb-8h1" secondAttribute="trailing" constant="20" symbolic="YES" id="PCW-od-3jR"/>
                     <constraint firstItem="6Xc-Sb-5b0" firstAttribute="leading" secondItem="Nl2-49-Unk" secondAttribute="leading" constant="20" symbolic="YES" id="cEu-4d-p7u"/>
                     <constraint firstItem="6Xc-Sb-5b0" firstAttribute="baseline" secondItem="Pkk-iv-JZU" secondAttribute="baseline" id="cZM-N3-izc"/>
+                    <constraint firstItem="VJB-bz-rw8" firstAttribute="top" secondItem="9Pa-Cm-OR7" secondAttribute="bottom" constant="12" id="cdc-St-yL7"/>
                     <constraint firstItem="OWC-Zb-8h1" firstAttribute="top" secondItem="VJB-bz-rw8" secondAttribute="bottom" constant="6" symbolic="YES" id="gmI-BZ-hS4"/>
                     <constraint firstItem="ZDO-RX-a3X" firstAttribute="leading" secondItem="Pkk-iv-JZU" secondAttribute="trailing" constant="4" id="gpV-gJ-ET6"/>
-                    <constraint firstAttribute="bottom" secondItem="OWC-Zb-8h1" secondAttribute="bottom" constant="20" symbolic="YES" id="gzW-Dq-a8K"/>
+                    <constraint firstAttribute="bottom" secondItem="OWC-Zb-8h1" secondAttribute="bottom" constant="18" id="gzW-Dq-a8K"/>
                     <constraint firstItem="Pkk-iv-JZU" firstAttribute="top" secondItem="ZDO-RX-a3X" secondAttribute="top" id="lXi-wR-VwA"/>
+                    <constraint firstItem="Lxv-D5-Ch6" firstAttribute="trailing" secondItem="ZDO-RX-a3X" secondAttribute="trailing" id="pRl-WG-6iJ"/>
+                    <constraint firstItem="Lxv-D5-Ch6" firstAttribute="baseline" secondItem="9Pa-Cm-OR7" secondAttribute="baseline" id="tD1-Gm-Rof"/>
                     <constraint firstAttribute="trailing" secondItem="ZDO-RX-a3X" secondAttribute="trailing" constant="18" id="zbl-Bj-yql"/>
                 </constraints>
             </view>
             <contentBorderThickness minY="0.0" maxY="0.0"/>
-            <point key="canvasLocation" x="139.5" y="-10.5"/>
+            <point key="canvasLocation" x="227.5" y="-2"/>
         </window>
         <userDefaultsController representsSharedInstance="YES" id="elj-bg-ril"/>
         <window title="Warning" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" frameAutosaveName="" animationBehavior="default" id="G5f-zl-mMe" userLabel="Warning" customClass="NSPanel">
